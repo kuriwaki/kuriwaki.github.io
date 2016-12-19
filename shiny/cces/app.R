@@ -17,7 +17,8 @@ ui <- shinyUI(fluidPage(
   
   # Application title
   titlePanel("2012 CCES Data"),
-  helpText("Use this app to browse the results of the 2012 CCES survey"),
+  helpText("Use this app to browse the results of the 2012 CCES survey."),
+  helpText("If you have R, launch this app by installing the `shiny` packages and the command `runUrl(\"https://kuriwaki.github.io/shiny/cces.zip\")`"),
   
   # Layout
   sidebarLayout(

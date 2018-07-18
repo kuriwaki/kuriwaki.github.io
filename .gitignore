@@ -1,5 +1,9 @@
 .DS_Store
 
+# ignore some apps
+datatables/
+shiny/
+
 
 # ignore node/grunt dependency directories
 node_modules/

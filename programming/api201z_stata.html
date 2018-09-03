@@ -41,27 +41,29 @@ tbody tr:last-child  td {padding-bottom:6px;}
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="author" content="TF Shiro Kuriwaki" />
+  <meta name="author" content="Shiro Kuriwaki" />
   <title>API 201Z Stata Demonstration</title>
   <style type="text/css">code{white-space: pre;}</style>
 </head>
 <body>
 <div id="header">
 <h1 class="title">API 201Z Stata Demonstration</h1>
-<h2 class="author">TF Shiro Kuriwaki</h2>
-<h3 class="date">September 8th, 2017</h3>
+<h2 class="author">Shiro Kuriwaki</h2>
+<h3 class="date">September 6th, 2018</h3>
 </div>
 <h1 id="scripts-and-console">Scripts and Console</h1>
 <p>How does one &quot;do Stata&quot;? We interact with Stata by sending the statistical program &quot;commands&quot;. Commands can be anything from reading in a dataset to running a regression.</p>
+<div class="figure">
+<img src="statawindow.png" alt="What&#39;s what in a Stata Window" style="width:70.0%" />
+<p class="caption">What's what in a Stata Window</p>
+</div>
 <h1 id="starting-fresh">Starting Fresh</h1>
 <p>Stata takes one dataset at a time and runs manipulations on it. To clear the memory (i.e. the dataset and other auxilarly objects) in Stata, the command is:</p>
-<pre class='stata'>. clear all
-</pre>
+<pre><code>clear all</code></pre>
 <p>For the above code and all other Stata code in this document, you can run it after removing the period <code>.</code> in the beginning -- which indicates a command that was already entered.</p>
 <h1 id="getting-help">Getting Help</h1>
 <p>If you know the name of the function you want to use but aren't sure how to use it, use the help command by typing in <code>help</code> and then the name of the function.</p>
-<pre class='stata'>. help ivregress
-</pre>
+<pre><code>help ivregress</code></pre>
 <p>If you do not know the exact name of the function, you can Google or search on Stata's help manual / search box.</p>
 <h1 id="logging-your-activity">Logging your Activity</h1>
 <p>Stata commands are stored in a script. You <em>can</em> write commands directly into the command window to get similar results. However, it is often a bad idea to do your analysis through the command window because it is easy to forget the exact steps. Instead, you should save your commands in a script -- a <code>.do</code> file. When we ask for scripts on problem sets, we are looking for a script.</p>
@@ -79,17 +81,20 @@ tbody tr:last-child  td {padding-bottom:6px;}
 <p>When working in Stata, it's always an important first step to make sure you're in the right working directory (where you tell Stata what folder you want to work in).</p>
 <p><code>pwd</code> stands for &quot;present working directory&quot;. <code>cd</code> stands for &quot;change directory&quot;. <code>ls</code> stands for &quot;list (the files in current directory)&quot;. <code>.</code> is shorthand for the current directory, <code>..</code> for the parent directory, and <code>~/</code> for your home directory.</p>
 <p>For example,</p>
-<pre class="{r}"><code>cd &quot;~/Dropbox/temp&quot;</code></pre>
+<pre><code>cd &quot;~/Dropbox/temp&quot;</code></pre>
 <p>You will want to modify the path above to your own.</p>
 <p>Now, load the <code>.dta</code> file provided into Stata:</p>
-<pre class='stata'>. use section1.dta
+<pre class='stata'>. use sample_data.dta
 </pre>
 <p>Note that <code>use</code> is limited to <code>.dta</code> files; Stata's designated way of storing datasets. The most useful feature of a <code>.dta</code> format is that the data values comes with <code>labels</code>. For example, a <code>.dta</code> will be able to store the fact that the labels <code>female</code> and <code>male</code> correspond to values 1 and 2, respectively.</p>
-<p>Sometimes, your data will not come in a <code>.dta</code> format. A basic format is <code>.csv</code> -- standing for comma-separated-values. These files is like an Excel spreadsheet, but without any of the formatting (color, functions, comments).</p>
+<p>Sometimes, your data will not come in a <code>.dta</code> format. A basic format is <code>.csv</code> -- standing for comma-separated-values. These files is like an Excel spreadsheet, but without any of the formatting (color, functions, comments). The csv is a common and desirable form in programming, as it can be read by any statistical program.</p>
 <p>What if we needed to load a csv file?</p>
-<pre class='stata'>. insheet using section1.csv, clear
+<pre class='stata'>. import delimited using sample_data.csv, clear
 (7 vars, 435 obs)
 </pre>
+<p>We see that compared to the one-word <code>use</code>, the Stata syntax is a bit more lengthy to read in a spreadsheet. Again, enter <code>help import</code> or <code>help import delimited</code> to understand thi son your own. The help page tells us that we use <code>import delimited</code> and then the file name followed by the <code>using</code> word.</p>
+<h1 id="a-comma-separates-commands-and-options">A comma separates commands and options</h1>
+<p>You will see the comma used many times in Stata code. On the left-side of the comma, you put the main command. On the right-side, you put secondary options. The comma often confuses first-time users.</p>
 <pre class='stata'>. clear all
 </pre>
 <h1 id="built-in-data">Built-in Data</h1>
@@ -109,10 +114,10 @@ Contains data from /Applications/Stata/ado/base/n/nlsw88.dta
   obs:         2,246                          NLSW, 1988 extract
  vars:            17                          1 May 2016 22:52
  size:        60,642                          (_dta has notes)
-─────────────────────────────────────────────────────────────────────────────────────────────────────────────
+──────────────────────────────────────────────────────────────────────────────────
               storage   display    value
 variable name   type    format     label      variable label
-─────────────────────────────────────────────────────────────────────────────────────────────────────────────
+──────────────────────────────────────────────────────────────────────────────────
 idcode          int     %8.0g                 NLS id
 age             byte    %8.0g                 age in current year
 race            byte    %8.0g      racelbl    race
@@ -130,7 +135,7 @@ wage            float   %9.0g                 hourly wage
 hours           byte    %8.0g                 usual hours worked
 ttl_exp         float   %9.0g                 total work experience
 tenure          float   %9.0g                 job tenure (years)
-─────────────────────────────────────────────────────────────────────────────────────────────────────────────
+──────────────────────────────────────────────────────────────────────────────────
 Sorted by: idcode
 </pre>
 <h1 id="summary-statistics">Summary Statistics</h1>
@@ -217,6 +222,11 @@ Sorted by: idcode
      Total │     1,417        461 │     1,878 
 </pre>
 <h1 id="visualizing-data">Visualizing Data</h1>
+<p>First, I strongly recommend you re-set your default color palette</p>
+<pre class='stata'>. set scheme s2mono, permanently
+(set scheme preference recorded)
+</pre>
+<p>which just makes for simpler and better looking plots.</p>
 <p>The <code>hist</code> command will generate a histogram.</p>
 <pre class='stata'>. hist wage
 (bin=33, start=1.0049518, width=1.2042921)
@@ -225,8 +235,8 @@ Sorted by: idcode
 (file hist_wage.png written in PNG format)
 </pre>
 <div class="figure">
-<img src="hist_wage.png" style="width:100.0%" />
-
+<img src="hist_wage.png" alt="A Histogram" style="width:70.0%" />
+<p class="caption">A Histogram</p>
 </div>
 <p>Note that we have two commands -- <code>hist</code> and <code>graph export</code>. The first generates the figure within Stata; the second saves that figure as a file on your computer. Saving files will be make your workflow easier than saving files through the click-and-drag interface each time.</p>
 <p>The <code>scatter</code> command will generate a scatterplot. Two variables...two dimensions. The y-variable comes first, then the x-variable:</p>
@@ -236,10 +246,10 @@ Sorted by: idcode
 (file edu_wage.png written in PNG format)
 </pre>
 <div class="figure">
-<img src="edu_wage.png" style="width:100.0%" />
-
+<img src="edu_wage.png" alt="A Scatter Plot" style="width:70.0%" />
+<p class="caption">A Scatter Plot</p>
 </div>
-<p>The <code>graph export</code> has many options beyond the default, and they come after a comma <code>,</code>. Like all commands, use the command <code>help</code> (as in <code>help graph export</code>) to see all of them.</p>
+<p>The <code>graph export</code> has many options beyond the default, and they come after a comma <code>,</code>. Again, this is a general Stata rule -- options come after a comma. Like all commands, use the command <code>help</code> (as in <code>help graph export</code>) to see all of them.</p>
 <p>For example, we notice that the points above are overlapping and it is hard to distinguish whether a point overlap with one other point or 100s of other points. To this we could make the points transparent.</p>
 <pre class='stata'>. scatter weekly_wage grade, mcolor(%30)
 
@@ -247,8 +257,8 @@ Sorted by: idcode
 (file edu_wage_alpha.png written in PNG format)
 </pre>
 <div class="figure">
-<img src="edu_wage_alpha.png" style="width:100.0%" />
-
+<img src="edu_wage_alpha.png" alt="A Scatter Plot + Transparency" style="width:70.0%" />
+<p class="caption">A Scatter Plot + Transparency</p>
 </div>
 <p>What if we only wanted to plot the wage of of blacks? We want to use a conditional <code>&quot;if&quot;</code> statement:</p>
 <pre class='stata'>. hist wage if race == "black":racelbl
@@ -258,8 +268,8 @@ Sorted by: idcode
 (file wage_blk.png written in PNG format)
 </pre>
 <div class="figure">
-<img src="wage_blk.png" style="width:100.0%" />
-
+<img src="wage_blk.png" alt="Scatter Plot + If" style="width:70.0%" />
+<p class="caption">Scatter Plot + If</p>
 </div>
 <p>To compare the distribution of the same variable across groups, a boxplot is useful</p>
 <pre class='stata'>. graph box wage, over(race)
@@ -268,8 +278,8 @@ Sorted by: idcode
 (file race_wage.png written in PNG format)
 </pre>
 <div class="figure">
-<img src="race_wage.png" style="width:100.0%" />
-
+<img src="race_wage.png" alt="Boxplot" style="width:70.0%" />
+<p class="caption">Boxplot</p>
 </div>
 <p>What if we wanted to plot these two last scatterplots side-by-side? We can give each one a name and then combine them:</p>
 <pre class='stata'>. scatter weekly_wage grade if race == "black":racelbl, /// 
@@ -284,18 +294,19 @@ Sorted by: idcode
 (file race_edu_wage.png written in PNG format)
 </pre>
 <div class="figure">
-<img src="race_edu_wage.png" style="width:100.0%" />
-
+<img src="race_edu_wage.png" alt="Scatter Plot side-by-side" style="width:70.0%" />
+<p class="caption">Scatter Plot side-by-side</p>
 </div>
 <h1 id="a-cheat-sheet-for-commands">A Cheat-sheet for commands</h1>
 <p>Unless you are already a Stata flow you will probably need to constantly refer to online and Stata-based resources on the command names and syntax of the commands you'd want to run. The Stata manual enclosed in the Stata Application and online message boards are helpful. A nice cheat-sheet of commands is here <a href="https://geocenter.github.io/StataTraining/pdf/AllCheatSheets.pdf" class="uri">https://geocenter.github.io/StataTraining/pdf/AllCheatSheets.pdf</a></p>
-<p>and is also uploaded on Canvas.</p>
+<p>and is also uploaded on Canvas (https://canvas.harvard.edu/courses/52520/files/folder/Programming-Resources)</p>
 <h1 id="more-advanced-topics">More Advanced Topics</h1>
 <ul>
 <li>Writing loops, writing functions, and generating macros are some techniques that will greatly simplify -- or will be required -- for any work beyond the tabular data provided. We will introduce these concepts as necessary, but the tutorial here is a good overview: <a href="http://data.princeton.edu/stata/programming.html" class="uri">http://data.princeton.edu/stata/programming.html</a></li>
 <li>As you deal with multifaceted projects, how you organize your code and files will become increasingly important. Better workflow not only allows you to work faster, but reduces the number of errors that remain uncaught. Gentzkow and Shapiro have a good guide with battle-tested tips. <a href="https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf" class="uri">https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf</a></li>
+<li>Graphics should be crips and get to the point. You can change your graphics palette through some of the options (look at <code>help set scheme</code>) or others such as those by Daniel Bischoff: <a href="https://www.stata.com/meeting/switzerland16/slides/bischof-switzerland16.pdf" class="uri">https://www.stata.com/meeting/switzerland16/slides/bischof-switzerland16.pdf</a></li>
 </ul>
-<h1 id="acknowledgements">Acknowledgements</h1>
-<p>For compilation, I used the <code>markstat</code> package by Germán Rodríguez. <a href="http://data.princeton.edu/stata/markdown" class="uri">http://data.princeton.edu/stata/markdown</a></p>
+<h1 id="about">About</h1>
+<p>For compilation, I used the <code>markstat</code> package by Germán Rodríguez. <a href="http://data.princeton.edu/stata/markdown" class="uri">http://data.princeton.edu/stata/markdown</a>. Source Code: <a href="https://github.com/kuriwaki/stata-notes" class="uri">https://github.com/kuriwaki/stata-notes</a>. Contact: Shiro Kuriwaki, <a href="mailto:kuriwaki@g.harvard.edu">kuriwaki@g.harvard.edu</a></p>
 </body>
 </html>

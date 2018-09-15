@@ -74,13 +74,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<div id="about" class="section level1">
-<h1>About</h1>
-<p>Congrats on getting credentials! This document will explain how to connect to our database and how to use it effectively.</p>
-<p>The database is hosted through Amazon Web Services (AWS) RDS.</p>
+<div id="about" class="section level2">
+<h2>About</h2>
+<p>Congrats on getting credentials! This document will explain how to connect to our database and how to use it effectively. The database is hosted through Amazon Web Services (AWS) RDS.</p>
 </div>
-<div id="from-r" class="section level1">
-<h1>From R</h1>
+<div id="from-r" class="section level2">
+<h2>From R</h2>
 <p>There are two packages required in order to connect to the database- they are as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(RPostgreSQL)</code></pre></div>
@@ -102,8 +101,8 @@ con &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(<span class=
 <span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(elec <span class="op">==</span><span class="st"> &quot;2016-06-14&quot;</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">count</span>(voter_id)</code></pre></div>
 </div>
-<div id="from-the-terminal" class="section level1">
-<h1>From the Terminal</h1>
+<div id="from-the-terminal" class="section level2">
+<h2>From the Terminal</h2>
 <p>If not via R, you can directly connect from the Terminal. For example, for the username <code>kuriwaki</code>,</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">psql</span>  --host=ballot.cppysy51d7px.us-east-1.rds.amazonaws.com \
    --port=5432  \

@@ -12,7 +12,7 @@
 
 <meta name="author" content="Jacob Coblentz and Shiro Kuriwaki" />
 
-<meta name="date" content="2018-09-14" />
+<meta name="date" content="2018-09-15" />
 
 <title>Ballot image log database</title>
 
@@ -70,36 +70,86 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Ballot image log database</h1>
 <h4 class="author"><em>Jacob Coblentz and Shiro Kuriwaki</em></h4>
-<h4 class="date"><em>2018-09-14</em></h4>
+<h4 class="date"><em>2018-09-15</em></h4>
 
 
 
 <div id="about" class="section level2">
 <h2>About</h2>
-<p>Congrats on getting credentials! This document will explain how to connect to our database and how to use it effectively. The database is hosted through Amazon Web Services (AWS) RDS.</p>
+<p>Congrats on getting credentials! This document will explain how to connect to our database and how to use it effectively.</p>
+<p>The database is hosted through Amazon Web Services (AWS) RDS. To access, users need the following information:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">host url</td>
+<td><code>ballot.cppysy51d7px.us-east-1.rds.amazonaws.com</code></td>
+</tr>
+<tr class="even">
+<td align="right">port to access</td>
+<td><code>5432</code></td>
+</tr>
+<tr class="odd">
+<td align="right">name of datbase</td>
+<td><code>ballot</code></td>
+</tr>
+<tr class="even">
+<td align="right">username</td>
+<td>[given]</td>
+</tr>
+<tr class="odd">
+<td align="right">password</td>
+<td>[given]</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="from-r" class="section level2">
 <h2>From R</h2>
 <p>There are two packages required in order to connect to the database- they are as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(RPostgreSQL)</code></pre></div>
-<p>Next, we will set up a connection object. You will need a username and password. R will prompt your for your password- enter it.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">user &lt;-<span class="st"> &quot;your_username&quot;</span>
+<p>Next, we will set up a connection object. You will need a username (using <code>kuriwaki</code> as one example) and password. R will prompt your for your password. Please enter the password given (not shown here).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">user &lt;-<span class="st"> &quot;kuriwaki&quot;</span>
 
-con &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(<span class="kw">PostgreSQL</span>(),
-                 <span class="dt">host =</span> <span class="st">&quot;ballot.cppysy51d7px.us-east-1.rds.amazonaws.com&quot;</span>,
-                 <span class="dt">port =</span> <span class="dv">5432</span>,
-                 <span class="dt">dbname =</span> <span class="st">&quot;ballot&quot;</span>,
-                 <span class="dt">user =</span> user,
-                 <span class="dt">password =</span>  rstudioapi<span class="op">::</span><span class="kw">askForPassword</span>(<span class="st">&quot;Database Password&quot;</span>)
+con &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(
+  <span class="kw">PostgreSQL</span>(),
+  <span class="dt">host =</span> <span class="st">&quot;ballot.cppysy51d7px.us-east-1.rds.amazonaws.com&quot;</span>,
+  <span class="dt">port =</span> <span class="dv">5432</span>,
+  <span class="dt">dbname =</span> <span class="st">&quot;ballot&quot;</span>,
+  <span class="dt">user =</span> user,
+  <span class="dt">password =</span>  rstudioapi<span class="op">::</span><span class="kw">askForPassword</span>(<span class="st">&quot;Database Password&quot;</span>)
 )</code></pre></div>
 <p>This databse currently has two tables - <code>&quot;vote&quot;</code> (each observation is a vote for an office), and <code>&quot;person&quot;</code> (each observation is a voter). Let’s explore the databse. We will use the <code>dbplyr</code> package that allows execution of <code>dplyr</code> verbs on a remote database.</p>
 <p>To retrive a table from a database, we use the <code>&quot;tbl&quot;</code> command:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vote &lt;-<span class="st"> </span><span class="kw">tbl</span>(con, <span class="st">&quot;vote&quot;</span>)</code></pre></div>
-<p>This returns an object that can be used much like a data frame. In this example below, we count the number of votes for Hillary Clinton.</p>
+<p>This returns an object that can be used much like a data frame. In this example below, we count the number of votes for each candidate in the 2016 Republican Presidential Primary.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vote <span class="op">%&gt;%</span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(elec <span class="op">==</span><span class="st"> &quot;2016-06-14&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">count</span>(voter_id)</code></pre></div>
+<span class="st">  </span><span class="kw">filter</span>(elec <span class="op">==</span><span class="st"> &quot;2016-02-20&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">count</span>(choice_name, <span class="dt">sort =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>This will give (it will take some time):</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="co"># Source:     lazy query [?? x 2]</span>
+<span class="co"># Database:   postgres 9.6.6</span>
+<span class="co">#   [kuriwaki@ballot.cppysy51d7px.us-east-1.rds.amazonaws.com:5432/ballot]</span>
+<span class="co"># Ordered by: desc(n)</span>
+   <span class="ex">choice_name</span>          n
+   <span class="op">&lt;</span><span class="ex">chr</span><span class="op">&gt;</span>            <span class="op">&lt;</span>dbl<span class="op">&gt;</span>
+ <span class="ex">1</span> Donald J Trump  218772
+ <span class="ex">2</span> Ted Cruz        152488
+ <span class="ex">3</span> Marco Rubio     150566
+ <span class="ex">4</span> Jeb Bush         52365
+ <span class="ex">5</span> Ben Carson       50300
+ <span class="ex">6</span> John R Kasich    48355
+ <span class="ex">7</span> Donald J Trump�  15680
+ <span class="ex">8</span> Marco Rubio�     12049
+ <span class="ex">9</span> Ted Cruz�         9326
+<span class="ex">10</span> John R Kasich�    6826
+<span class="co"># ... with more rows</span></code></pre></div>
 </div>
 <div id="from-the-terminal" class="section level2">
 <h2>From the Terminal</h2>

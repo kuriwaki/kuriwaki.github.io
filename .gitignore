@@ -38,3 +38,4 @@ Thumbs.db
 *.exe
 *.o
 *.so
+.Rproj.user

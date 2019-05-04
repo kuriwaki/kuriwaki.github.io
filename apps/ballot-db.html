@@ -12,10 +12,19 @@
 
 <meta name="author" content="Shiro Kuriwaki" />
 
-<meta name="date" content="2019-05-02" />
+<meta name="date" content="2019-05-03" />
 
 <title>Ballot Database Fields</title>
 
+<script>$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
 
 
 
@@ -214,7 +223,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore">Ballot Database Fields</h1>
 <h4 class="author"><em>Shiro Kuriwaki</em></h4>
-<h4 class="date"><em>2019-05-02</em></h4>
+<h4 class="date"><em>2019-05-03</em></h4>
 
 
 
@@ -222,28 +231,29 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <p>Thanks to Jonathan Robinson for help in setting up the database infrastructure.</p>
 <div id="tables" class="section level2">
 <h2>Tables</h2>
-<div id="common-variables-and-keys" class="section level3">
-<h3>Common variables and keys</h3>
+<div id="common-fields-and-keys" class="section level3">
+<h3>Common fields and keys</h3>
+<p>Some of the fields (i.e., variables) that appear repetatedly in the tables, and are useful for table joining and identification (i.e. keys), are:</p>
 <table>
 <thead>
 <tr>
 <th style="text-align:left;">
-vname
+Field
 </th>
 <th style="text-align:left;">
-class
+Class
 </th>
 <th style="text-align:left;">
-descrip
+Description
 </th>
 <th style="text-align:left;">
-example
+Example
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 elec
 </td>
 <td style="text-align:left;">
@@ -257,7 +267,7 @@ Election (in yyyy-mm-dd format)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 voter_id
 </td>
 <td style="text-align:left;">
@@ -271,7 +281,7 @@ Voter identifier within an election (in countyFIPS-xxxxx format)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 precinct_id
 </td>
 <td style="text-align:left;">
@@ -285,7 +295,7 @@ Precinct identifier within an election (in countyFIPS-xxx format)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 precinct
 </td>
 <td style="text-align:left;">
@@ -296,6 +306,197 @@ Precinct name
 </td>
 <td style="text-align:left;">
 PRECINCT 64 - Three &amp; Twenty
+</td>
+</tr>
+</tbody>
+</table>
+<p>The offices are often abbreviated with the following keywords. The <code>ballot::recode_abbrv()</code> function translates the codes to full names.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Code
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+PTY
+</td>
+<td style="text-align:left;">
+Straight Ticket Option (Party Lever)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+PRS
+</td>
+<td style="text-align:left;">
+President
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+USSEN, USSEN1, USSEN2
+</td>
+<td style="text-align:left;">
+U.S. Senator. 1s and 2s distinguish between the two concurrent races in 2014
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+USHOU
+</td>
+<td style="text-align:left;">
+U.S. House Representative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+GOV
+</td>
+<td style="text-align:left;">
+Governor
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+LGV
+</td>
+<td style="text-align:left;">
+Lieutenant Governor
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+ATG
+</td>
+<td style="text-align:left;">
+Attorney General
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+SOS
+</td>
+<td style="text-align:left;">
+Secretary of State
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+SSI
+</td>
+<td style="text-align:left;">
+State Superintendent of Education
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+SEN
+</td>
+<td style="text-align:left;">
+State Senate
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+HOU
+</td>
+<td style="text-align:left;">
+State House
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+CTRES
+</td>
+<td style="text-align:left;">
+County Treasurer
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+AUD
+</td>
+<td style="text-align:left;">
+County Auditor
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+CLR
+</td>
+<td style="text-align:left;">
+County Clerk of Court
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+SOL
+</td>
+<td style="text-align:left;">
+Solicitor
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+SHF
+</td>
+<td style="text-align:left;">
+Sheriff
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+JPRB
+</td>
+<td style="text-align:left;">
+Probate Judge
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+CCD
+</td>
+<td style="text-align:left;">
+County Council (District)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+CCC
+</td>
+<td style="text-align:left;">
+Councyt Council Chair (or At Large)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+CAP
+</td>
+<td style="text-align:left;">
+Referendum for Captial Projects
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+SCH
+</td>
+<td style="text-align:left;">
+REferendum for School Projects
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+ALC
+</td>
+<td style="text-align:left;">
+Referendum for Alocohol Sales
 </td>
 </tr>
 </tbody>
@@ -312,16 +513,16 @@ PRECINCT 64 - Three &amp; Twenty
 <thead>
 <tr>
 <th style="text-align:left;">
-vname
+Field
 </th>
 <th style="text-align:left;">
-class
+Class
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 elec
 </td>
 <td style="text-align:left;">
@@ -329,7 +530,7 @@ char(10)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 st
 </td>
 <td style="text-align:left;">
@@ -337,7 +538,7 @@ char(2)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 county
 </td>
 <td style="text-align:left;">
@@ -345,7 +546,7 @@ varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 fips
 </td>
 <td style="text-align:left;">
@@ -353,7 +554,7 @@ int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 precinct
 </td>
 <td style="text-align:left;">
@@ -361,7 +562,7 @@ varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 precinct_id
 </td>
 <td style="text-align:left;">
@@ -369,7 +570,7 @@ varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 voter_id
 </td>
 <td style="text-align:left;">
@@ -377,7 +578,7 @@ varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 machine
 </td>
 <td style="text-align:left;">
@@ -385,7 +586,7 @@ int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 ballot_style
 </td>
 <td style="text-align:left;">
@@ -402,19 +603,19 @@ int
 <thead>
 <tr>
 <th style="text-align:left;">
-vname
+Field
 </th>
 <th style="text-align:left;">
-class
+Class
 </th>
 <th style="text-align:left;">
-descrip
+Description
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 elec
 </td>
 <td style="text-align:left;">
@@ -425,7 +626,7 @@ Election
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 contest_type
 </td>
 <td style="text-align:left;">
@@ -436,7 +637,7 @@ Code for office
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 dist
 </td>
 <td style="text-align:left;">
@@ -447,7 +648,7 @@ District number (if applicable)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 county
 </td>
 <td style="text-align:left;">
@@ -458,7 +659,7 @@ County (if uniquely identified)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 ballot_name
 </td>
 <td style="text-align:left;">
@@ -469,7 +670,7 @@ Candidate name, as it appears on the ballot
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 party_num
 </td>
 <td style="text-align:left;">
@@ -488,29 +689,29 @@ Party (numeric code)
 </div>
 <div id="ballot" class="section level3">
 <h3><code>ballot</code></h3>
-<p>The <code>ballot</code> table is a heavily formatted table that serves as the main dataset for analysis. It is in wide form and each row is an election-day voter. Original data is 6,643,882 rows.</p>
-<p>Each column is a vote for a candidate, and each office has several pieces of information: The name of the chosen candidate as it appears on the ballot, the party of that chosen candidate, and the number of Democrat and Republican candidates for that particular contest.</p>
+<p>The <code>ballot</code> table is a heavily formatted table that serves as the main dataset for analysis. It is in “wide” form, each row is an election-day voter. Original data is 6,643,882 rows.</p>
+<p>Columns show offices, and each office has several pieces of information: The name of the chosen candidate as it appears on the ballot, the party of that chosen candidate, and the number of Democrat and Republican candidates for that particular contest. Specifically:</p>
 <ul>
 <li><code>_vote</code> variables show the name of the candidate.</li>
 <li><code>_party</code> variables show the value of the <code>party_num</code> in the <code>candidate</code> table. <code>-1</code> are for Democrats, and <code>1</code> for Republicans. Importantly, <code>0</code> is for another choice – a third party, write in, or abstention. Missings are only reserved for indicating that the office was not on the ballot. To disambiguate between <code>0</code>s, see the <code>_vote</code> column.</li>
 <li><code>_ncand</code> variables show the number of Democrat or Republican candidates for that specificity office. A value of <code>2</code> is contested, <code>1</code> is uncontested.</li>
 <li><code>_dist</code> is a district indicator. These distinguish different races in offices for the U.S. House, State Legislature, and County Council.</li>
 </ul>
-<p>The variables are below:</p>
+<p>The variables are below. In SQL they may be coerced to lower case.</p>
 <table>
 <thead>
 <tr>
 <th style="text-align:left;">
-vname
+Field
 </th>
 <th style="text-align:left;">
-class
+Class
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 elec
 </td>
 <td style="text-align:left;">
@@ -518,7 +719,7 @@ char(10)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 county
 </td>
 <td style="text-align:left;">
@@ -526,7 +727,7 @@ varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 precinct_id
 </td>
 <td style="text-align:left;">
@@ -534,7 +735,7 @@ varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 ballot_style
 </td>
 <td style="text-align:left;">
@@ -542,7 +743,7 @@ int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-family: monospace;">
 voter_id
 </td>
 <td style="text-align:left;">
@@ -550,456 +751,456 @@ varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-pty_vote
+<td style="text-align:left;font-family: monospace;">
+PTY_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-pty_party
+<td style="text-align:left;font-family: monospace;">
+PTY_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-prs_vote
+<td style="text-align:left;font-family: monospace;">
+PRS_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-prs_party
+<td style="text-align:left;font-family: monospace;">
+PRS_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-gov_vote
+<td style="text-align:left;font-family: monospace;">
+GOV_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-gov_party
+<td style="text-align:left;font-family: monospace;">
+GOV_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-lgv_vote
+<td style="text-align:left;font-family: monospace;">
+LGV_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-lgv_party
+<td style="text-align:left;font-family: monospace;">
+LGV_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-atg_vote
+<td style="text-align:left;font-family: monospace;">
+ATG_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-atg_party
+<td style="text-align:left;font-family: monospace;">
+ATG_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-sos_vote
+<td style="text-align:left;font-family: monospace;">
+SOS_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-sos_party
+<td style="text-align:left;font-family: monospace;">
+SOS_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ssi_vote
+<td style="text-align:left;font-family: monospace;">
+SSI_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ssi_party
+<td style="text-align:left;font-family: monospace;">
+SSI_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ussen_vote
+<td style="text-align:left;font-family: monospace;">
+USSEN_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ussen_party
+<td style="text-align:left;font-family: monospace;">
+USSEN_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ussen1_vote
+<td style="text-align:left;font-family: monospace;">
+USSEN1_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ussen2_vote
+<td style="text-align:left;font-family: monospace;">
+USSEN2_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ussen1_party
+<td style="text-align:left;font-family: monospace;">
+USSEN1_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ussen2_party
+<td style="text-align:left;font-family: monospace;">
+USSEN2_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ushou_dist
+<td style="text-align:left;font-family: monospace;">
+USHOU_dist
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ushou_vote
+<td style="text-align:left;font-family: monospace;">
+USHOU_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ushou_party
+<td style="text-align:left;font-family: monospace;">
+USHOU_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ushou_ncand
+<td style="text-align:left;font-family: monospace;">
+USHOU_ncand
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-hou_dist
+<td style="text-align:left;font-family: monospace;">
+HOU_dist
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-hou_vote
+<td style="text-align:left;font-family: monospace;">
+HOU_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-hou_party
+<td style="text-align:left;font-family: monospace;">
+HOU_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-hou_ncand
+<td style="text-align:left;font-family: monospace;">
+HOU_ncand
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-sen_dist
+<td style="text-align:left;font-family: monospace;">
+SEN_dist
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-sen_vote
+<td style="text-align:left;font-family: monospace;">
+SEN_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-sen_party
+<td style="text-align:left;font-family: monospace;">
+SEN_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-sen_ncand
+<td style="text-align:left;font-family: monospace;">
+SEN_ncand
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ccd_dist
+<td style="text-align:left;font-family: monospace;">
+CCD_dist
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ccd_vote
+<td style="text-align:left;font-family: monospace;">
+CCD_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ccd_party
+<td style="text-align:left;font-family: monospace;">
+CCD_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ccd_ncand
+<td style="text-align:left;font-family: monospace;">
+CCD_ncand
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-shf_vote
+<td style="text-align:left;font-family: monospace;">
+SHF_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-shf_party
+<td style="text-align:left;font-family: monospace;">
+SHF_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-shf_ncand
+<td style="text-align:left;font-family: monospace;">
+SHF_ncand
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-clr_vote
+<td style="text-align:left;font-family: monospace;">
+CLR_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-clr_party
+<td style="text-align:left;font-family: monospace;">
+CLR_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-clr_ncand
+<td style="text-align:left;font-family: monospace;">
+CLR_ncand
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-cor_vote
+<td style="text-align:left;font-family: monospace;">
+COR_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-cor_party
+<td style="text-align:left;font-family: monospace;">
+COR_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-cor_ncand
+<td style="text-align:left;font-family: monospace;">
+COR_ncand
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-alc
+<td style="text-align:left;font-family: monospace;">
+ALC
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-bnd
+<td style="text-align:left;font-family: monospace;">
+BND
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-cap
+<td style="text-align:left;font-family: monospace;">
+CAP
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ctres_vote
+<td style="text-align:left;font-family: monospace;">
+CTRES_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ctres_party
+<td style="text-align:left;font-family: monospace;">
+CTRES_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-ctres_ncand
+<td style="text-align:left;font-family: monospace;">
+CTRES_ncand
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-aud_vote
+<td style="text-align:left;font-family: monospace;">
+AUD_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-aud_party
+<td style="text-align:left;font-family: monospace;">
+AUD_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-aud_ncand
+<td style="text-align:left;font-family: monospace;">
+AUD_ncand
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-jprb_vote
+<td style="text-align:left;font-family: monospace;">
+JPRB_vote
 </td>
 <td style="text-align:left;">
 varchar
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-jprb_party
+<td style="text-align:left;font-family: monospace;">
+JPRB_party
 </td>
 <td style="text-align:left;">
 int
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-jprb_ncand
+<td style="text-align:left;font-family: monospace;">
+JPRB_ncand
 </td>
 <td style="text-align:left;">
 int

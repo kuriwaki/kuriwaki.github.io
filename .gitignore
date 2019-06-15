@@ -39,3 +39,8 @@ Thumbs.db
 *.o
 *.so
 .Rproj.user
+
+
+
+.Rapp.history
+*.Rproj

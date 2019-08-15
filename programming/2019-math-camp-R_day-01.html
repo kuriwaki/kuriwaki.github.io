@@ -4,8 +4,8 @@
     <title>Math Camp R Sessions</title>
     <meta charset="utf-8" />
     <meta name="author" content="Shiro Kuriwaki" />
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <script src="libs/kePrint/kePrint.js"></script>
     <link rel="stylesheet" href="xaringan_style.css" type="text/css" />
   </head>
   <body>
@@ -27,6 +27,7 @@ class: center, middle, inverse, title-slide
 
 
 
+
 ---
 # Rough Schedule
 
@@ -38,8 +39,8 @@ class: center, middle, inverse, title-slide
 
 # Rough Schedule
 
-.pull-left[
 
+.pull-left[
 ## Topics
 
 1. Mastering R basics in tidyverse 
@@ -52,7 +53,6 @@ class: center, middle, inverse, title-slide
 ]
 
 .pull-right[
-
 
 ## Logistics
 
@@ -324,6 +324,9 @@ weo %&gt;% summarize(median_pop_2017 = median(pop2017))
 ---
 
 # A good package offers tools for common use cases
+
+--
+
 
 ## selecting the first 10 columns
 
@@ -930,7 +933,9 @@ class: middle, center
 
 ## functions with no output
 
-These functions still have effects, but they are side-effects
+-- 
+
+These functions still do something, but they are side-effects (no object output)
 
 
 ```r
@@ -953,6 +958,8 @@ data(gss_cat)
 .pull-right[
 
 ## functions with no arguments
+
+--
 
 
 ```r
@@ -979,6 +986,8 @@ n()
 .pull-left[
 
 ## functions with default arguments
+
+--
 
 e.g. `log()` in R defaults to `\(\log_{e}()\)`:
 
@@ -1016,6 +1025,8 @@ args(aes)
 ggplot(gdp_by_year, aes(year, med_gdp))
 ```
 ]
+
+--
 
 .pull-right[
 

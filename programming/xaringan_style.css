@@ -1,0 +1,186 @@
+/* Let's load some fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+
+/* Generic stuff */
+
+.remark-code {
+  font-family: 'Ubuntu Mono';
+}
+
+.remark-inline-code{
+  font-family: 'Ubuntu Mono';
+  background: #F8F8F8;
+  border-radius: 3px;
+  padding: 4px;
+}
+
+body { font-family: 'Open Sans' }
+
+.grViz {
+  margin-left:auto; margin-right:auto; display:block;
+}
+
+
+.large { font-size: 130%;}
+.small { font-size: 70%;}
+.tiny {font-size: 40%;}
+
+.remark-slide-content {
+	font-size: 22px;
+	text-shadow: 0 0 0px #333;
+	  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
+
+div.remark-slide-container h1 {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	color: #de2d26;
+	letter-spacing: -1px;
+  font-size: 45px;
+}
+
+
+div.remark-slide-container h2 {
+	font-family: 'Open Sans', sans-serif;
+	color: #fb6a4a;
+	letter-spacing: -1px;
+	font-size: 25px
+}
+
+div.remark-slide-container h3 {
+	font-family: 'Open Sans', sans-serif;
+	color: #fb6a4a;
+	letter-spacing: -1px;
+	font-size: 18px;
+	padding-top: 30px
+}
+
+
+/* links */
+a, a > code {
+  color: #CC0000; /*default: rgb(249, 38, 114); || sets color of links */
+  text-decoration: none; /* turns off background coloring of links */
+}
+
+
+
+
+/* title slide */
+
+.title-slide {
+	font-family: 'Lato', sans-serif;
+	background-color: #fff;
+	background-position: center bottom 170px;
+	background-size: 30%;
+	border-bottom: 0px solid  #CC0000;
+	box-shadow:  0 55px 0 #fff;
+}
+
+.title-slide h1 {
+  	font-family: 'Lato', sans-serif;
+  	font-weight: normal;
+    font-size: 25px;
+}
+
+.title-slide h3:nth-of-type(1) {
+  	font-family: 'Open Sans', sans-serif;
+  	font-weight: normal;
+    font-size: 25px;
+}
+
+.title-slide h3:nth-of-type(2) {
+  	font-family: 'Open Sans', sans-serif;
+  	font-weight: normal;
+    font-size: 25px;
+}
+
+.title-slide .remark-slide-number {
+  display: none;
+}
+
+/* Hmm. How about the slide number. */
+
+
+.remark-slide-number {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	color: #CC0000;
+}
+
+/* Okay, now let's add a simple bottom border */
+
+
+div.remark-slide {
+  border-bottom: 3px solid  #CC0000;
+  box-shadow:  0 5px 0 #F66733;
+
+}
+
+/* Let's play with .inverse and a new class, .fullscale, a little more */
+
+div.remark-slide-container .fullscale {
+    color: #d6d6d6;
+    text-shadow: 0 0 20px #333;
+}
+
+div.remark-slide-container .fullscale h1 {
+	color: #fff;
+}
+
+div.remark-slide-container .fullscale p {
+	color: #000;
+
+}
+
+
+
+/* custom.css */
+.left-code {
+  color: #777;
+  width: 45%;
+  height: 92%;
+  float: left;
+}
+.right-plot {
+  width: 54%;
+  float: right;
+  padding-left: 1%;
+}
+
+.left-code-wide {
+  color: #777;
+  width: 63%;
+  height: 92%;
+  float: left;
+}
+
+.right-plot-narrow {
+  width: 35%;
+  float: right;
+  padding-left: 1%;
+}
+
+
+.left-threeway {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+}
+
+.center-threeway {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+}
+
+.right-threeway {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+}
+

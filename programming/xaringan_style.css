@@ -6,9 +6,17 @@
 @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 
 /* Generic stuff */
+.remark-slide-content {
+	font-size: 22px;
+	text-shadow: 0 0 0px #333;
+	  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
 
 .remark-code {
   font-family: 'Ubuntu Mono';
+  font-size: 22px;
 }
 
 .remark-inline-code{
@@ -25,18 +33,6 @@ body { font-family: 'Open Sans' }
 }
 
 
-.large { font-size: 130%;}
-.small { font-size: 70%;}
-.tiny {font-size: 40%;}
-
-.remark-slide-content {
-	font-size: 22px;
-	text-shadow: 0 0 0px #333;
-	  padding-right: 30px;
-  padding-bottom: 30px;
-}
-
-
 div.remark-slide-container h1 {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
 	color: #de2d26;
@@ -48,6 +44,7 @@ div.remark-slide-container h1 {
 div.remark-slide-container h2 {
 	font-family: 'Open Sans', sans-serif;
 	color: #fb6a4a;
+  margin-top: -6px;
 	letter-spacing: -1px;
 	font-size: 25px
 }
@@ -59,6 +56,10 @@ div.remark-slide-container h3 {
 	font-size: 18px;
 	padding-top: 30px
 }
+
+.large { font-size: 130%;}
+.small { font-size: 70%;}
+.tiny {font-size: 40%;}
 
 
 /* links */
@@ -105,7 +106,6 @@ a, a > code {
 
 /* Hmm. How about the slide number. */
 
-
 .remark-slide-number {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
@@ -118,22 +118,6 @@ a, a > code {
 div.remark-slide {
   border-bottom: 3px solid  #CC0000;
   box-shadow:  0 5px 0 #F66733;
-
-}
-
-/* Let's play with .inverse and a new class, .fullscale, a little more */
-
-div.remark-slide-container .fullscale {
-    color: #d6d6d6;
-    text-shadow: 0 0 20px #333;
-}
-
-div.remark-slide-container .fullscale h1 {
-	color: #fff;
-}
-
-div.remark-slide-container .fullscale p {
-	color: #000;
 
 }
 
@@ -167,20 +151,23 @@ div.remark-slide-container .fullscale p {
 
 
 .left-threeway {
-  width: 32%;
+  width: 31%;
   float: left;
+  padding-right: 1%;
   padding-left: 1%;
 }
 
 .center-threeway {
-  width: 32%;
+  width: 31%;
   float: left;
+  padding-right: 1%;
   padding-left: 1%;
 }
 
 .right-threeway {
-  width: 32%;
+  width: 31%;
   float: left;
+  padding-right: 1%;
   padding-left: 1%;
 }
 

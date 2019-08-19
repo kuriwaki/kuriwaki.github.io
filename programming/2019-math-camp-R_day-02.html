@@ -21,7 +21,26 @@ class: center, middle, inverse, title-slide
 
 
 
+---
+class: middle
 
+# Housekeeping
+
+* Announcements by Dan and Jake
+* How to get files and submit assignments on Canvas
+* Open the rstudio cloud session for today (`03_Day-02`)
+* Read in the datasets we'll use
+
+
+```r
+library(tidyverse)
+
+weo &lt;- read_excel("data/input/WEO-2018.xlsx")
+weo_long &lt;- read_csv("data/input/WEO-2018_long.csv")
+data(gss_cat)
+```
+
+* How to ask questions
 
 ---
 class: middle, center
@@ -42,7 +61,6 @@ class: middle, center
 
 &lt;img src="images/nytimes-climate.png" width="100%" /&gt;
 
-
 ]
 
 .pull-right[
@@ -51,7 +69,7 @@ We'll use data from:
 
 &lt;img src="images/dell_et_al_abstract.png" width="100%" /&gt;
 
-which is similar to `WEO-2018_long.csv` but contains temperature, precipitation, and growth data.
+same format as `WEO-2018_long.csv`, contains temperature, precipitation, and growth data.
 
 ]
 
@@ -79,38 +97,30 @@ We'll use data from:
 
 &lt;img src="images/dell_et_al_abstract.png" width="100%" /&gt;
 
-which is similar to `WEO-2018_long.csv` but contains temperature, precipitation, and growth data.
+same format as `WEO-2018_long.csv`, contains temperature, precipitation, and growth data.
 
 ]
 
 ---
 
+class: middle
 
 
 
-# Let's re-load the data and make a "by-year" dataset
+
+# Ready with your datasets?
 
 
 ```r
+library(tidyverse)
+
+weo &lt;- read_excel("data/input/WEO-2018.xlsx")
 weo_long &lt;- read_csv("data/input/WEO-2018_long.csv")
-```
+data(gss_cat)
 
-```
-## Parsed with column specification:
-## cols(
-##   country = col_character(),
-##   continent = col_character(),
-##   year = col_double(),
-##   pop = col_double(),
-##   rgdp = col_double()
-## )
-```
-
-```r
 gdp_by_year &lt;- weo_long %&gt;% 
   group_by(year) %&gt;% 
-  summarize(med_gdp = median(rgdp, na.rm = TRUE),
-            gdp_pc = sum(rgdp, na.rm = TRUE) / sum(pop, na.rm = TRUE))
+  summarize(med_gdp = median(rgdp, na.rm = TRUE))
 ```
 
 
@@ -162,7 +172,7 @@ class: middle, center
 
 .pull-left[
 
-## functions with no output
+## 1. functions with no output
 
 
 These functions still do something, but they are side-effects (no object output)
@@ -187,7 +197,7 @@ data(gss_cat)
 
 .pull-right[
 
-## functions with no arguments
+## 2. functions with no arguments
 
 
 
@@ -214,7 +224,7 @@ n()
 
 .pull-left[
 
-## functions with default arguments
+## 3. functions with default arguments
 
 
 e.g. `log()` in R defaults to `\(\log_{e}()\)`:
@@ -258,7 +268,7 @@ ggplot(gdp_by_year, aes(year, med_gdp))
 
 .pull-right[
 
-## functions where defaults are not documented
+## 4. functions where defaults are not documented
 
 
 ```r
@@ -279,13 +289,13 @@ ggplot(gdp_by_year, aes(year, med_gdp)) +
   labs(x = "Year", y = "GDP per capita")
 ```
 
-&lt;img src="2019-math-camp-R_day-02_files/figure-html/unnamed-chunk-19-1.svg" width="100%" /&gt;
+&lt;img src="2019-math-camp-R_day-02_files/figure-html/unnamed-chunk-20-1.svg" width="100%" /&gt;
 
 ]
 
 ---
 
-## functions with countably infinite arguments
+## 5. functions with countably infinite arguments
 
 .pull-left[
 
@@ -366,7 +376,7 @@ count(gss_cat, race, relig, TRUE) # wrong
 
 ---
 
-## dplyr's pipe
+## 6. dplyr's pipe
 
 * tidyverse invented the `%&gt;%` for a convenient "and then"
   
@@ -402,7 +412,7 @@ count(gss_cat, race, relig, TRUE) # wrong
 
 ---
 
-## ggplot's plus
+## 7. ggplot's plus
 
 
 .left-threeway[
@@ -455,7 +465,7 @@ ggsave("images/day1gg-show.png", w  = 4.8, height = 3.2)
 
 ---
 
-## ggplot's plus
+## 7. ggplot's plus
 
 
 .left-code[
@@ -531,14 +541,14 @@ weo`[["`gdp_pc_2017`"]]` &lt;- weo`[["`rgdp2017`"]]` / weo`[["`pop2017`"]]`
 
 .right[.small[Create a new variable]]
 
-## 3. formula syntax
+## 3. formula (tilde) syntax
 
 .pull-left[
 
 
 
 ```r
-lm(`tvhours` ~ race `+` relig, data = gss_cat)
+lm(tvhours `~` race `+` relig, data = gss_cat)
 ```
 
 .right[.small[Run regressions]]
@@ -559,13 +569,14 @@ class: middle, center
 
 # A Whirlwind Tour of Base-R
 
-## Data structures: what's the container of the data?
-## Data types: how are data stored?
-## Summary functions: how do functions combine these values?
+## Data structures
+## Data types
+## Summary functions
+
 
 ---
 
-# Data Structures
+# Data Structures: what's the container?
 
 ## data frames is the most complex data structure
 
@@ -575,6 +586,7 @@ class: middle, center
 | 2-dimensional | Matrix   | &lt;mark&gt;Data frame&lt;/mark&gt; |
 
 &lt;br&gt;
+
 
 ## "Heterogeneous" means it can take different types
 
@@ -599,7 +611,7 @@ str(x)
 
 .pull-left[
 
-## tidyverse: dataframes only
+## tidyverse (dataframes only)
 
 
 ```r
@@ -624,7 +636,7 @@ weo %&gt;%
 
 
 
-## base-R: any of the four data structures
+## base-R
 
 .pull-right[
 
@@ -652,8 +664,6 @@ Lists with double square brackets or `$` (S for &lt;mark&gt;S&lt;/mark&gt;lot)
    weo$country
    ```
 
-
-
 ]
 
 
@@ -661,7 +671,7 @@ Lists with double square brackets or `$` (S for &lt;mark&gt;S&lt;/mark&gt;lot)
 
 ---
 
-# What are the major data types?
+# Data types: what's in the container?
 
 --
 
@@ -678,7 +688,11 @@ c(TRUE, FALSE, FALSE)
 
 
 ```r
-is.na(c(NA, 2, 3)
+is.na(c(NA, 2, 3))
+```
+
+```
+## [1]  TRUE FALSE FALSE
 ```
 
 ]
@@ -725,7 +739,7 @@ c("A", "B", "B")
 
 ## coercion
 
-`TRUE` gets coerced to 1 and `FALSE` gets coerced to 0
+`TRUE` gets coerced to 1 and `FALSE` gets coerced to 0:
 
 
 ```r
@@ -737,7 +751,7 @@ sum(c(TRUE, FALSE, TRUE))
 ```
 
 
-numbers can  be coerced to characters
+numbers can be coerced to characters:
 
 
 ```r
@@ -745,7 +759,7 @@ as.character(c(1, 2, 3))
 ```
 
 
-automatic coercion makes vectors stay homogeneous
+automatic coercion makes vectors stay homogeneous:
 
 
 ```r
@@ -826,7 +840,7 @@ recycling works here too:
 ---
 
 
-# factors: a hybrid type encode order of values
+# factors: a hybrid type that encodes the order of values
 
 --
 
@@ -834,7 +848,7 @@ recycling works here too:
 
 --
 
-* Technically, they are actually integers (which dictates the ordering, called __levels__) where each integer has a __label__
+* Technically,  factors integers (which dictates the ordering, called __levels__) where each value has a __label__
 
 --
 
@@ -895,10 +909,10 @@ count(gss_str, marital)
 ```r
 gss_cat %&gt;% 
   mutate(relig = 
-           recode(relig, 
-                  Protestant = "Christian",
-                  Catholic = "Christian",
-                  .default = "Non-Christian")) %&gt;% 
+*          recode(relig,
+*                 Protestant = "Christian",
+*                 Catholic = "Christian",
+*                 .default = "Non-Christian")) %&gt;%
   count(relig)
 ```
 
@@ -933,7 +947,7 @@ count(gss_cat, race)
 
 ```r
 gss_cat %&gt;% 
-  mutate(race = fct_relevel(race, "White", "Black", "Other")) %&gt;% 
+* mutate(race = fct_relevel(race, "White", "Black", "Other")) %&gt;%
   count(race)
 ```
 
@@ -1120,13 +1134,17 @@ mean(select(weo, rgdp2019))
 ## [1] NA
 ```
 
-"pull" selects one column and turns it into a vector
+"pull" takes one column and coerces to vector:
 
 
 ```r
 mean(`pull`(weo, rgdp2019))
 ```
 
+
+```
+## [1] 653848.6
+```
 
 ]
 
@@ -1191,6 +1209,9 @@ summary(fit)
 * __One or more__ variables to the right hand side
 
 ]
+
+--
+
 
 .pull-right[
 Formulas are not unique to regressions. See for example cross-tabs:

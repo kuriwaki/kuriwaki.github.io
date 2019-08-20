@@ -21,6 +21,7 @@ class: center, middle, inverse, title-slide
 
 
 
+
 ---
 class: middle
 
@@ -34,6 +35,7 @@ class: middle
 
 ```r
 library(tidyverse)
+library(readxl)
 
 weo &lt;- read_excel("data/input/WEO-2018.xlsx")
 weo_long &lt;- read_csv("data/input/WEO-2018_long.csv")
@@ -113,6 +115,7 @@ class: middle
 
 ```r
 library(tidyverse)
+library(readxl)
 
 weo &lt;- read_excel("data/input/WEO-2018.xlsx")
 weo_long &lt;- read_csv("data/input/WEO-2018_long.csv")
@@ -206,7 +209,7 @@ Sys.Date()
 ```
 
 ```
-## [1] "2019-08-19"
+## [1] "2019-08-20"
 ```
 
 .small[.right[(prints the date regardless of input)]]
@@ -582,7 +585,7 @@ class: middle, center
 
 |      | Homogeneous     | Heterogeneous           |
 | -----:| :-------------: |:-------------:|
-| 1-dimensional| Atomic    | List |
+| 1-dimensional| Atomic Vector   | List |
 | 2-dimensional | Matrix   | &lt;mark&gt;Data frame&lt;/mark&gt; |
 
 &lt;br&gt;

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Math Camp R Sessions</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Shiro Kuriwaki" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan_style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Math Camp R Sessions
+## Day 3
+### Shiro Kuriwaki
+### August 2019
+
+---
+
+
+
+
+
+
+```r
+weo &lt;- read_excel("data/input/WEO-2018.xlsx")
+weo_long &lt;- read_csv("data/input/WEO-2018_long.csv")
+```
+
+```
+## Parsed with column specification:
+## cols(
+##   country = col_character(),
+##   continent = col_character(),
+##   year = col_double(),
+##   pop = col_double(),
+##   rgdp = col_double()
+## )
+```
+
+```r
+data(gss_cat)
+
+gdp_by_year &lt;- weo_long %&gt;% 
+  group_by(year) %&gt;% 
+  summarize(med_gdp = median(rgdp, na.rm = TRUE))
+```
+
+
+---
+
+class: middle, center
+
+# Day 3 Agenda (Visualization)
+
+## day 2 remainders: functions for base-R  and formula syntax
+## how our eyes see data
+## technicalities: axes, legends, facets, annotation, exporting
+## discussion
+
+---
+# The things you can get out of data
+
+.pull-left[
+
+## 1. dimensions
+
+
+Each vector has a "length", each 2d array has a "dimension" 
+
+
+```r
+x &lt;- c(1:10)
+length(x)
+```
+
+
+```
+## [1] 10
+```
+
+
+```r
+dim(weo)
+```
+
+```
+## [1] 191  66
+```
+
+
+.right[.small[Also use  `nrow` (number of rows) and `ncol` (number of columns)]]
+
+]
+
+.pull-right[
+
+## 2. summary stats
+
+
+
+
+```r
+stdnormals &lt;- rnorm(n = 1000, mean = 0, sd = 1)
+```
+
+
+```r
+mean(stdnormals)
+sd(stdnormals)
+```
+
+
+```
+## [1] -0.007799939
+```
+
+```
+## [1] 1.032668
+```
+
+
+
+```r
+round(mean(stdnormals), digits = 2)
+```
+
+```
+## [1] -0.01
+```
+
+]
+
+---
+
+# The things you can get out of data
+
+.pull-left[
+
+## 3. string concatenation
+
+
+   
+   ```r
+   c("a", "b", "c", "d")
+   ```
+   
+   ```
+   ## [1] "a" "b" "c" "d"
+   ```
+concatenate ("paste") into a single item
+
+   
+   ```r
+   str_c("a", "b", "c", "d")
+   ```
+   
+   ```
+   ## [1] "abcd"
+   ```
+   
+]
+
+--
+
+.pull-right[
+
+## 4. pulling out vectors from dataframes
+
+
+```r
+mean(weo$rgdp2019)
+```
+
+```
+## [1] 653848.6
+```
+
+
+
+```r
+mean(select(weo, rgdp2019))
+```
+
+```
+## Warning in mean.default(select(weo, rgdp2019)): argument is not numeric or
+## logical: returning NA
+```
+
+```
+## [1] NA
+```
+
+"pull" takes one column and coerces to vector:
+
+
+```r
+mean(`pull`(weo, rgdp2019))
+```
+
+
+```
+## [1] 653848.6
+```
+
+]
+
+---
+
+
+&lt;mark&gt; What would the following code do? &lt;/mark&gt;
+
+   
+   ```r
+   weo_long %&gt;% 
+     mutate(rgdp2017 = round(rgdp2017, digits = 0),
+            country = str_c(country, " (", continent, ")")) %&gt;% 
+     slice(1:3)
+   ```
+
+--
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; country &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; rgdp2017 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Afghanistan (Asia) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 63353 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Albania (Europe) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 32763 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Algeria (Africa) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 576494 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+class: center, middle
+
+# Formula syntax
+
+
+---
+
+# Formula (tilde) syntax expresses the relationship between variables
+
+.pull-left[
+OLS has a `formula` and a `data` argument
+
+
+```r
+fit &lt;- lm(tvhours ~ race + relig, data = gss_cat)
+summary(fit)
+```
+
+* __One__ variable (unquoted) to the left hand side
+* __One or more__ variables to the right hand side
+
+]
+
+--
+
+
+.pull-right[
+Formulas are not unique to regressions. See for example cross-tabs:
+
+
+```r
+xtabs(~ relig + race, gss_cat, drop = TRUE)
+```
+
+* Typically no left hand side
+* __One or two__ variables to the right hand side (row variable, then column variable)
+
+
+]
+
+---
+
+
+# Summarizing cross-tabs
+
+Cell / row / column proportions
+
+
+
+```r
+prop.table(xtabs(~ relig + race, gss_cat))
+prop.table(xtabs(~ relig + race, gss_cat), `margin = 1`)
+prop.table(xtabs(~ relig + race, gss_cat), `margin = 2`)
+```
+
+--
+
+&lt;br&gt;
+
+Using the GSS dataset, how would you get &lt;mark&gt;a cross-tab that shows (a) the proportion in each income bin, (b) for each of the two most common values of race, and (c) _rounded_ to the second decimal point?  &lt;/mark&gt;
+
+--
+
+
+```r
+gss_cat_wb &lt;- gss_cat %&gt;% 
+  filter(race %in% c("White", "Black")) %&gt;% 
+  mutate(race = as.character(race))
+
+xtabs(~ rincome + race, gss_cat_wb) %&gt;% 
+  prop.table(margin = 2) %&gt;% 
+  round(2)
+```
+
+
+---
+
+# Visualization
+
+---
+
+# Reserve your key message for perception tasks humans are best at (position detection)
+
+
+Perception tasks, ranked
+
+1. .large[Position] along a common scale &lt;font color = "red"&gt; &amp;#x2b05; the human eye can discern this most accurately &lt;/font&gt;
+2. Position along identical, nonaligned scales
+3. Length
+4. Angle or Slope
+5. Area
+6. Volume
+7. Color Hue, Density  &lt;font color = "red"&gt; &amp;#x2b05; and this the least&lt;/font&gt;
+
+
+.right[.small[Source: &lt;a href = "https://pdfs.semanticscholar.org/565d/843c2c0e60915709268ac4224894469d82d5.pdf"&gt;Cleveland and McGill (1985)&lt;/a&gt;, paper on Canvas]]
+
+
+
+
+
+---
+
+
+
+![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-26-1.svg)&lt;!-- --&gt;
+
+
+---
+
+![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-27-1.svg)&lt;!-- --&gt;
+
+---
+
+
+![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-28-1.svg)&lt;!-- --&gt;
+
+---
+
+![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-29-1.svg)&lt;!-- --&gt;
+
+
+---
+
+![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-30-1.svg)&lt;!-- --&gt;
+
+
+---
+
+![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-31-1.svg)&lt;!-- --&gt;
+
+---
+
+![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-32-1.svg)&lt;!-- --&gt;
+
+---
+
+![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-33-1.svg)&lt;!-- --&gt;
+
+---
+
+
+
+
+---
+
+
+
+&lt;img src="images/how-humans-see.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Other related principles
+
+## 1. Data-ink ratio
+## 2. Small multiples
+
+---
+
+# Technicalities
+
+---
+
+# 1. Axis names
+
+---
+
+# 2. Font size, image size, and resolution
+
+
+---
+
+# 3. Legends (or direct labelling)
+
+
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"highlightSpans": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

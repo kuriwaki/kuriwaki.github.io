@@ -326,18 +326,19 @@ xtabs(~ rincome + race, gss_cat_wb) %&gt;%
 
 ---
 
-# Reserve your key message for perception tasks humans are best at (position detection)
+# 1. Show the key message as a comparison of positions on a common scale
 
+&lt;br&gt;
 
 Perception tasks, ranked
 
-1. .large[Position] along a common scale &lt;font color = "red"&gt; &amp;#x2b05; the human eye can discern this most accurately &lt;/font&gt;
+1. &lt;u&gt;Position along a common scale&lt;/u&gt; &lt;font color = "red"&gt; &amp;#x2b05; the human eye can discern this most accurately &lt;/font&gt;
 2. Position along identical, nonaligned scales
 3. Length
 4. Angle or Slope
 5. Area
-6. Volume
-7. Color Hue, Density  &lt;font color = "red"&gt; &amp;#x2b05; and this the least&lt;/font&gt;
+6. Volume, Density, Saturation
+7. Color Hue  &lt;font color = "red"&gt; &amp;#x2b05; and this the least&lt;/font&gt;
 
 
 .right[.small[Source: &lt;a href = "https://pdfs.semanticscholar.org/565d/843c2c0e60915709268ac4224894469d82d5.pdf"&gt;Cleveland and McGill (1985)&lt;/a&gt;, paper on Canvas]]
@@ -348,48 +349,232 @@ Perception tasks, ranked
 
 ---
 
+# Example: Alesina et al., "Intergenerational mobility in Africa"
 
 
-![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-26-1.svg)&lt;!-- --&gt;
+```r
+alesina &lt;- read_excel("data/input/intergenerational-mobility.xlsx")
+```
+
+.pull-left[
+
+&lt;img src="images/papaioannou21junefig1a.png" width="90%" /&gt;
+
+]
+
+.pull-right[
+
+
+&lt;img src="images/papaioannou21junetable1.png" width="75%" /&gt;
+
+]
+
 
 
 ---
 
-![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-27-1.svg)&lt;!-- --&gt;
 
----
+.left-code[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
 
+1. Position along a common scale &lt;font color = "red"&gt; &amp;#x2b05; the human eye can discern this most accurately &lt;/font&gt;
+2. Position along identical, nonaligned scales
+3. Length
+4. Angle or Slope
+5. Area
+6. Volume, Density, Saturation
+7. &lt;mark&gt;Color Hue&lt;/mark&gt;&lt;font color = "red"&gt; &amp;#x2b05; and this the least&lt;/font&gt;
+]
+
+.right-plot[
 
 ![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-28-1.svg)&lt;!-- --&gt;
+]
+
 
 ---
+
+
+.left-code[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+1. Position along a common scale &lt;font color = "red"&gt; &amp;#x2b05; the human eye can discern this most accurately &lt;/font&gt;
+2. Position along identical, nonaligned scales
+3. Length
+4. Angle or Slope
+5. Area
+6. Volume, Density, Saturation
+7. &lt;mark&gt;Color Hue&lt;/mark&gt;  &lt;font color = "red"&gt; &amp;#x2b05; and this the least&lt;/font&gt;
+]
+
+.right-plot[
 
 ![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-29-1.svg)&lt;!-- --&gt;
-
+]
 
 ---
+
+
+.left-code[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+1. Position along a common scale &lt;font color = "red"&gt; &amp;#x2b05; the human eye can discern this most accurately &lt;/font&gt;
+2. Position along identical, nonaligned scales
+3. Length
+4. Angle or Slope
+5. Area
+6. Volume, Density, &lt;mark&gt;Saturation&lt;/mark&gt;
+7. Color Hue &lt;font color = "red"&gt; &amp;#x2b05; and this the least&lt;/font&gt;
+]
+
+.right-plot[
 
 ![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-30-1.svg)&lt;!-- --&gt;
 
+]
 
 ---
+
+
+
+.left-code[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+1. Position along a common scale &lt;font color = "red"&gt; &amp;#x2b05; the human eye can discern this most accurately &lt;/font&gt;
+2. Position along identical, nonaligned scales
+3. &lt;mark&gt;Length&lt;/mark&gt;
+4. Angle or Slope
+5. Area
+6. Volume, Density, Saturation
+7. Color Hue &lt;font color = "red"&gt; &amp;#x2b05; and this the least&lt;/font&gt;
+]
+
+.right-plot[
 
 ![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-31-1.svg)&lt;!-- --&gt;
+]
+
 
 ---
+
+.left-code[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+1. &lt;mark&gt;Position along a common scale&lt;/mark&gt; &lt;font color = "red"&gt; &amp;#x2b05; the human eye can discern this most accurately &lt;/font&gt;
+2. Position along identical, nonaligned scales
+3. Length
+4. Angle or Slope
+5. Area
+6. Volume, Density, Saturation
+7. &lt;mark&gt;Color Hue&lt;/mark&gt; &lt;font color = "red"&gt; &amp;#x2b05; and this the least&lt;/font&gt;
+]
+
+
+.right-plot[
 
 ![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-32-1.svg)&lt;!-- --&gt;
+]
+
 
 ---
+
+.left-code[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+1. &lt;mark&gt;Position along a common scale&lt;/mark&gt; &lt;font color = "red"&gt; &amp;#x2b05; the human eye can discern this most accurately &lt;/font&gt;
+2. Position along identical, nonaligned scales
+3. Length
+4. Angle or Slope
+5. Area
+6. Volume, Density, Saturation
+7. Color Hue &lt;font color = "red"&gt; &amp;#x2b05; and this the least&lt;/font&gt;
+]
+
+
+.right-plot[
 
 ![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-33-1.svg)&lt;!-- --&gt;
+]
 
 ---
 
+.left-code[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+1. &lt;mark&gt;Position along a common scale&lt;/mark&gt; &lt;font color = "red"&gt; &amp;#x2b05; the human eye can discern this most accurately &lt;/font&gt;
+2. Position along identical, nonaligned scales
+3. Length
+4. Angle or Slope
+5. Area
+6. Volume, Density, Saturation
+7. Color Hue  &lt;font color = "red"&gt; &amp;#x2b05; and this the least&lt;/font&gt;
+]
 
 
+.right-plot[
+
+![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-34-1.svg)&lt;!-- --&gt;
+]
 
 ---
+
+.left-code[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+1. &lt;mark&gt;Position along a common scale&lt;/mark&gt; &lt;font color = "red"&gt; &amp;#x2b05; the human eye can discern this most accurately &lt;/font&gt;
+2. Position along identical, nonaligned scales
+3. Length
+4. Angle or Slope
+5. Area
+6. Volume, Density, Saturation
+7. Color Hue&lt;font color = "red"&gt; &amp;#x2b05; and this the least&lt;/font&gt;
+]
+
+.right-plot[
+
+![](2019-math-camp-R_day-03_files/figure-html/unnamed-chunk-35-1.svg)&lt;!-- --&gt;
+]
+
+---
+
+.left-code[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+1. &lt;mark&gt;Position along a common scale&lt;/mark&gt; &lt;font color = "red"&gt; &amp;#x2b05; the human eye can discern this most accurately &lt;/font&gt;
+2. Position along identical, nonaligned scales
+3. Length
+4. Angle or Slope
+5. Area
+6. Volume, Density, Saturation
+7. Color Hue &lt;font color = "red"&gt; &amp;#x2b05; and this the least&lt;/font&gt;
+]
+
+
+.right-plot[
+
+
+]
+
+---
+
 
 
 
@@ -397,30 +582,205 @@ Perception tasks, ranked
 
 ---
 
-# Other related principles
+# 2. Maximize the Data-to-Ink ratio (i.e. proactively remove superficial ink)
 
-## 1. Data-ink ratio
-## 2. Small multiples
 
----
+&lt;img src="images/cwilke_table-examples-1.png" width="75%" style="display: block; margin: auto;" /&gt;
 
-# Technicalities
-
----
-
-# 1. Axis names
-
----
-
-# 2. Font size, image size, and resolution
 
 
 ---
 
-# 3. Legends (or direct labelling)
+# 3. Avoid excessive overlap (instead, use small multiples)
+
+.pull-left[
+
+## bad
+
+&lt;img src="images/cwilke_popgrowth-vs-popsize-colored-1.png" width="80%" /&gt;
+
+]
+
+.pull-right[
+
+## bad
+&lt;img src="images/papaioannou21junefig4.png" width="789" /&gt;
+
+
+]
+
+---
+
+
+**Solution**  In ggplot, "facet" your graphs by `facet_grid()` (a rigid table) or `facet_wrap()` (wrap long lines).
+
+
+```r
+ggplot(weo_long, aes(x = year, y = (rgdp/pop), group = country)) +
+* facet_wrap(~ continent) +
+  geom_line() +
+  labs(x = "Year", y = "GDP per capita")
+```
+
+&lt;img src="images/country_facet.png" width="75%" /&gt;
 
 
 ---
+class: center, middle
+
+
+# Important Technicalties
+
+
+---
+
+# 1. Axis titles
+
+## Always label your axes, but don't make it verbose either
+
+.pull-left[
+
+&lt;img src="images/cwilke_tech-stocks-minimal-labeling-bad-1.png" width="1536" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="images/cwilke_tech-stocks-labeling-ugly-1.png" width="1536" /&gt;
+
+]
+
+---
+
+# 1. Axis titles
+
+.pull-left[
+&lt;img src="images/cwilke_tech-stocks-minimal-labeling-1.png" width="1536" /&gt;
+]
+
+.pull-right[
+
+pseudo-code:
+
+
+```r
+ggplot(stocks, 
+       aes(x = year, 
+           y = price, 
+           group = company,
+           color = company)) + 
+* labs(x = "",
+*      y = "stock price, indexed",
+*      color = "color")
+```
+]
+
+
+
+---
+
+# 2. Font size, image size
+
+## The default image size is almost always too large, making the labels illegible 
+
+.pull-left[
+
+&lt;img src="images/cwilke_Aus-athletes-small-1.png" width="1536" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="images/cwilke_Aus-athletes-big-good-1.png" width="1536" /&gt;
+
+]
+
+--
+
+**Solution**: save the images in _smaller size_ (I recommend 3 by 5 inches; some recommend smaller).
+
+
+```r
+ggsave("figure_rightsize.pdf", `height = 3`, `width = 5`)
+```
+
+
+---
+
+# 3. Legends or Annotation
+
+## Having to go back and forth between data and legend is not reader-friendly.
+
+.pull-left[
+
+&lt;img src="images/cwilke_tech-stocks-bad-legend-1.png" width="1536" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="images/cwilke_tech-stocks-good-legend-1.png" width="1536" /&gt;
+
+]
+
+**Solution**: relevel your factors (`fct_relevel`) so the levels align with the data, or ...
+
+---
+
+# Whenever possible, design your figures so they don’t need a legend.
+
+.pull-left[
+
+&lt;img src="images/cwilke_tech-stocks-good-no-legend-1.png" width="1536" /&gt;
+
+]
+
+.pull-right[
+
+pseudo-code:
+
+
+```r
+ggplot(stocks, 
+       aes(x = year, 
+           y = price, 
+           group = company,
+           color = company)) + 
+  annotate("text", x = 2018, y = 550, label = "Facebook") +
+  annotate("text", x = 2018, y = 340, label = "Alphabet") +
+  annotate("text", x = 2018, y = 250, label = "Microsoft") +
+  annotate("text", x = 2018, y = 195, label = "Apple") +
+  labs(x = "", 
+       y = "stock price, indexed", 
+       color = "color")
+```
+
+
+]
+
+---
+
+# 4. Color scales (if you must)
+
+## .small[Default common scales can be indistinguishable in grayscale or for colorblind readers]
+
+.pull-left[
+
+&lt;img src="images/cwilke_iris-scatter-one-shape-1.png" width="1536" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="images/cwilke_iris-scatter-one-shape-cvd-1.png" width="2011" /&gt;
+
+
+]
+
+Solution: 
+
+* The viridis color scale (`scale_color_viridis`) is a good default
+* Also manually assign values for discrete variables ( `scale_color_manual`)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

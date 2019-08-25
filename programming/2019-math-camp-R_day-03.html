@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>Math Camp R Sessions</title>
+    <title>Math Camp R Sessions - Day 3</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Shiro Kuriwaki" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="xaringan_style.css" type="text/css" />
   </head>
@@ -11,10 +10,8 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Math Camp R Sessions
-## Day 3
-### Shiro Kuriwaki
-### August 2019
+# Math Camp R Sessions - Day 3
+## Shiro Kuriwaki
 
 ---
 
@@ -34,13 +31,21 @@ alesina &lt;- read_excel("data/input/intergenerational-mobility.xlsx")
 
 ---
 
-class: middle, center
+class: middle
 
-# Day 3 Agenda (Visualization)
+# Day 3 Agenda
 
 ## how our eyes see data
 ## technicalities: axes, legends, annotation, exporting
 ## day 2 remainders: functions for base-R  and formula syntax
+
+
+.small-note[
+**Notes:**
+
+
+\* References for today's material: &lt;a href = "https://r4ds.had.co.nz"&gt;&lt;i&gt;R for Data Science&lt;/i&gt;&lt;/a&gt;  ch. &lt;a href = "https://r4ds.had.co.nz/data-visualisation.html"&gt;2&lt;/a&gt;; &lt;a href = "https://serialmentor.com/dataviz/"&gt;&lt;i&gt;Fundamentals of Data Visualization&lt;/i&gt;&lt;/a&gt; chs. &lt;a href = "https://serialmentor.com/dataviz/proportional-ink.html"&gt;17&lt;/a&gt; through &lt;a href = "https://serialmentor.com/dataviz/small-axis-labels.html"&gt;24&lt;/a&gt;; and &lt;a href = "https://www.youtube.com/watch?v=fSgEeI2Xpdc"&gt;&lt;i&gt;How Humans See Data&lt;/i&gt;&lt;/a&gt;.
+]
 
 ---
 class: center, middle
@@ -50,7 +55,6 @@ class: center, middle
 
 &lt;br&gt;
 
-.right[.small[Many of the figures presented here come from Claus Wilke's book, and many ideas from John Rauser's talk. See Syllabus.]]
 
 ---
 
@@ -476,7 +480,7 @@ ggsave("figures/figure_rightsize.pdf", `height = 3`, `width = 5`)
 
 ---
 
-# Also: Use vector graphics (high resolution) where possible
+# Also: Use vector graphics where possible
 
 
 &lt;img src="images/cwilke_bitmap-zoom-1.png" width="100%" /&gt;

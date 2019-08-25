@@ -126,14 +126,14 @@ div.remark-slide {
 /* custom.css */
 .left-code {
   color: #777;
-  width: 45%;
+  width: 40%;
   height: 92%;
   float: left;
 }
 .right-plot {
-  width: 54%;
+  width: 50%;
   float: right;
-  padding-left: 1%;
+  padding-left: 10%;
 }
 
 .left-code-wide {
@@ -171,3 +171,13 @@ div.remark-slide {
   padding-left: 1%;
 }
 
+/* custom box */
+
+.small-note {
+  width: 75%;
+  font-size: 18px;
+  line-height: 1em;
+  float: left;
+}
+
+}

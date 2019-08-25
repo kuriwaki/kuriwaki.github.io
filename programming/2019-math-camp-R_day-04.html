@@ -3,7 +3,6 @@
   <head>
     <title>Math Camp R Sessions</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Shiro Kuriwaki" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="xaringan_style.css" type="text/css" />
   </head>
@@ -13,19 +12,16 @@ class: center, middle, inverse, title-slide
 
 # Math Camp R Sessions
 ## Day 4
-### Shiro Kuriwaki
-### August 2019
-
----
-
-
-
-
-
 
 ---
 
 class: middle
+
+
+
+
+
+
 
 # Day 4 Agenda
 
@@ -42,7 +38,7 @@ class: middle
 
 \* Instead of the original plan, we will _not_ cover Rmarkdown in math camp and instead consolidate what we've learned by covering workflow. This prepares us well for Rmarkdown down the road.
 
-\* References for today's material: &lt;i&gt;R for Data Science&lt;/i&gt;  chs. 6 and 8, &lt;i&gt; What they forgot to teach you about R&lt;/i&gt; ch. 1, &lt;i&gt;Code and Data for the Social Sciences&lt;/i&gt; chs. 1 and 7.
+\* References for today's material: &lt;a href = "https://r4ds.had.co.nz"&gt;&lt;i&gt;R for Data Science&lt;/i&gt;&lt;/a&gt;  chs. &lt;a href = "https://r4ds.had.co.nz/workflow-scripts.html"&gt;6&lt;/a&gt; and &lt;a href = "https://r4ds.had.co.nz/workflow-projects.html"&gt;8&lt;/a&gt;, &lt;a href = "https://whattheyforgot.org/"&gt;&lt;i&gt;What they forgot to teach you about R&lt;/i&gt;&lt;/a&gt; ch. &lt;a href = "https://whattheyforgot.org/save-source.html"&gt;1&lt;/a&gt;, &lt;a href = "https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf"&gt;&lt;i&gt;Code and Data for the Social Sciences&lt;/i&gt;&lt;/a&gt; chs. 1 and 7.
 ]
 
 
@@ -52,31 +48,47 @@ class: center, middle
 
 # Workflow
 
+
 ---
+
+.pull-left[
+
+# What does "good" R code look like?
+
+.large[Think of your R script like a &lt;mark&gt;recipe&lt;/mark&gt;]
+
+
+Good recipes ...
+
+]
+
+---
+
+
 
 .pull-left[
 # What does "good" R code look like?
 
 .large[Think of your R script like a &lt;mark&gt;recipe&lt;/mark&gt;]
 
+
+
+Good recipes ...
+
+
+.narrow-space[
+&amp;#x2611; Readable to your collaborators
+
+&amp;#x2611; Readable to your future self
+
+&amp;#x2611; Clear (minimizes ambiguity)
+
+&amp;#x2611; Ordered chronologically
+
+&amp;#x2611; Follows convention
+
 ]
 
----
-
-.pull-left[
-# What does "good" R code look like?
-
-.large[Think of your R script like a &lt;mark&gt;recipe&lt;/mark&gt;]
-
-
-
-.large[
-Good recipes are: 
-
-1. Readable to your collaborators
-2. Readable to your future self
-3. Follows convention
-]
 
 &lt;img src="images/jg-sheet-pan-pancakes-articleLarge.jpg" width="80%" /&gt;
 
@@ -169,6 +181,8 @@ Don't put `rm(list = ls())` at the beginning of your code. This only deletes obj
 
 ]
 
+--
+
 .pull-right[
 
 ## 2. Re-run ("source (v.)") - and error out
@@ -176,12 +190,12 @@ Don't put `rm(list = ls())` at the beginning of your code. This only deletes obj
 * Go to `Code` &gt; `Source`, or
 * &amp;#x21e7; (shift) + &amp;#x2318; (command) + `s` (the letter S)
 
-## Or run and move on after error
+## \* or run and move on after error
 
 * Go to `Code` &gt; `Run Region` &gt; `Run All`, or
 * &amp;#x21e7; (shift) + &amp;#x2318; (command) + &amp;#x23ce; (enter)
 
-## Or re-run only up to this line
+## \* or re-run only up to this line
 
 * Go to `Code` &gt; `Run Region` &gt; `Run All Chunks Above`, or
 * &amp;#x2325; (option/alt) +  +  &amp;#x2318; (command) + `b` (the letter B, for begin)
@@ -254,7 +268,7 @@ Shell (or ba&lt;u&gt;sh&lt;/u&gt;) is a language to navigate folders outside of 
 
 ---
 
-# Download for Tomorrow: Newest Versions of R Desktop and RStudio Desktop
+# Download for Tomorrow: &lt;u&gt;Newest&lt;/u&gt; Versions of R Desktop and RStudio Desktop
 
 .pull-left[
 
@@ -281,7 +295,12 @@ Shell (or ba&lt;u&gt;sh&lt;/u&gt;) is a language to navigate folders outside of 
 
 &lt;img src="images/Rdownload_rstudio.png" width="80%" /&gt;
 
-.small[IDE: Integrated Development Environment. GUI: Graphical User Interface].
+.narrow-space[.small[
+IDE: Integrated Development Environment. 
+
+GUI: Graphical User Interface
+
+]]
 
 
 

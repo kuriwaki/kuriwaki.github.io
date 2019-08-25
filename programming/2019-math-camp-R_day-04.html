@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Math Camp R Sessions</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Shiro Kuriwaki" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan_style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Math Camp R Sessions
+## Day 4
+### Shiro Kuriwaki
+### August 2019
+
+---
+
+
+
+
+
+
+---
+
+class: middle
+
+# Day 4 Agenda
+
+## Workflow best practices
+## RStudio and R Desktop
+## Cheatsheet
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+.small-note[
+**Notes:**
+
+\* Instead of the original plan, we will _not_ cover Rmarkdown in math camp and instead consolidate what we've learned by covering workflow. This prepares us well for Rmarkdown down the road.
+
+\* References for today's material: &lt;i&gt;R for Data Science&lt;/i&gt;  chs. 6 and 8, &lt;i&gt; What they forgot to teach you about R&lt;/i&gt; ch. 1, &lt;i&gt;Code and Data for the Social Sciences&lt;/i&gt; chs. 1 and 7.
+]
+
+
+---
+class: center, middle
+
+
+# Workflow
+
+---
+
+.pull-left[
+# What does "good" R code look like?
+
+.large[Think of your R script like a &lt;mark&gt;recipe&lt;/mark&gt;]
+
+]
+
+---
+
+.pull-left[
+# What does "good" R code look like?
+
+.large[Think of your R script like a &lt;mark&gt;recipe&lt;/mark&gt;]
+
+
+
+.large[
+Good recipes are: 
+
+1. Readable to your collaborators
+2. Readable to your future self
+3. Follows convention
+]
+
+&lt;img src="images/jg-sheet-pan-pancakes-articleLarge.jpg" width="80%" /&gt;
+
+]
+
+--
+
+.pull-right[
+
+
+&lt;img src="images/Rworkflow_recipe.png" width="100%" /&gt;
+]
+
+
+---
+
+# First, load packages (but don't keep installation code)
+
+.pull-left[
+&lt;img src="images/Rworkflow_library-load.png" width="739" /&gt;
+]
+
+
+---
+
+# Read in data at the top, save output at the end
+
+.pull-left[
+&lt;img src="images/Rworkflow_library-load.png" width="739" /&gt;
+]
+
+
+.pull-right[
+&lt;img src="images/Rworkflow_save.png" width="872" /&gt;
+]
+
+---
+
+# Reorder and re-write frequently into a concise, top-to-bottom ordering
+
+
+* Remove unnecessary "checks" (like `View(dataset)`, `?ggplot`)
+
+* Section your code with comment lines, but be concise (do not write documentation you will not keep)
+
+  
+  ```r
+  # Load data ---------------------------
+  
+  # Plot data ---------------------------
+  ```
+
+
+* Better to have multiple short scripts than one huge script
+
+        
+        00_download.R
+        01_explore.R
+        ...
+        09_model.R
+        10_visualize.R
+        
+
+
+
+
+
+---
+
+# Restart and Re-run (everything) frequently, as you write code
+
+.pull-left[
+
+## 1. Restart from a clean slate
+
+* Go to top toolbar, `Session` &gt; `Restart R`, or
+*  &amp;#x21e7; (shift) +  &amp;#x2318; (command)  + `0` (zero)
+
+
+This will remove
+
+* all objects in the Environment
+* all loaded packages
+* all user-created functions
+
+
+## \* Warning for old R users
+
+Don't put `rm(list = ls())` at the beginning of your code. This only deletes objects.
+
+]
+
+.pull-right[
+
+## 2. Re-run ("source (v.)") - and error out
+
+* Go to `Code` &gt; `Source`, or
+* &amp;#x21e7; (shift) + &amp;#x2318; (command) + `s` (the letter S)
+
+## Or run and move on after error
+
+* Go to `Code` &gt; `Run Region` &gt; `Run All`, or
+* &amp;#x21e7; (shift) + &amp;#x2318; (command) + &amp;#x23ce; (enter)
+
+## Or re-run only up to this line
+
+* Go to `Code` &gt; `Run Region` &gt; `Run All Chunks Above`, or
+* &amp;#x2325; (option/alt) +  +  &amp;#x2318; (command) + `b` (the letter B, for begin)
+
+]
+
+---
+class: center, middle
+
+&lt;mark&gt;Exercise: fix this example bad code so it runs on a blank slate.&lt;/mark&gt;
+
+&lt;img src="images/Rworkflow_exercise-badscript.png" width="40%" /&gt;
+
+
+
+
+---
+
+# File Paths
+
+
+Paths are a way to specify the location of your file
+
+* "Directory" &amp;#x2248; "Folder". 
+* Paths are hierarchical: parent folder, then child folder, separated by a forward slash `/` (`project/data/input`)
+* File extensions are separated by a period `.` (`kuriwaki_shiro.R`, `scatterplot.pdf`)
+* Hidden folders start with a period (`.git`)
+
+
+There are important special characters:
+
+* _Starting_ with `/` means the root of the computer  (avoid this). `/cloud/project`
+* Starting with a tilde `~/` means the default home directory -- varies by project. (`~/data/input`)
+* Starting with no symbol means "wherever we are now".  (`data/input`)
+* Starting with a period `./` also means, wherever we are now (`.data/input`)
+* Starting with _two_ periods means the parent directory of where we are now (go back up one): `../projects/data/input`
+
+
+---
+class: middle
+
+# Exercise: How would you read the following paths?
+&lt;br&gt;
+
+
+```r
+weo &lt;- read_excel("data/input/WEO-2018.xlsx")
+```
+
+
+
+```r
+weo &lt;- read_csv("~/Dropbox/API-209/Problem Sets/ps01/data/input/WEO-2018.xlsx")
+```
+
+
+
+```r
+ggsave("figures/percapita_growth_figure.pdf")
+```
+
+&lt;br&gt;
+
+Shell (or ba&lt;u&gt;sh&lt;/u&gt;) is a language to navigate folders outside of R
+
+* `pwd ` is -- what is the present current directory? (`getwd()` in R)
+* `cd ` is -- change the directory to (`setwd()` in R)
+* `ls `is -- list all files in the following directory
+
+
+---
+
+# Download for Tomorrow: Newest Versions of R Desktop and RStudio Desktop
+
+.pull-left[
+
+## R is the software
+
+1. Google "download R" (or .small[&lt;http://www.r-project.org/&gt;])
+2. Go to "download" R, and pick the first mirror
+
+&lt;img src="images/Rdownload_homepage.png" width="80%" /&gt;
+
+3. Download the installer for your Operating System (Mac or Windows)
+
+&lt;img src="images/Rdownload_mirror.png" width="80%" /&gt;
+
+]
+
+--
+
+.pull-right[
+## RStudio is the IDE and GUI
+
+1. Google "download RStudio" (or .small[&lt;http://www.rstudio.com/products/rstudio/download&gt;])
+2. Download the "Installer" 
+
+&lt;img src="images/Rdownload_rstudio.png" width="80%" /&gt;
+
+.small[IDE: Integrated Development Environment. GUI: Graphical User Interface].
+
+
+
+]
+
+.small[Note: We will put all of this to action on Tuesday.]
+
+
+---
+
+# Wrap-up and review of key commands
+
+Follow along on the cheat-sheet: &lt;http://bit.ly/HKS-R&gt;
+
+1. Object assignment
+2. dplyr verbs
+3. ggplot layers
+4. Base-R vectors and data-frames
+5. Summary functions
+6. Input / Output
+7. Combining datasets (new topic)
+
+
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"highlightSpans": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>Math Camp R Sessions</title>
+    <title>Math Camp R Sessions - Day 2</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Shiro Kuriwaki" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="xaringan_style.css" type="text/css" />
   </head>
@@ -11,10 +10,8 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Math Camp R Sessions
-## Day 2
-### Shiro Kuriwaki
-### August 2019
+# Math Camp R Sessions - Day 2
+## Shiro Kuriwaki
 
 ---
 
@@ -22,7 +19,25 @@ class: center, middle, inverse, title-slide
 
 
 
+class: middle
+
+# Day 2 - R beyond the tidyverse
+
+## Group project preview
+## function anatomy
+## base-R syntax: vectors and lists
+## strings, factors, numerics, and coercion
+## formula syntax cross-tabs
+
+.small-note[
+**Notes:**
+
+
+\* References for today's material: &lt;a href = "https://r4ds.had.co.nz"&gt;&lt;i&gt;R for Data Science&lt;/i&gt;&lt;/a&gt;  chs. &lt;a href = "https://r4ds.had.co.nz/factors.html"&gt;15&lt;/a&gt;, &lt;a href = "https://r4ds.had.co.nz/pipes.html"&gt;18&lt;/a&gt;, and &lt;a href = "https://r4ds.had.co.nz/vectors.html"&gt;20&lt;/a&gt;; and &lt;a href = "https://rstudio-education.github.io/hopr"&gt;&lt;i&gt;Hands-on Programming with R&lt;/i&gt;&lt;/a&gt; chs. &lt;a href = "https://rstudio-education.github.io/hopr/basics.html"&gt;2&lt;/a&gt; through &lt;a href = "https://rstudio-education.github.io/hopr/r-notation"&gt;6&lt;/a&gt;.
+]
+
 ---
+
 class: middle
 
 # Housekeeping
@@ -43,17 +58,6 @@ data(gss_cat)
 ```
 
 * How to ask questions
-
----
-class: middle, center
-
-# Day 2 - R beyond the tidyverse
-
-## Group project preview
-## function anatomy
-## base-R syntax: vectors and lists
-## strings, factors, numerics, and coercion
-## formula syntax cross-tabs
 
 ---
 
@@ -209,7 +213,7 @@ Sys.Date()
 ```
 
 ```
-## [1] "2019-08-20"
+## [1] "2019-08-25"
 ```
 
 .small[.right[(prints the date regardless of input)]]
@@ -996,272 +1000,6 @@ gss_cat %&gt;%
 ##  9    44 not senior
 ## 10    47 not senior
 ## # … with 21,473 more rows
-```
-
-
-
-
-
-
----
-
-# The things you can get out of data
-
-.pull-left[
-
-## 1. dimensions
-
-
-Each vector has a "length", each 2d array has a "dimension" 
-
-
-```r
-x &lt;- c(1:10)
-length(x)
-```
-
-
-```
-## [1] 10
-```
-
-
-```r
-dim(weo)
-```
-
-```
-## [1] 191  67
-```
-
-
-.right[.small[Also use  `nrow` (number of rows) and `ncol` (number of columns)]]
-
-]
-
-.pull-right[
-
-## 2. summary stats
-
-
-
-
-```r
-stdnormals &lt;- rnorm(n = 1000, mean = 0, sd = 1)
-```
-
-
-```r
-mean(stdnormals)
-sd(stdnormals)
-```
-
-
-```
-## [1] -0.007799939
-```
-
-```
-## [1] 1.032668
-```
-
-
-
-```r
-round(mean(stdnormals), digits = 2)
-```
-
-```
-## [1] -0.01
-```
-
-]
-
----
-
-# The things you can get out of data
-
-.pull-left[
-
-## 3. string concatenation
-
-
-   
-   ```r
-   c("a", "b", "c", "d")
-   ```
-   
-   ```
-   ## [1] "a" "b" "c" "d"
-   ```
-concatenate ("paste") into a single item
-
-   
-   ```r
-   str_c("a", "b", "c", "d")
-   ```
-   
-   ```
-   ## [1] "abcd"
-   ```
-   
-]
-
---
-
-.pull-right[
-
-## 4. pulling out vectors from dataframes
-
-
-```r
-mean(weo$rgdp2019)
-```
-
-```
-## [1] 653848.6
-```
-
-
-
-```r
-mean(select(weo, rgdp2019))
-```
-
-```
-## Warning in mean.default(select(weo, rgdp2019)): argument is not numeric or
-## logical: returning NA
-```
-
-```
-## [1] NA
-```
-
-"pull" takes one column and coerces to vector:
-
-
-```r
-mean(`pull`(weo, rgdp2019))
-```
-
-
-```
-## [1] 653848.6
-```
-
-]
-
----
-
-
-&lt;mark&gt; What would the following code do? &lt;/mark&gt;
-
-   
-   ```r
-   weo_long %&gt;% 
-     mutate(rgdp2017 = round(rgdp2017, digits = 0),
-            country = str_c(country, " (", continent, ")")) %&gt;% 
-     slice(1:3)
-   ```
-
---
-
-&lt;table&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; country &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; rgdp2017 &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Afghanistan (Asia) &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 63353 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Albania (Europe) &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 32763 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Algeria (Africa) &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 576494 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
----
-class: center, middle
-
-# Formula syntax
-
-
----
-
-# Formula (tilde) syntax expresses the relationship between variables
-
-.pull-left[
-OLS has a `formula` and a `data` argument
-
-
-```r
-fit &lt;- lm(tvhours ~ race + relig, data = gss_cat)
-summary(fit)
-```
-
-* __One__ variable (unquoted) to the left hand side
-* __One or more__ variables to the right hand side
-
-]
-
---
-
-
-.pull-right[
-Formulas are not unique to regressions. See for example cross-tabs:
-
-
-```r
-xtabs(~ relig + race, gss_cat, drop = TRUE)
-```
-
-* Typically no left hand side
-* __One or two__ variables to the right hand side (row variable, then column variable)
-
-
-]
-
----
-
-
-# Summarizing cross-tabs
-
-Cell / row / column proportions
-
-
-
-```r
-prop.table(xtabs(~ relig + race, gss_cat))
-prop.table(xtabs(~ relig + race, gss_cat), `margin = 1`)
-prop.table(xtabs(~ relig + race, gss_cat), `margin = 2`)
-```
-
---
-
-&lt;br&gt;
-
-Using the GSS dataset, how would you get &lt;mark&gt;a cross-tab that shows (a) the proportion in each income bin, (b) for each of the two most common values of race, and (c) _rounded_ to the second decimal point?  &lt;/mark&gt;
-
---
-
-
-```r
-gss_cat_wb &lt;- gss_cat %&gt;% 
-  filter(race %in% c("White", "Black")) %&gt;% 
-  mutate(race = as.character(race))
-
-xtabs(~ rincome + race, gss_cat_wb) %&gt;% 
-  prop.table(margin = 2) %&gt;% 
-  round(2)
 ```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>Math Camp R Sessions</title>
+    <title>Math Camp R Sessions - Day 1</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Shiro Kuriwaki" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/kePrint/kePrint.js"></script>
     <link rel="stylesheet" href="xaringan_style.css" type="text/css" />
@@ -12,10 +11,8 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Math Camp R Sessions
-## Welcome!
-### Shiro Kuriwaki
-### August 2019
+# Math Camp R Sessions - Day 1
+## Shiro Kuriwaki
 
 ---
 
@@ -72,13 +69,20 @@ class: center, middle, inverse, title-slide
 
 
 ---
-class: middle center
+class: middle
 
 # Day 1: Basics of tidyverse
 
 ## dplyr verbs
 ## ggplot aesthetics
 ## functions
+
+.small-note[
+**Notes:**
+
+
+\* References for today's material: &lt;a href = "https://r4ds.had.co.nz"&gt;&lt;i&gt;R for Data Science&lt;/i&gt;&lt;/a&gt;  chs. &lt;a href = "https://r4ds.had.co.nz/data-visualisation.html"&gt;3&lt;/a&gt;, &lt;a href ="https://r4ds.had.co.nz/workflow-basics.html"&gt;4&lt;/a&gt;, and &lt;a href ="https://r4ds.had.co.nz/transform.html"&gt;5&lt;/a&gt;; as well as the &lt;a href = "https://rstudio.cloud/learn/primers"&gt;Primers&lt;/a&gt; and &lt;a href = "https://style.tidyverse.org"&gt;style guide&lt;/a&gt; from the summer.
+]
 
 ---
 
@@ -385,6 +389,8 @@ count(weo, continent)
 
 # Cross-tabulation via counting
 
+## A new dataset with categorical variables
+
 .pull-left[
 
 ```r
@@ -683,7 +689,7 @@ gdp_by_year &lt;- weo_long %&gt;%
             gdp_pc = sum(rgdp, na.rm = TRUE) / 
               sum(pop, na.rm = TRUE))
 
-ggplot(gdp_by_year, aes(x = year, med_gdp)) +
+ggplot(gdp_by_year, aes(x = year, y = med_gdp)) +
   geom_line() +
   labs(y = "Median GDP (in millions 2017 USD)")
 ```
@@ -705,7 +711,7 @@ ggplot(gdp_by_year, aes(x = year, med_gdp)) +
 .left-code[
 
 ```r
-ggplot(weo_long, aes(x = year, rgdp)) +
+ggplot(weo_long, aes(x = year,  y = rgdp)) +
   geom_line() +
   labs(y = "GDP (in millions 2017 USD)")
 ```
@@ -774,7 +780,7 @@ class: middle, center
 # 3 required components of ggplot grammar: data, aesthetic mapping, and geoms
 
 
-&lt;img src="images/ggplot-grammar.png" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="images/ggplot-grammar.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -886,386 +892,7 @@ ggplot(data = gdp_by_year,
 
 ]
 
----
-class: middle, center
 
-# Function Anatomy
-
----
-
-* _function_ (in mathematics): a process that associates to each element of a set `\(X\)` a single element of a set `\(Y\)`"
-
-    In R: a process that takes one or more inputs (in parentheses) and returns exactly one output
-    
-    ```r
-    log(x = 100, base = 10)
-    ```
-
---
-
-
-* Call a function by the function name, with arguments and values in parentheses, separated by commas
-    
-    ```r
-    log(x = 100, base = 10)
-    log(base = 10, x = 100)
-    ```
-
---
-
-
-
-* If the user does not name the arguments, they are assumed to come in the order they are defined.
-    
-    ```r
-    log(100, 10)
-    ```
-
---
-
-
-* &lt;mark&gt;How do you know that the first argument of `log()` is `x`, and not `base`?&lt;/mark&gt;
-
----
-
-# Function anatomy: important odds and ends
-
-.pull-left[
-
-## functions with no output
-
--- 
-
-These functions still do something, but they are side-effects (no object output)
-
-
-```r
-library(tidyverse)
-```
-.small[.right[(loads the package)]]
-
-&lt;br&gt;
-
-
-```r
-data(gss_cat)
-```
-.small[.right[(loads a built-in dataset which will be called `gss_cat`)]]
-
-]
-
---
-
-.pull-right[
-
-## functions with no arguments
-
---
-
-
-```r
-Sys.Date()
-```
-
-```
-## [1] "2019-08-15"
-```
-
-.small[.right[(prints the date regardless of input)]]
-
-
-```r
-n()
-```
-.small[.right[(`dplyr`s "the numbers of rows in")]]
-
-]
-
-
----
-
-.pull-left[
-
-## functions with default arguments
-
---
-
-e.g. `log()` in R defaults to `\(\log_{e}()\)`:
-
-
-```r
-args(log)
-```
-
-```
-## function (x, base = exp(1)) 
-## NULL
-```
-
-therefore, an argument with a default can be left un-specified:
-
-
-```r
-log(exp(5))
-```
-
-_Note_ this is different from not declaring the _name_ for a no-default argument
-
-
-```r
-args(aes)
-```
-
-```
-## function (x, y, ...) 
-## NULL
-```
-
-
-```r
-ggplot(gdp_by_year, aes(year, med_gdp))
-```
-]
-
---
-
-.pull-right[
-
-## functions where defaults are not documented
-
-
-```r
-args(geom_point)
-```
-
-```
-## function (mapping = NULL, data = NULL, stat = "identity", position = "identity", 
-##     ..., na.rm = FALSE, show.legend = NA, inherit.aes = TRUE) 
-## NULL
-```
-
-
-
-```r
-ggplot(gdp_by_year, aes(year, med_gdp)) +
-* geom_point() +
-  labs(x = "Year", y = "GDP per capita")
-```
-
-&lt;img src="2019-math-camp-R_day-01_files/figure-html/unnamed-chunk-47-1.svg" width="100%" /&gt;
-
-]
-
----
-
-## functions with countably infinite arguments
-
-.pull-left[
-
-
-```r
-count(x = gss_cat, race)
-```
-.right[.small[(one-way tabulation)]]
-&lt;br&gt;
-
-
-```r
-count(x = gss_cat, race, relig)
-```
-.right[.small[(two-way tabulation)]]
-
-&lt;br&gt;
-
-
-
-```r
-count(x = gss_cat, race, relig, denom)
-```
-.right[.small[(three-way tabulation)]]
-
-&lt;br&gt;
-
-`args(count)` gives:
-]
-
-
-.pull-right[
-
-
-some other arguments in the same function could be _are named_
-
-
-```r
-count(gss_cat, race, relig, sort = TRUE)
-```
-
-```
-## # A tibble: 44 x 3
-##    race  relig          n
-##    &lt;fct&gt; &lt;fct&gt;      &lt;int&gt;
-##  1 White Protestant  8188
-##  2 White Catholic    4001
-##  3 White None        2816
-##  4 Black Protestant  2271
-##  5 Other Catholic     916
-##  6 White Christian    474
-##  7 Other Protestant   387
-##  8 Black None         384
-##  9 White Jewish       370
-## 10 Other None         323
-## # … with 34 more rows
-```
-
-so cannot be implicitly called. Consider:
-
-
-
-```r
-count(gss_cat, race, relig, TRUE) # wrong
-```
-
-]
-
-
-
-
-```
-## function (x, ..., wt = NULL, sort = FALSE, name = "n", .drop = group_by_drop_default(x)) 
-## NULL
-```
-
---
-
-R defined such potentially infinite arguments with `...` (an ellipsis)
-
-
----
-
-## dplyr's pipe
-
-* Invented for a convenient "and then"
-  
-  ```r
-  weo %&gt;% 
-      filter(country == "Africa") %&gt;% 
-      select(country, rgdp1992, pop1992) %&gt;% 
-      mutate(gdp_pc = rgdp1992 / pop1992)
-  ```
-
---
-
-* The object to `%&gt;%`'s LEFT becomes the _value of the first argument_ of the function to `%&gt;%`'s RIGHT
-  
-  ```r
-  weo %&gt;% 
-  * filter(country == "Africa")
-  ```
-
---
-
-* Therefore the first chunk is equivalent to:
-  
-  ```r
-  mutate(select(filter(weo, country == "Africa"), rgdp1992, pop1992), gdp_pc = rgdp1992 / pop1992)
-  ```
-
-.right[.small[Remark: this follows the formal definition of a function, but is much less readable]]
-
---
-
-* [Advanced topic]: A dataframe in a pipeline is implicitly kept "in scope" (a technical term), such that a variable name that is called is presumed to be from the dataframe.
-
----
-
-## ggplot's plus
-
-
-.left-threeway[
-* Historically, `ggplot` came before `tidyverse` and `dplyr`
-
-* Back then, layers were appended by the `+`
-
-&lt;img src="images/ggplot-grammar.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-]
-
---
-
-
-.right-plot[
-
-```r
-# format dataset
-weo_percap &lt;- weo %&gt;% 
-  mutate(pc_1992 = rgdp1992/pop1992,
-         pc_2007 = rgdp2017/pop2017)
-
-# ggplot
-ggplot(weo_percap, aes(pc_1992, pc_2007)) +
-  ## layers
-  geom_abline(slope = 1, 
-              intercept = 0, 
-              linetype = "dashed") +
-  geom_point(size = 0.5, color = "indianred") + 
-  ## coordinate
-  coord_equal() +
-  ## facet 
-  facet_wrap(~continent) +
-  ## scale
-  scale_x_continuous(labels = NULL) +
-  scale_y_continuous(labels = dollar) +
-  labs(x = "1992 GDP per capita",
-       y = "2007 GDP per capita",
-       title = "Growth between 1992 and 2017") +
-  ## theme
-  theme_classic() +
-  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
-ggsave("images/day1gg-show.png", w  = 4.8, height = 3.2)
-```
-]
-
----
-
-## ggplot's plus
-
-
-.left-code[
-
-```r
-# format dataset
-weo_percap &lt;- weo %&gt;% 
-  mutate(pc_1992 = rgdp1992/pop1992,
-         pc_2007 = rgdp2017/pop2017)
-
-# ggplot
-ggplot(weo_percap, aes(pc_1992, pc_2007)) +
-  ## layers
-  geom_abline(slope = 1, 
-              intercept = 0, 
-              linetype = "dashed") +
-  geom_point(size = 0.5, color = "indianred") + 
-  ## coordinate
-  coord_equal() +
-  ## facet 
-  facet_wrap(~continent) +
-  ## scale
-  scale_x_continuous(labels = NULL) +
-  scale_y_continuous(labels = dollar) +
-  labs(x = "1992 GDP per capita",
-       y = "2007 GDP per capita",
-       title = "Growth between 1992 and 2017") +
-  ## theme
-  theme_classic() +
-  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
-ggsave("images/day1gg-show.png", w  = 4.8, height = 3.2)
-```
-]
-
-.right-plot[
-&lt;img src="images/day1gg-show.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-]
 
 ---
 class: middle, left

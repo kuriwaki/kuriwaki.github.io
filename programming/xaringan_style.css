@@ -171,13 +171,27 @@ div.remark-slide {
   padding-left: 1%;
 }
 
+.right-twothirds {
+  width: 62%;
+  float: left;
+  padding-right: 1%;
+  padding-left: 1%;
+}
+
+
 /* custom box */
 
 .small-note {
   width: 75%;
   font-size: 18px;
-  line-height: 1em;
+  line-height: 1.2em;
   float: left;
 }
 
+/* custom list */
+
+.narrow-space {
+  line-height: 0.5em;
+  margin: 0;
+  float: left;
 }

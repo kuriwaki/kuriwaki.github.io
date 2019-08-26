@@ -117,7 +117,7 @@ Good recipes ...
 # First, load packages (but don't keep installation code)
 
 .pull-left[
-&lt;img src="images/Rworkflow_library-load.png" width="1045" /&gt;
+&lt;img src="images/Rworkflow_library.png" width="1045" /&gt;
 ]
 
 
@@ -126,7 +126,7 @@ Good recipes ...
 # Read in data at the top, save output at the end
 
 .pull-left[
-&lt;img src="images/Rworkflow_library-load.png" width="1045" /&gt;
+&lt;img src="images/Rworkflow_load.png" width="1045" /&gt;
 ]
 
 
@@ -143,7 +143,6 @@ Good recipes ...
 
 * Section your code with comment lines, but be concise 
 
-(do not write documentation you will not keep)
 
   
   ```r
@@ -191,7 +190,7 @@ This will remove
 
 ## \* Warning for old R users
 
-Do **not** put `rm(list = ls())` at the beginning of your code. This only removes (a) objects.
+Do **not** put `rm(list = ls())` at the beginning of your code. This only removes objects.
 
 ]
 
@@ -199,7 +198,7 @@ Do **not** put `rm(list = ls())` at the beginning of your code. This only remove
 
 .pull-right[
 
-## 2. Run all ("source") - and error out
+## 2. Run all ("source") - and break on first error
 
 * Toolbar `Code` &gt; `Source`, or
 * &amp;#x21e7; (shift) + &amp;#x2318; (command) + `s` (the letter S, for source)
@@ -268,8 +267,8 @@ There are important special characters:
 
 Shell (or ba&lt;u&gt;sh&lt;/u&gt;, command-line) is a language to navigate folders outside of R
 
-* `pwd ` is -- what is the present current directory? (`getwd()` in R)
-* `cd ` is -- change the directory to (`setwd()` in R)
+* `pwd ` is -- show mme the &lt;u&gt;p&lt;/u&gt;resent (current) working directory (`getwd()` in R)
+* `cd ` is -- &lt;u&gt;c&lt;/u&gt;hange the directory to the following path  (`setwd()` in R)
 
 
 
@@ -337,7 +336,7 @@ class: center, middle
 ## RStudio is the IDE and GUI
 
 1. Google "download RStudio" (or .small[&lt;http://www.rstudio.com/products/rstudio/download&gt;])
-2. Download the "Installer" 
+2. Download the Installer for Mac/Windows
 
 &lt;img src="images/Rdownload_rstudio.png" width="80%" /&gt;
 
@@ -384,7 +383,6 @@ We didn't get to cover these cheatsheet functions which come up fairly often --
 * `unique`, `n_distinct`: unique values
 * `summary`: generic function, output varies by object 
 * `str`: general structure
-* `attr`: general attributes
 * `geom_histogram()`, `geom_bar()`: geoms that involve aggregation
 * `fill` vs. `color` aesthetics: fill is the inside of a polygon; color is the border line
 * `write_csv`: saving to a spreadsheet

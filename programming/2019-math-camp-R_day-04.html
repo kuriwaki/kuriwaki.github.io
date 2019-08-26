@@ -30,8 +30,6 @@ class: middle
 ## Review of Key functions via cheatsheet
 ]
 
---
-
 .pull-right[
 # Preview Day 5
 
@@ -40,7 +38,6 @@ class: middle
 3. Transitioning to Desktop and R on your own
 ]
 
---
 
 .small-note[
 **Notes:**
@@ -52,11 +49,14 @@ class: middle
 
 
 ---
-class: center, middle
+class: middle
 
 
 # Workflow
 
+.small-note[
+Prepare by opening today's rstudio.cloud project and opening `sample_cleaned_script.R` in the `example_scripts` folder
+]
 
 ---
 
@@ -117,7 +117,7 @@ Good recipes ...
 # First, load packages (but don't keep installation code)
 
 .pull-left[
-&lt;img src="images/Rworkflow_library-load.png" width="739" /&gt;
+&lt;img src="images/Rworkflow_library-load.png" width="1045" /&gt;
 ]
 
 
@@ -126,22 +126,24 @@ Good recipes ...
 # Read in data at the top, save output at the end
 
 .pull-left[
-&lt;img src="images/Rworkflow_library-load.png" width="739" /&gt;
+&lt;img src="images/Rworkflow_library-load.png" width="1045" /&gt;
 ]
 
 
 .pull-right[
-&lt;img src="images/Rworkflow_save.png" width="872" /&gt;
+&lt;img src="images/Rworkflow_save.png" width="1043" /&gt;
 ]
 
 ---
 
 # Reorder and re-write frequently into a concise, top-to-bottom ordering
 
-
 * Remove unnecessary "checks" (like `View(dataset)`, `?ggplot`)
+--
 
-* Section your code with comment lines, but be concise (do not write documentation you will not keep)
+* Section your code with comment lines, but be concise 
+
+(do not write documentation you will not keep)
 
   
   ```r
@@ -149,7 +151,7 @@ Good recipes ...
   
   # Plot data ---------------------------
   ```
-
+--
 
 * Better to have multiple short scripts than one huge script
 
@@ -160,8 +162,9 @@ Good recipes ...
         09_model.R
         10_visualize.R
         
+--
 
-
+**Why?** Because you want to be re-running your entire code a lot ...
 
 
 
@@ -179,14 +182,16 @@ Good recipes ...
 
 This will remove
 
-* all objects in the Environment
-* all loaded packages
-* all user-created functions
+* All objects in the Environment
+* All loaded packages
+* All user-created functions
 
+&lt;mark&gt; Try this in `sample_cleaned_script.R`
+&lt;br&gt;
 
 ## \* Warning for old R users
 
-Don't put `rm(list = ls())` at the beginning of your code. This only deletes objects.
+Do **not** put `rm(list = ls())` at the beginning of your code. This only removes (a) objects.
 
 ]
 
@@ -194,21 +199,22 @@ Don't put `rm(list = ls())` at the beginning of your code. This only deletes obj
 
 .pull-right[
 
-## 2. Re-run ("source (v.)") - and error out
+## 2. Run all ("source") - and error out
 
-* Go to `Code` &gt; `Source`, or
-* &amp;#x21e7; (shift) + &amp;#x2318; (command) + `s` (the letter S)
+* Toolbar `Code` &gt; `Source`, or
+* &amp;#x21e7; (shift) + &amp;#x2318; (command) + `s` (the letter S, for source)
 
-## \* or run and move on after error
+## \* or run all and show output
 
-* Go to `Code` &gt; `Run Region` &gt; `Run All`, or
+* Toolbar `Code` &gt; `Run Region` &gt; `Run All`, or
 * &amp;#x21e7; (shift) + &amp;#x2318; (command) + &amp;#x23ce; (enter)
 
 ## \* or re-run only up to this line
 
-* Go to `Code` &gt; `Run Region` &gt; `Run All Chunks Above`, or
-* &amp;#x2325; (option/alt) +  +  &amp;#x2318; (command) + `b` (the letter B, for begin)
+* Toolbar `Code` &gt; `Run Region` &gt; `Run All Chunks Above`, or
+* &amp;#x2325; (option/alt) +   &amp;#x2318; (command) + `b` (the letter B, for begin)
 
+.small[.right[\* For more shortcuts, see `Tools` &gt; `Keyboard Shortcut Help`]]
 ]
 
 ---
@@ -223,45 +229,55 @@ class: center, middle
 
 ---
 
-# File Paths
+# File Paths defines the location of a file
 
 
 Paths are a way to specify the location of your file
 
-* "Directory" &amp;#x2248; "Folder". 
+* **"Directory"** &amp;#x2248; "Folder".    "Working Directory" = The current folder
 --
 
-* Paths are hierarchical: parent folder, then child folder, separated by a forward slash `/` (`project/data/input`)
+* Paths are hierarchical: parent &amp;#x2192; child , separated by a **forward slash** `/` (`project/data/input`)
 --
 
-* File extensions are separated by a period `.` (`kuriwaki_shiro.R`, `scatterplot.pdf`)
+* **File extensions** are separated by a period `.` (`kuriwaki_shiro.R`, `scatterplot.pdf`)
 --
 
-* Hidden folders start with a period (`.git`)
+* &lt;font color = "gray"&gt;Hidden folders start with a period&lt;/font&gt; (`.git`)
 
 --
 
 There are important special characters:
 
-* _Starting_ with `/` means the root of the computer  (avoid this). `/cloud/project`
+* **Root**: Starting with `/` (or `C:\` in Windows) means the top of computer  (avoid). `/cloud/project`
 --
 
-* Starting with a tilde `~/` means the default home directory -- varies by project. (`~/data/input`)
+* **Home**: Starting with a tilde `~/` means the default home directory -- varies by project. (`~/data/input`)
 --
 
-* Starting with no symbol means "wherever we are now".  (`data/input`)
+* **Relative paths**: Starting with no symbol means "wherever we are now".  (`data/input`)
 --
 
 * Starting with a period `./` also means, wherever we are now (`.data/input`)
 --
 
-* Starting with _two_ periods means the parent directory of where we are now (go back up one): `../projects/data/input`
+* **Parent folder**: Starting with _two_ periods means the parent directory of where we are now (go back up one): `../projects/data/input`
+
+---
+# Navigating paths - the basics
+
+Shell (or ba&lt;u&gt;sh&lt;/u&gt;, command-line) is a language to navigate folders outside of R
+
+* `pwd ` is -- what is the present current directory? (`getwd()` in R)
+* `cd ` is -- change the directory to (`setwd()` in R)
+
 
 
 ---
-class: middle
 
-# Exercise: How would you read the following paths?
+# Exercise your path reading skills
+
+&lt;mark&gt;1. How would you read the following paths?&lt;/mark&gt;
 &lt;br&gt;
 
 
@@ -281,14 +297,20 @@ weo &lt;- read_csv("~/Dropbox/API-209/Problem Sets/ps01/data/input/WEO-2018.xlsx
 ggsave("figures/percapita_growth_figure.pdf")
 ```
 
+--
+
 &lt;br&gt;
+&lt;mark&gt; 2. Why would defining everything in absolute paths be a bad idea?&lt;/mark&gt;
+--
 
-Shell (or ba&lt;u&gt;sh&lt;/u&gt;) is a language to navigate folders outside of R
+1. Too long
+2. Not sharable: `setwd("path/that/only/works/on/my/machine")`
 
-* `pwd ` is -- what is the present current directory? (`getwd()` in R)
-* `cd ` is -- change the directory to (`setwd()` in R)
-* `ls `is -- list all files in the following directory
 
+---
+class: center, middle
+
+# Download R Desktop (in preparation for tomorrow)
 
 ---
 
@@ -301,7 +323,7 @@ Shell (or ba&lt;u&gt;sh&lt;/u&gt;) is a language to navigate folders outside of 
 1. Google "download R" (or .small[&lt;http://www.r-project.org/&gt;])
 2. Go to "download" R, and pick the first mirror
 
-&lt;img src="images/Rdownload_homepage.png" width="80%" /&gt;
+ &lt;img src="images/Rdownload_homepage.png" width="80%" /&gt;
 
 3. Download the installer for your Operating System (Mac or Windows)
 
@@ -332,10 +354,15 @@ GUI: Graphical User Interface
 
 .small[Note: We will put all of this to action on Tuesday.]
 
+---
+class: middle, center
+
+# Wrap-up and review of key commands
+
 
 ---
 
-# Wrap-up and review of key commands
+# Are you familiar with the functions on the cheatsheet?
 
 Follow along on the cheat-sheet: &lt;http://bit.ly/HKS-R&gt;
 
@@ -351,7 +378,7 @@ Follow along on the cheat-sheet: &lt;http://bit.ly/HKS-R&gt;
 
 .right-wide[
 
-We didn't get to cover a couple of functions that are in the cheatsheet but come up fairly often --
+We didn't get to cover these cheatsheet functions which come up fairly often --
 
 * `::` - call function directly from package
 * `unique`, `n_distinct`: unique values
@@ -360,7 +387,7 @@ We didn't get to cover a couple of functions that are in the cheatsheet but come
 * `attr`: general attributes
 * `geom_histogram()`, `geom_bar()`: geoms that involve aggregation
 * `fill` vs. `color` aesthetics: fill is the inside of a polygon; color is the border line
-* `write_csv`: writing to a "flat file" 
+* `write_csv`: saving to a spreadsheet
 * `bind_rows`: stack rows
 * `left_join`, `inner_join`: merge multiple datasets
 

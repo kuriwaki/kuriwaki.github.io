@@ -22,16 +22,25 @@ class: middle
 
 
 
-
+.pull-left[
 # Day 4 Agenda
 
 ## Workflow best practices
 ## RStudio and R Desktop
-## Cheatsheet
+## Review of Key functions via cheatsheet
+]
 
-&lt;br&gt;
-&lt;br&gt;
+--
 
+.pull-right[
+# Preview Day 5
+
+1. Discuss submitted figure for assignment 1
+2. Memo presentation (three groups)
+3. Transitioning to Desktop and R on your own
+]
+
+--
 
 .small-note[
 **Notes:**
@@ -53,7 +62,7 @@ class: center, middle
 
 .pull-left[
 
-# What does "good" R code look like?
+# What does good R code look like?
 
 .large[Think of your R script like a &lt;mark&gt;recipe&lt;/mark&gt;]
 
@@ -67,7 +76,7 @@ Good recipes ...
 
 
 .pull-left[
-# What does "good" R code look like?
+# What does good R code look like?
 
 .large[Think of your R script like a &lt;mark&gt;recipe&lt;/mark&gt;]
 
@@ -220,17 +229,32 @@ class: center, middle
 Paths are a way to specify the location of your file
 
 * "Directory" &amp;#x2248; "Folder". 
+--
+
 * Paths are hierarchical: parent folder, then child folder, separated by a forward slash `/` (`project/data/input`)
+--
+
 * File extensions are separated by a period `.` (`kuriwaki_shiro.R`, `scatterplot.pdf`)
+--
+
 * Hidden folders start with a period (`.git`)
 
+--
 
 There are important special characters:
 
 * _Starting_ with `/` means the root of the computer  (avoid this). `/cloud/project`
+--
+
 * Starting with a tilde `~/` means the default home directory -- varies by project. (`~/data/input`)
+--
+
 * Starting with no symbol means "wherever we are now".  (`data/input`)
+--
+
 * Starting with a period `./` also means, wherever we are now (`.data/input`)
+--
+
 * Starting with _two_ periods means the parent directory of where we are now (go back up one): `../projects/data/input`
 
 
@@ -315,6 +339,7 @@ GUI: Graphical User Interface
 
 Follow along on the cheat-sheet: &lt;http://bit.ly/HKS-R&gt;
 
+.left-code[
 1. Object assignment
 2. dplyr verbs
 3. ggplot layers
@@ -322,9 +347,24 @@ Follow along on the cheat-sheet: &lt;http://bit.ly/HKS-R&gt;
 5. Summary functions
 6. Input / Output
 7. Combining datasets (new topic)
+]
 
+.right-wide[
 
----
+We didn't get to cover a couple of functions that are in the cheatsheet but come up fairly often --
+
+* `::` - call function directly from package
+* `unique`, `n_distinct`: unique values
+* `summary`: generic function, output varies by object 
+* `str`: general structure
+* `attr`: general attributes
+* `geom_histogram()`, `geom_bar()`: geoms that involve aggregation
+* `fill` vs. `color` aesthetics: fill is the inside of a polygon; color is the border line
+* `write_csv`: writing to a "flat file" 
+* `bind_rows`: stack rows
+* `left_join`, `inner_join`: merge multiple datasets
+
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

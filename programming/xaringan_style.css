@@ -143,9 +143,17 @@ div.remark-slide {
   float: left;
 }
 
+
 .right-plot-narrow {
   width: 35%;
   float: right;
+  padding-left: 1%;
+}
+
+.right-wide {
+  width: 55%;
+  float: left;
+  padding-right: 1%;
   padding-left: 1%;
 }
 

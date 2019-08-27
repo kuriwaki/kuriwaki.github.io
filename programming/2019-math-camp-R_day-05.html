@@ -61,10 +61,10 @@ class: center, middle
 
 # Step 1: Create an API-209 folder
 
-.small[\* You can deviate this from later, but these are well-established practices worth trying first.]
 
 Choose a directory to put all your work in (e.g. `~/Dropbox`/ `C:\Dropbox`, or `~/Documents`)
 
+--
 
 &amp;#x2B91; under it, create a `API-209` folder (avoid spaces in your folder names)
 
@@ -152,18 +152,19 @@ You can install and update packages later.
 
 &lt;br&gt;
 
-.slarge[
-* Create an RStudio project &lt;u&gt;for each data analysis project&lt;/u&gt;.
 
-* Keep &lt;u&gt;data files&lt;/u&gt; there; we’ll talk about loading them into R in data import.
+* .slarge[Create an RStudio project &lt;u&gt;for each data analysis project&lt;/u&gt;.]
 
-* Keep &lt;u&gt;scripts&lt;/u&gt; there; edit them, run them in bits or as a whole.
+--
 
-* Save your &lt;u&gt;outputs&lt;/u&gt; (plots and cleaned data) there.
+* .slarge[Keep &lt;u&gt;data files&lt;/u&gt; there; we’ll talk about loading them into R in data import.]
 
-* Only ever use &lt;u&gt;relative paths&lt;/u&gt;, not absolute paths
+* .slarge[Keep &lt;u&gt;scripts&lt;/u&gt; there; edit them, run them in bits or as a whole.]
 
-]
+* .slarge[Save your &lt;u&gt;outputs&lt;/u&gt; (plots and cleaned data) there.]
+
+* .slarge[Only ever use &lt;u&gt;relative paths&lt;/u&gt;, not absolute paths]
+
 
 .small-note[
 \* Taken from &lt;a href="https://r4ds.had.co.nz/workflow-projects.html"&gt;R for Data Science Chapter 8&lt;/a&gt; 
@@ -173,7 +174,9 @@ You can install and update packages later.
 
 # Going beyond Defaults 
 
-.pull-right[
+.pull-left[
+
+## setwd()
 
 * You can change working directories by the R command `setwd()`
 * You can change it back by Toolbar: `Session` &gt; `Set Working Directory` &gt; `To Project Directory`
@@ -182,8 +185,7 @@ You can install and update packages later.
 
 --
 
-
-.pull-left[
+.pull-right[
 
 ## Your script location is independent from the project
 
@@ -213,7 +215,7 @@ You can install and update packages later.
 &lt;img src="images/Rstudio-emptyproject.png" width="80%" /&gt;
 
 
-## As an IDE, Rstudio includes more advanced tools
+## As an IDE, Rstudio includes more tools
 
 * &lt;a href = "https://r4ds.had.co.nz/r-markdown.html"&gt;Rmarkdown&lt;/a&gt;
 * Shiny apps (interactive web apps)
@@ -246,13 +248,14 @@ Materials on Canvas, &lt;a href= "https://canvas.harvard.edu/courses/62068/assig
 
 ## Preparation
 
-1. Create a designated folder
+1. Create a designated folder (e.g. `PS-04`)
 2. Create subfolders for data, figures, etc..
 3. Download problem set and data files
-4. Create a Rstudio Project for that project folder
+4. Create a &lt;u&gt;Rstudio Project&lt;/u&gt; for that project folder
 
 ]
 
+--
 
 .pull-right[
 
@@ -280,8 +283,9 @@ class: center, middle
 
 ## Resources
 
-* &lt;u&gt;Class instructors&lt;/u&gt;
+* **Class instructors and resources**
 
+Also helpful:
 
 * Stackoverflow (.small[&lt;https://stackoverflow.com/&gt;])
 * Community boards (e.g. .small[&lt;http://community.rstudio.com&gt;])
@@ -297,11 +301,12 @@ class: center, middle
 
 .pull-right[
 
-## Stuck? Help us help you by making your errors reproducible
+## Stuck? 
+
+Help us help you by making your errors reproducible
 
 
-* Code
-* Screenshots
+* Code and/or Screenshots
 * Or even better: `reprex`
 
 

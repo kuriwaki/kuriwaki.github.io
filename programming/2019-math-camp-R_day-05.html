@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Math Camp R Sessions - Day 5</title>
+    <meta charset="utf-8" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan_style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Math Camp R Sessions - Day 5
+## Shiro Kuriwaki
+
+---
+
+class: middle
+
+
+
+
+
+
+
+# Day 5 Agenda
+
+## Discuss presentations
+## R Desktop
+## Getting help effectively
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+.small-note[
+**Notes:**
+
+\* References for today's material: &lt;a href = "https://whattheyforgot.org/"&gt;&lt;i&gt;What they forgot to teach you about R&lt;/i&gt;&lt;/a&gt; ch. &lt;a href = "https://whattheyforgot.org/save-source.html"&gt;1&lt;/a&gt; and &lt;a href = "https://whattheyforgot.org/project-oriented-workflow.html"&gt;2&lt;/a&gt;; &lt;a href = "https://rstudio-education.github.io/hopr"&gt;&lt;i&gt;Hands-on Programming with R&lt;/i&gt;&lt;/a&gt; ch. &lt;a href = "https://rstudio-education.github.io/hopr/starting.html"&gt;A&lt;/a&gt;.
+]
+
+
+---
+class: center, middle
+
+
+# Presentations
+
+
+
+---
+
+
+---
+class: center, middle
+
+
+# Getting to work with R Desktop
+
+---
+
+# Step 1: Create an API-209 folder
+
+.small[\* You can deviate this from later, but these are well-established practices worth trying first.]
+
+Choose a directory to put all your work in (e.g. `~/Dropbox`/ `C:\Dropbox`, or `~/Documents`)
+
+
+&amp;#x2B91; under it, create a `API-209` folder (avoid spaces in your folder names)
+
+&amp;#x2B91; under that, create a `Problem-Sets` folder
+
+&amp;#x2B91; under that, create folders `PS-01`, `PS-02`, .small[(adding a 0 makes it easy to sort when you get to `PS-10`)]
+
+&amp;#x2B91; for each problem set folder, create a `data` folders with subfolders `input` and `output` 
+
+
+.small-note[
+
+\* You can deviate this from later, but these are well-established practices worth trying first. It's better to try out some established convention rather than re-inventing the wheel. See e.g. &lt;a href="http://web.stanford.edu/~gentzkow/research/CodeAndData.pdf"&gt;"Code and Data for the Social Sciences: A Practitioner’s Guide"&lt;/a&gt; and &lt;a href="https://doi.org/10.1371/journal.pcbi.1005510"&gt;"Good enough practices in scientific computing"&lt;/a&gt; 
+]
+
+---
+
+# Step 2: Open RStudio from Applications
+
+&lt;img src="images/Rstudio-emptyproject.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Step 2(a): Change global options so restarting entails clean slate
+
+.pull-left[
+* Change your Global settings to &lt;u&gt;not&lt;/u&gt; save data
+]
+
+.pull-right[
+
+&lt;img src="images/rstudio-workspace.png" width="80%" /&gt;
+
+]
+
+---
+# Step 2(b): Install key packages
+
+&lt;br&gt;
+
+&lt;br&gt;
+
+You only need to do this once, so do this in the Console without any script
+
+
+```r
+install.packages(c("tidyverse", "readxl", "haven"))
+```
+
+You can install and update packages later.
+
+---
+
+# Step 3: Create a New Project
+
+* Toolbar `File` &gt; `New Project` or the icon: &lt;img / src = "images/project-add-icon.png"/&gt;
+
+.pull-left[
+
+&lt;img src="images/rstudio-project-existing.png" width="80%" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="images/rstudio-project-path.png" width="80%" /&gt;
+
+]
+
+---
+
+# Orient yourself - where is the working directory?
+
+1. The &lt;u&gt;project&lt;/u&gt; directory is wherever the `.Rproj` file is
+2. Rstudio Projects are created so that the &lt;mark&gt;working directory&lt;/mark&gt; defaults to the &lt;u&gt;project directory&lt;/u&gt;
+
+
+&lt;img src="images/rstudio-ps-01.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+* You can change working directories by the R command `setwd()`
+* You can change it back by Toolbar: `Session` &gt; `Set Working Directory` &gt; `To Project Directory`
+
+
+
+---
+
+# Practice Project-Oriented Workflow
+
+&lt;br&gt;
+
+.slarge[
+* Create an RStudio project &lt;u&gt;for each data analysis project&lt;/u&gt;.
+
+* Keep &lt;u&gt;data files&lt;/u&gt; there; we’ll talk about loading them into R in data import.
+
+* Keep &lt;u&gt;scripts&lt;/u&gt; there; edit them, run them in bits or as a whole.
+
+* Save your &lt;u&gt;outputs&lt;/u&gt; (plots and cleaned data) there.
+
+* Only ever use &lt;u&gt;relative paths&lt;/u&gt;, not absolute paths
+
+]
+
+.small-note[
+\* Taken from &lt;a href="https://r4ds.had.co.nz/workflow-projects.html"&gt;R for Data Science Chapter 8&lt;/a&gt; 
+]
+
+---
+# Remember: Your script location is independent from the project
+
+&lt;img src="images/project-mixup.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+.small-note[\* If you open a script for problem set 1 in the problem set 2 RStudio Project, the working directory still defaults to `Problem-Sets/PS-02`]
+
+
+
+
+---
+
+# Leverage the features of the RStudio IDE
+
+.pull-left[
+
+## Technically, R is only the Console
+
+&lt;img src="images/R-console.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+## RStudio is a GUI - access R _via_ RStudio
+
+&lt;img src="images/Rstudio-emptyproject.png" width="80%" /&gt;
+
+
+## As an IDE, Rstudio includes more advanced tools
+
+* &lt;a href = "https://r4ds.had.co.nz/r-markdown.html"&gt;Rmarkdown&lt;/a&gt;
+* Shiny apps (interactive web apps)
+* Terminal (command-line tools)
+* Git (version control)
+
+]
+
+
+---
+
+# Step 4: Test your Assignment
+
+&lt;br&gt;
+&lt;br&gt;
+
+Assignment for end of today (mandatory)
+
+&gt; Take your summer assignment R script you created, and adapt so that is both (a) &lt;u&gt;correct&lt;/u&gt; and (b) &lt;u&gt; replicable&lt;/u&gt; on a project. Create a project specific to the summer assignment. 
+
+Materials on Canvas, &lt;a href= "https://canvas.harvard.edu/courses/62068/assignments/303684"&gt; R day 5 exercise&lt;/a&gt;
+
+
+
+---
+
+# Running R for Problem Sets
+
+.pull-left[
+
+## Preparation
+
+1. Create a designated folder
+2. Create subfolders for data, figures, etc..
+3. Download problem set and data files
+4. Create a Rstudio Project for that project folder
+
+]
+
+
+.pull-right[
+
+## Analysis
+
+API-209 problem sets will generally be in a fillable word doc.
+
+&lt;img src="images/problemset-look.png" width="80%" /&gt;
+
+
+]
+
+
+---
+class: center, middle
+
+# Final Tips for your own R experience
+
+
+---
+
+# Take advantage of the R community
+
+.pull-left[
+
+## Resources
+
+* &lt;u&gt;Class instructors&lt;/u&gt;
+
+
+* Stackoverflow (.small[&lt;https://stackoverflow.com/&gt;])
+* Community boards (e.g. .small[&lt;http://community.rstudio.com&gt;])
+* Twitter?
+
+&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;What &lt;a href="https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#rstats&lt;/a&gt; tricks did it take you way too long to learn? One of mine is using readRDS and saveRDS instead of repeatedly loading from CSV&lt;/p&gt;&amp;mdash; Emily Riederer (@EmilyRiederer) &lt;a href="https://twitter.com/EmilyRiederer/status/898735640031920129?ref_src=twsrc%5Etfw"&gt;August 19, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+]
+
+
+--
+
+.pull-right[
+
+## Stuck? Help us help you by making your errors reproducible
+
+
+* Code
+* Screenshots
+* Or even better: `reprex`
+
+
+```r
+install.packages("reprex")
+library(reprex)
+```
+
+Copy the problematic code to your clipboard, 
+
+```r
+library(forcats)
+data(gss_cat)
+
+xtabs(rincome + race, gss_cat)
+```
+
+and separately run `reprex()`
+
+]
+
+---
+class: center, middle
+
+# Thanks!
+
+Please be sure to send us any feedback in the end of math camp survey.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"highlightSpans": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -103,7 +103,6 @@ Good recipes ...
 
 ]
 
---
 
 .pull-right[
 
@@ -176,7 +175,7 @@ Good recipes ...
 ## 1. Restart from a clean slate
 
 * Go to top toolbar, `Session` &gt; `Restart R`, or
-*  &amp;#x21e7; (shift) +  &amp;#x2318; (command)  + `0` (zero)
+*  &amp;#x21e7; (shift) +  &amp;#x2318; (command/control)  + `0` (zero)
 
 
 This will remove
@@ -201,17 +200,17 @@ Do **not** put `rm(list = ls())` at the beginning of your code. This only remove
 ## 2. Run all ("source") - and break on first error
 
 * Toolbar `Code` &gt; `Source`, or
-* &amp;#x21e7; (shift) + &amp;#x2318; (command) + `s` (the letter S, for source)
+* &amp;#x21e7; (shift) + &amp;#x2318; (command/control) + `s` (the letter S, for source)
 
 ## \* or run all and show output
 
 * Toolbar `Code` &gt; `Run Region` &gt; `Run All`, or
-* &amp;#x21e7; (shift) + &amp;#x2318; (command) + &amp;#x23ce; (enter)
+* &amp;#x21e7; (shift) + &amp;#x2318; (command/control) + &amp;#x23ce; (enter)
 
 ## \* or re-run only up to this line
 
 * Toolbar `Code` &gt; `Run Region` &gt; `Run All Chunks Above`, or
-* &amp;#x2325; (option/alt) +   &amp;#x2318; (command) + `b` (the letter B, for begin)
+* &amp;#x2325; (option/alt) +   &amp;#x2318; (command/control) + `b` (the letter B, for begin)
 
 .small[.right[\* For more shortcuts, see `Tools` &gt; `Keyboard Shortcut Help`]]
 ]
@@ -242,10 +241,6 @@ Paths are a way to specify the location of your file
 * **File extensions** are separated by a period `.` (`kuriwaki_shiro.R`, `scatterplot.pdf`)
 --
 
-* &lt;font color = "gray"&gt;Hidden folders start with a period&lt;/font&gt; (`.git`)
-
---
-
 There are important special characters:
 
 * **Root**: Starting with `/` (or `C:\` in Windows) means the top of computer  (avoid). `/cloud/project`
@@ -254,20 +249,26 @@ There are important special characters:
 * **Home**: Starting with a tilde `~/` means the default home directory -- varies by project. (`~/data/input`)
 --
 
-* **Relative paths**: Starting with no symbol means "wherever we are now".  (`data/input`)
+* &lt;mark&gt;Relative paths&lt;/mark&gt;: Starting with no symbol means "wherever we are now".  (`data/input`)
 --
 
-* Starting with a period `./` also means, wherever we are now (`.data/input`)
+* A period `./` also means, wherever we are now (`.data/input`)
 --
 
-* **Parent folder**: Starting with _two_ periods means the parent directory of where we are now (go back up one): `../projects/data/input`
+* **Parent folder**: &lt;u&gt;two&lt;/u&gt; periods move to parent folder (go back up one): `../projects/data/input`
+
+
+So where is the working directory?
+* It depends, but in RStudio, the working directory defaults to the project directory, which is wherever the `.Rproj` file is.
+* This is not permanent; you can modify the working directory any time.
+
 
 ---
 # Navigating paths - the basics
 
 Shell (or ba&lt;u&gt;sh&lt;/u&gt;, command-line) is a language to navigate folders outside of R
 
-* `pwd ` is -- show mme the &lt;u&gt;p&lt;/u&gt;resent (current) working directory (`getwd()` in R)
+* `pwd ` is -- show me the &lt;u&gt;p&lt;/u&gt;resent (current) working directory (`getwd()` in R)
 * `cd ` is -- &lt;u&gt;c&lt;/u&gt;hange the directory to the following path  (`setwd()` in R)
 
 

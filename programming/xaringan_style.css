@@ -13,6 +13,29 @@
   padding-bottom: 30px;
 }
 
+/* footer */
+div.my-footer {
+    background-color: #272822;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 20px;
+}
+
+div.my-footer span {
+	  font-size: 14px;
+  	color: #CC0000;
+    opacity: 0.5;
+  	font-family: 'Open Sans', sans-serif;
+    position: absolute;
+    bottom: 5px;
+    margin-bottom: -11.6px;
+    left: 35px;
+    height: 40px;
+    width: 120px;
+}
 
 .remark-code {
   font-family: 'Ubuntu Mono';
@@ -204,3 +227,5 @@ div.remark-slide {
   margin: 0;
   float: left;
 }
+
+

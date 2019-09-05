@@ -30,13 +30,22 @@ class: middle
 
 # Table of Contents
 
-.large[
-* [Day 1](#day1): tidyverse 
-* [Day 2](#day2): Beyond the tidyverse (base-R)
-* [Day 3](#day3): Visualization
-* [Day 4](#day4): Workflow
-* [Day 5](#day5): Setup and RStudio Desktop
-]
+* [&lt;b&gt;Day 1: tidyverse&lt;/b&gt;](#day1)
+    * [dplyr](#day01-dplyr)
+    * [ggplot](#day01-ggplot)
+* [&lt;b&gt;Day 2: Beyond the tidyverse (base-R)&lt;/b&gt;](#day2)
+    * [functions](#day02-functions)
+    * [base-R syntax](#day02-base-R)
+    * [function syntax](#day02-formula)
+* [&lt;b&gt;Day 3: Visualization&lt;/b&gt;](#day3)
+    * [princoples](#day03-principles)
+    * [technicalities](#day04-technicalities)
+* [&lt;b&gt;Day 4: Workflow&lt;/b&gt;](#day4)
+    * [workflow](#day04-workflow)
+    * [downloading R Desktop](#day04-download-rstudio)
+* [Day 5: Setup and RStudio Desktop](#day5)
+    * [desktop](#day05-desktop)
+    * [asking for help](#day05-getting-help)
 
 
 ---
@@ -61,7 +70,7 @@ class: middle
 4. Exporting and Presenting
 5. Presentations, preparing for classes
 
-.small[\* See syllabus on Canvas for details]
+.small[\* See &lt;a href="https://www.shirokuriwaki.com/programming/2019%20Math%20Camp%20R%20Syllabus.pdf"&gt;syllabus&lt;/a&gt; for details]
 ]
 
 
@@ -75,13 +84,12 @@ class: middle
 
 1. Login to &lt;https://rstudio.cloud&gt; and go to the Math Camp class space
 2. "Copy" the Day 1 project `02_Day-01`, which includes
-  - satasets
+  - datasets
   - exercise PDF
   - relevant packages
 3. During slides, try the code yourself + consult the cheatsheet: &lt;http://bit.ly/HKS-R&gt;
 4. Work in groups for exercises (in your own R scripts)
 5. Interrupt with questions and give me feedback on your index cards.
-
 
 ]
 
@@ -291,8 +299,7 @@ weo &lt;- read_excel("data/input/WEO-2018.xlsx")
 
 
 ---
-
-
+name: day01-dplyr
 
 # The `dplyr` package
 
@@ -795,6 +802,8 @@ ggplot(weo_large,
 
 ---
 class: middle, center
+name: day01-ggplot
+
 
 # The grammar of graphics
 
@@ -821,7 +830,7 @@ ggplot(data = gdp_by_year,
        y = "GDP per capita")
 ```
 
-&lt;img src="2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-29-1.svg" width="100%" /&gt;
+&lt;img src="2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-28-1.svg" width="100%" /&gt;
 
 ]
 
@@ -838,7 +847,7 @@ ggplot(data = gdp_by_year,
        y = "GDP per capita")
 ```
 
-&lt;img src="2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-30-1.svg" width="100%" /&gt;
+&lt;img src="2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-29-1.svg" width="100%" /&gt;
 
 ]
 
@@ -856,7 +865,7 @@ ggplot(data = gdp_by_year,
        y = "GDP per capita")
 ```
 
-&lt;img src="2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-31-1.svg" width="100%" /&gt;
+&lt;img src="2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-30-1.svg" width="100%" /&gt;
 
 ]
 
@@ -874,7 +883,7 @@ ggplot(data = gdp_by_year,
        y = "GDP per capita")
 ```
 
-&lt;img src="2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-32-1.svg" width="100%" /&gt;
+&lt;img src="2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-31-1.svg" width="100%" /&gt;
 
 ]
 
@@ -892,7 +901,7 @@ ggplot(data = gdp_by_year,
        y = "GDP per capita")
 ```
 
-&lt;img src="2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-33-1.svg" width="100%" /&gt;
+&lt;img src="2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-32-1.svg" width="100%" /&gt;
 
 ]
 
@@ -911,7 +920,7 @@ ggplot(data = gdp_by_year,
        y = "GDP per capita")
 ```
 
-&lt;img src="2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-34-1.svg" width="100%" /&gt;
+&lt;img src="2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-33-1.svg" width="100%" /&gt;
 
 ]
 
@@ -1043,6 +1052,8 @@ gdp_by_year &lt;- weo_long %&gt;%
 
 ---
 class: middle, center
+name: day02-functions
+
 
 # Function Anatomy
 
@@ -1206,7 +1217,7 @@ ggplot(gdp_by_year, aes(year, med_gdp)) +
   labs(x = "Year", y = "GDP per capita")
 ```
 
-&lt;img src="2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-53-1.svg" width="100%" /&gt;
+&lt;img src="2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-52-1.svg" width="100%" /&gt;
 
 ]
 
@@ -1433,6 +1444,8 @@ class: center, middle
 
 
 ---
+name: day02-base-R
+
 
 # Three broad flavors of syntax
 
@@ -2101,6 +2114,8 @@ mean(`pull`(weo, rgdp2019))
 
 ---
 class: center, middle
+name: day02-formula
+
 
 # Formula syntax
 
@@ -2204,7 +2219,9 @@ name: day3
 **Notes:**
 
 
-\* References for today's material: &lt;a href = "https://r4ds.had.co.nz"&gt;&lt;i&gt;R for Data Science&lt;/i&gt;&lt;/a&gt;  ch. &lt;a href = "https://r4ds.had.co.nz/data-visualisation.html"&gt;2&lt;/a&gt;; &lt;a href = "https://serialmentor.com/dataviz/"&gt;&lt;i&gt;Fundamentals of Data Visualization&lt;/i&gt;&lt;/a&gt; chs. &lt;a href = "https://serialmentor.com/dataviz/proportional-ink.html"&gt;17&lt;/a&gt; through &lt;a href = "https://serialmentor.com/dataviz/small-axis-labels.html"&gt;24&lt;/a&gt;; and &lt;a href = "https://www.youtube.com/watch?v=fSgEeI2Xpdc"&gt;&lt;i&gt;How Humans See Data&lt;/i&gt;&lt;/a&gt;.
+\* References for today's material: &lt;a href = "https://r4ds.had.co.nz"&gt;&lt;i&gt;R for Data Science&lt;/i&gt;&lt;/a&gt;  ch. &lt;a href = "https://r4ds.had.co.nz/data-visualisation.html"&gt;2&lt;/a&gt;; &lt;a href = "https://serialmentor.com/dataviz/"&gt;&lt;i&gt;Fundamentals of Data Visualization&lt;/i&gt;&lt;/a&gt; by Claus Wilke; chs. &lt;a href = "https://serialmentor.com/dataviz/proportional-ink.html"&gt;17&lt;/a&gt; through &lt;a href = "https://serialmentor.com/dataviz/small-axis-labels.html"&gt;24&lt;/a&gt;; and &lt;a href = "https://www.youtube.com/watch?v=fSgEeI2Xpdc"&gt;&lt;i&gt;How Humans See Data&lt;/i&gt;&lt;/a&gt; by John Rauser. 
+
+\* Most of the example graphs from this day are Claus Wilke's excellent book, and the presentation of the first section follows John Rauser's eye-opening talk. 
 ]
 
 ---
@@ -2217,6 +2234,7 @@ class: center, middle
 
 
 ---
+name: day03-principles
 
 # 1. Show the key message as a comparison of positions on a common scale
 
@@ -2286,7 +2304,7 @@ alesina &lt;- read_excel("data/input/intergenerational-mobility.xlsx")
 
 .right-plot[
 
-![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-120-1.svg)&lt;!-- --&gt;
+![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-119-1.svg)&lt;!-- --&gt;
 ]
 
 
@@ -2312,7 +2330,7 @@ Using: `geom_col()` with the `fill` aesthetic, reordering countries by `fct_reor
 
 .right-plot[
 
-![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-121-1.svg)&lt;!-- --&gt;
+![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-120-1.svg)&lt;!-- --&gt;
 ]
 
 ---
@@ -2337,7 +2355,7 @@ Using: defining a color scale with `scale_fill_distiller(palette = "Reds")`.
 
 .right-plot[
 
-![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-122-1.svg)&lt;!-- --&gt;
+![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-121-1.svg)&lt;!-- --&gt;
 
 ]
 
@@ -2364,7 +2382,7 @@ Using: `geom_segment()`
 
 .right-plot[
 
-![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-123-1.svg)&lt;!-- --&gt;
+![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-122-1.svg)&lt;!-- --&gt;
 ]
 
 
@@ -2390,7 +2408,7 @@ Using: `geom_col()`
 
 .right-plot[
 
-![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-124-1.svg)&lt;!-- --&gt;
+![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-123-1.svg)&lt;!-- --&gt;
 ]
 
 
@@ -2416,7 +2434,7 @@ Using: `geom_point()`
 
 .right-plot[
 
-![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-125-1.svg)&lt;!-- --&gt;
+![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-124-1.svg)&lt;!-- --&gt;
 ]
 
 ---
@@ -2441,7 +2459,7 @@ Using: `geom_point()`
 
 .right-plot[
 
-![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-126-1.svg)&lt;!-- --&gt;
+![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-125-1.svg)&lt;!-- --&gt;
 ]
 
 ---
@@ -2465,7 +2483,7 @@ Using: `geom_point()` and `geom_errorbar()`
 
 .right-plot[
 
-![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-127-1.svg)&lt;!-- --&gt;
+![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-126-1.svg)&lt;!-- --&gt;
 ]
 
 ---
@@ -2490,7 +2508,7 @@ Using: `geom_point()` and `geom_errorbar()`
 
 .right-plot[
 
-![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-128-1.svg)&lt;!-- --&gt;
+![](2019-math-camp-R_all-days_files/figure-html/unnamed-chunk-127-1.svg)&lt;!-- --&gt;
 ]
 
 ---
@@ -2534,7 +2552,7 @@ Using: `geom_point()` and `geom_errorbar()`
 ---
 
 
-**Solution**  In ggplot, "facet" your graphs by `facet_grid()` (a rigid table) or `facet_wrap()` (wrap long lines).
+**Solution**:  In ggplot, "facet" your graphs by `facet_grid()` (a rigid table) or `facet_wrap()` (wrap long lines).
 
 
 ```r
@@ -2549,7 +2567,6 @@ ggplot(weo_long, aes(x = year, y = (rgdp/pop), group = country)) +
 ---
 class: center, middle
 
-End of part 1 of 2
 
 &lt;mark&gt;Try Problem 7 part (1) &lt;/mark&gt;
 
@@ -2557,6 +2574,7 @@ End of part 1 of 2
 
 ---
 class: center, middle
+name: day03-technicalities
 
 
 # Important Technicalities
@@ -2744,15 +2762,7 @@ name: day4
 
 ## Workflow best practices
 ## RStudio and R Desktop
-## Review of Key functions via cheatsheet
-]
-
-.pull-right[
-# Preview Day 5
-
-1. Discuss submitted figure for assignment 1
-2. Memo presentation (three groups)
-3. Transitioning to Desktop and R on your own
+## Review of key functions via cheatsheet
 ]
 
 
@@ -2767,6 +2777,7 @@ name: day4
 
 ---
 class: middle
+name: day04-workflow
 
 
 # Workflow
@@ -2944,10 +2955,7 @@ class: center, middle
 
 ---
 
-# File Paths defines the location of a file
-
-
-Paths are a way to specify the location of your file
+# File paths  are a way to define the location of a file
 
 * **"Directory"** &amp;#x2248; "Folder".    "Working Directory" = The current folder
 * Paths are hierarchical: parent &amp;#x2192; child , separated by a **forward slash** `/` (`project/data/input`)
@@ -2956,11 +2964,13 @@ Paths are a way to specify the location of your file
 
 There are important special characters:
 
-* **Root**: Starting with `/` (or `C:\` in Windows) means the top of computer  (avoid). `/cloud/project`
+* **Root**: Starting with `/` (or `C:\` in Windows) means the top of computer. `/cloud/project`
 * **Home**: Starting with a tilde `~/` means the default home directory -- varies by project. (`~/data/input`)
 * &lt;mark&gt;Relative paths&lt;/mark&gt;: Starting with no symbol means "wherever we are now".  (`data/input`)
-* A period `./` also means, wherever we are now (`.data/input`)
+* A period `./` also means, wherever we are now (`./data/input`)
 * **Parent folder**: &lt;u&gt;two&lt;/u&gt; periods move to parent folder (go back up one): `../projects/data/input`
+
+.small[Note: you should almost never call the root directory, and very rarely call the home directory. Instead, do things in relative paths. Fast forward to &lt;a href="#rstudio-project"&gt;Rstudio Projects&lt;/a&gt;]
 
 
 So where is the working directory?
@@ -3014,6 +3024,7 @@ ggsave("figures/percapita_growth_figure.pdf")
 
 ---
 class: center, middle
+name: day04-download-desktop
 
 # Download R Desktop (in preparation for tomorrow)
 
@@ -3061,6 +3072,8 @@ GUI: Graphical User Interface
 
 ---
 class: middle, center
+name: day04-cheatsheet
+
 
 # Wrap-up and review of key commands
 
@@ -3131,12 +3144,9 @@ class: center, middle
 # Presentations
 
 
-
----
-
-
 ---
 class: center, middle
+name: name: day04-desktop
 
 
 # Getting to work with R Desktop
@@ -3221,6 +3231,7 @@ You can install and update packages later.
 ]
 
 ---
+name:rstudio-project
 
 # Orient yourself - where is the working directory?
 
@@ -3257,7 +3268,7 @@ You can install and update packages later.
 
 ---
 
-# Going beyond Defaults 
+# Going beyond defaults 
 
 .pull-left[
 
@@ -3356,6 +3367,7 @@ API-209 problem sets will generally be in a fillable word doc.
 
 ---
 class: center, middle
+name: day05-getting-help
 
 # Final Tips for your own R experience
 

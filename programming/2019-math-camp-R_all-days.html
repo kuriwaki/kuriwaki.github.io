@@ -27,6 +27,7 @@ class: middle
 
 
 
+.pull-left[
 
 # Table of Contents
 
@@ -38,7 +39,7 @@ class: middle
     * [base-R syntax](#day02-base-R)
     * [function syntax](#day02-formula)
 * [&lt;b&gt;Day 3: Visualization&lt;/b&gt;](#day3)
-    * [princoples](#day03-principles)
+    * [principles](#day03-principles)
     * [technicalities](#day04-technicalities)
 * [&lt;b&gt;Day 4: Workflow&lt;/b&gt;](#day4)
     * [workflow](#day04-workflow)
@@ -47,6 +48,19 @@ class: middle
     * [desktop](#day05-desktop)
     * [asking for help](#day05-getting-help)
 
+]
+
+.pull-right[
+
+# About these slides
+
+These slides were prepared for the MPA-ID cohort's 2019 Math Camp. See it in conjunction with the &lt;a href = "https://www.shirokuriwaki.com/programming/2019 Math%20Camp%20R%20Syllabus.pdf"syllabus&lt;/a&gt; for more resources.
+
+Slides are originally compiled in HTML, so for best results see the &lt;a href="https://www.shirokuriwaki.com/programming/2019-math-camp-R_all-days.html"&gt;web version&lt;/a&gt; on a browser. The PDF version is a print-out of the version, so may crops out code windows that could be scrolled across horizontally in the web version.
+
+Contact Shiro Kuriwaki (kuriwaki@g.harvard.edu) for more information.
+
+]
 
 ---
 
@@ -1134,7 +1148,7 @@ Sys.Date()
 ```
 
 ```
-## [1] "2019-09-04"
+## [1] "2019-09-05"
 ```
 
 .small[.right[(prints the date regardless of input)]]
@@ -2194,16 +2208,7 @@ layout: true
 &lt;div class="my-footer"&gt;&lt;span&gt;Day 3&lt;/span&gt;&lt;/div&gt;
 
 
----
 
-
-```r
-library(tidyverse)
-library(readxl)
-
-weo_long &lt;- read_csv("data/input/WEO-2018_long.csv")
-alesina &lt;- read_excel("data/input/intergenerational-mobility.xlsx")
-```
 
 ---
 class: middle
@@ -2724,8 +2729,11 @@ ggplot(stocks,
 
 ---
 
-# 4. Default color scales can be indistinguishable in grayscale or for colorblind readers
+# 4. Default colors can be indistinguishable in grayscale
 
+or for colorblind readers
+
+\vspace{-2em}
 
 .pull-left[
 
@@ -2970,7 +2978,7 @@ There are important special characters:
 * A period `./` also means, wherever we are now (`./data/input`)
 * **Parent folder**: &lt;u&gt;two&lt;/u&gt; periods move to parent folder (go back up one): `../projects/data/input`
 
-.small[Note: you should almost never call the root directory, and very rarely call the home directory. Instead, do things in relative paths. Fast forward to &lt;a href="#rstudio-project"&gt;Rstudio Projects&lt;/a&gt;]
+.small[\* You almost never call the root directory, and rarely call the home directory. Instead, do things in relative paths. Fast forward to &lt;a href="#rstudio-project"&gt;RStudio Projects&lt;/a&gt;]
 
 
 So where is the working directory?

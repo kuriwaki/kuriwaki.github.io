@@ -1,3 +1,10 @@
 a.is-icon {
     border-bottom: none;
 }
+
+.centerImage
+{
+ text-align:center;
+ display:block;
+}
+</style>

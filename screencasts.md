@@ -19,7 +19,7 @@ All code here uses R conforms to the tidyverse style and often uses tidyverse sy
 ## Workflow
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/399959368?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/399959368?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
 </div>
 
@@ -34,15 +34,15 @@ All code here uses R conforms to the tidyverse style and often uses tidyverse sy
 4. coefficient plots (putting 1-3 together)
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/366640411?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/366640411?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/366640702?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/366640702?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
 </div>
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/366640713?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/366640713?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/366640727?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/366640727?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
 </div>
 
@@ -55,11 +55,11 @@ Using `cv.glmnet` to
 3. making predictions
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/371322839?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/371322839?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/371322878?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/371322878?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/371322903?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/371322903?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
 </div>
 
@@ -68,9 +68,9 @@ Using `cv.glmnet` to
 ### Fixed Effects
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/388825261?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/388825261?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/388825307?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/388825307?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
 </div>
 
@@ -79,7 +79,7 @@ Using `cv.glmnet` to
 ### Instrumental Variables
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/406629459?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/406629459?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
 </div>
 
@@ -90,9 +90,9 @@ Using `cv.glmnet` to
 2. Estimating RD coefficients
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/400826628?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/400826628?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/400826660?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/400826660?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
 </div>
 
@@ -104,9 +104,9 @@ Using `cv.glmnet` to
 Thanks to Oscar Torres-Reyna for the data (http://princeton.edu/~otorres/DID101R.pdf).
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/409267138?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/409267138?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/409267190?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/409267190?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
 </div>
 
@@ -117,7 +117,7 @@ Thanks to Oscar Torres-Reyna for the data (http://princeton.edu/~otorres/DID101R
 - Also see the function basics tutorial <rstudio.cloud/learn/primers/6.1> for background
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/388825332?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/388825332?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
 </div>
 
@@ -128,6 +128,6 @@ Thanks to Oscar Torres-Reyna for the data (http://princeton.edu/~otorres/DID101R
 - merging in other variables into sf dataframes
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/394800836?byline=0&byline=0&portrait=0" height="540" width="640" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/394800836?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">
     </iframe>
 </div>

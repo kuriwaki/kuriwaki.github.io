@@ -1,16 +1,8 @@
 ---
-layout: page
+layout: default
 title: "Screencasts for Programming Topics in Statistics and Econometrics"
-slug: Screencasts
 permalink: /screencasts/
 ---
-
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="/stylesheets/styles.css">
-  <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
-  <script src="https://kit.fontawesome.com/9745af1226.js"></script>
-</head>
 
 
 # Screencasts

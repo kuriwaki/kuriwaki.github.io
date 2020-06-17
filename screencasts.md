@@ -5,6 +5,14 @@ slug: Screencasts
 permalink: /screencasts/
 ---
 
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+  <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+  <script src="https://kit.fontawesome.com/9745af1226.js"></script>
+</head>
+
+
 # Screencasts
 
 All the following screencasts were designed as _short_ guided introductions for particular statistical concepts. They are probably best used as links in problem sets that students can refer to at their own pace, before they set out to tackle harder, open-ended questions.

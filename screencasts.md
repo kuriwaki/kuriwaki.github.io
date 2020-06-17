@@ -7,6 +7,9 @@ permalink: /screencasts/
 
 # Screencasts
 
+__Shiro Kuriwaki__
+
+
 The following screencasts were designed as _short_ guided introductions for particular statistical concepts. They are probably best used as links in problem sets that students can refer to at their own pace, before they set out to tackle harder, open-ended questions.
 
 All code uses R conforms to the tidyverse style and often uses tidyverse syntax, and uses real dataset that can be loaded on any R environment quickly (e.g. through a package built-in dataset). It is geared towards advanced undergraduates or a masters class where students already have some familiarity with probability and inference.
@@ -119,7 +122,7 @@ Thanks to Oscar Torres-Reyna for the data (http://princeton.edu/~otorres/DID101R
 
 ## Defining Functions
 
-Arguments, body, and return statement. Also see the [rstudio.cloud/learn/primers/6.1](function basics tutorial) for background.
+Arguments, body, and return statement. Also see the [function basics tutorial](rstudio.cloud/learn/primers/6.1) for background.
 
 <div class="video-container">
     <iframe src="https://player.vimeo.com/video/388825332?byline=0&byline=0&portrait=0" height="270" width="320" frameborder="0">

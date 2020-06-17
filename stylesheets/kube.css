@@ -46,8 +46,7 @@ svg:not(:root) {
   overflow: hidden; }
 
 iframe {
-  border: none;
-  width: 100%; }
+  border: none}
 
 button,
 [type="submit"] {

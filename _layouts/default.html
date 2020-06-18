@@ -2,17 +2,31 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>{{ page.title }}</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/stylesheets/styles.css">
     <link rel="stylesheet" href="/stylesheets/kube.css">
     <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+      <link rel="stylesheet" href="stylesheets/academicons.min.css">
+      <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://kit.fontawesome.com/9745af1226.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166018803-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-166018803-1');
+    </script>
   </head>
   <body>
-
-   {% include navigation.html %}
 
     {{ content }}
   </body>

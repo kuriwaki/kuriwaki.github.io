@@ -4,6 +4,8 @@ title: "Screencasts for Programming Topics in Statistics and Econometrics"
 permalink: /screencasts/
 ---
 
+<a href="/">Home</a>
+
 # Screencasts
 
 **Shiro Kuriwaki**

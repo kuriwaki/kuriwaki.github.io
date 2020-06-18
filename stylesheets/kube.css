@@ -118,14 +118,6 @@ input[type="search"]::-webkit-search-cancel-button {
 .icon-kube-search:before {
   content: "\e907"; }
 
-html {
-  font-size: 1em; }
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: #111113;
-  line-height: 1.5; }
-
 a {
   color: #2b8ab6; }
 

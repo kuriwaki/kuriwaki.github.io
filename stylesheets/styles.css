@@ -4,7 +4,15 @@ body {
   padding:50px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#2d2d2d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-weight:300;
+}
+
+
+header {
+  width:270px;
+  float:left;
+  position:fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -62,7 +70,7 @@ a small {
 }
 
 .wrapper {
-  width:860px;
+  width:1020px;
   margin:0 auto;
 }
 
@@ -111,11 +119,6 @@ img {
   max-width:100%;
 }
 
-header {
-  width:270px;
-  float:left;
-  position:fixed;
-}
 
 header ul {
   list-style:none;
@@ -176,9 +179,10 @@ header ul a strong {
 }
 
 section {
-  width:700px;
+  width:650px;
   float:right;
-  padding-right:100px;
+  padding-left:20px;
+  padding-right:20px;
   padding-bottom:50px;
 }
 

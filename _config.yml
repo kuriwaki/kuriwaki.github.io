@@ -1,3 +1,13 @@
+# Site Settings
+locale                   : "en-US"
+title                    : "Shiro Kuriwaki"
+title_separator          : "-"
+name                     : "Shiro Kuriwaki"
+url                      : "https://kuriwaki.github.io"
+baseurl                  : "/"
+repository               : "kuriwaki/kuriwaki.github.io"
+logo                     : "favicon.ico"
+
 sass:
   sass_dir: _sass
   style: compact # possible values: nested expanded compact compressed

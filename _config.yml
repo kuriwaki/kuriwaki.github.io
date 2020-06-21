@@ -6,7 +6,7 @@ name                     : "Shiro Kuriwaki"
 url                      : "https://kuriwaki.github.io"
 baseurl                  : "/"
 repository               : "kuriwaki/kuriwaki.github.io"
-logo                     : "favicon.ico"
+logo                     : "/favicon.ico"
 
 sass:
   sass_dir: _sass

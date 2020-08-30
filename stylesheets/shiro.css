@@ -21,3 +21,23 @@ a.is-icon {
     width: 25%;
     height: 100%;
 }
+
+
+/* blockquotes */
+
+details[open] {
+  margin: 2em 1em 2em 0;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-style: italic;
+  border-left: 0.25em solid $primary-color;
+  background-color: #f6f7f8;
+
+  cite {
+    font-style: italic;
+
+    &:before {
+      padding-right: 5px;
+    }
+  }
+}

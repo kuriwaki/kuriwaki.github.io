@@ -20,3 +20,16 @@ details[open] {
     }
   }
 }
+
+
+
+img {
+    max-width: 100%;
+}
+
+.headshot {
+  max-width: 80%;
+  height: auto;
+  margin-left: 40px;
+  margin-right: 40px;
+}

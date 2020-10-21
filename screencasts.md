@@ -22,7 +22,7 @@ _Contents_: [Package Setup](#package-setup), [lm](#ols), [LASSO](#lasso), [Fixed
 Installing vs. loading scripts, basic structure and sections of a script, function masking.
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/399959368?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/399959368?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
 </div>
 
@@ -36,15 +36,15 @@ Running linear regression, formulas, options to the `lm` function:
 4.  Coefficient plots using `ggplot2` (putting 1-3 together)
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/366640411?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/366640411?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/366640702?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/366640702?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
 </div>
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/366640713?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/366640713?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/366640727?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/366640727?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
 </div>
 
@@ -57,11 +57,11 @@ Using `cv.glmnet` to
 3.  Making predictions with `predict` with the testing dataset, generic functions.
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/371322839?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/371322839?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/371322878?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/371322878?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/371322903?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/371322903?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
 </div>
 
@@ -70,9 +70,9 @@ Using `cv.glmnet` to
 Fixed effects syntax with `lfe::felm`, adjusting for clustered errors.
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/388825261?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/388825261?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/388825307?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/388825307?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
 </div>
 
@@ -81,7 +81,7 @@ Fixed effects syntax with `lfe::felm`, adjusting for clustered errors.
 Instrumental variables as an omitted variable problem, using both `AER::ivreg` and `lfe::felm` packages. Uses the proximity to college dataset by Card (1994).
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/406629459?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/406629459?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
 </div>
 
@@ -93,9 +93,9 @@ Visualizing regression discontinuity, estimating coefficients with interactions,
 2.  Estimating RD coefficients
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/400826628?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/400826628?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/400826660?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/400826660?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
 </div>
 
@@ -109,9 +109,9 @@ Time series data, long form, plotting time trends, interactions, 2 by 2 differen
 Thanks to Oscar Torres-Reyna for the data (<http://princeton.edu/~otorres/DID101R.pdf>).
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/409267138?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/409267138?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/409267190?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/409267190?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
 </div>
 
@@ -120,7 +120,7 @@ Thanks to Oscar Torres-Reyna for the data (<http://princeton.edu/~otorres/DID101
 Arguments, body, and return statement. Also see the [function basics tutorial](rstudio.cloud/learn/primers/6.1) for background.
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/388825332?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/388825332?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
 </div>
 
@@ -129,6 +129,6 @@ Arguments, body, and return statement. Also see the [function basics tutorial](r
 Choropleth maps using `sf` objects in `ggplot2`, merging in other variables into sf dataframes.
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/394800836?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="0">
+    <iframe src="https://player.vimeo.com/video/394800836?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
 </div>

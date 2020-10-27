@@ -36,12 +36,12 @@ ul.dashed {
 }
 
 ul.dashed>li {
-  text-indent: -5px;
+  text-indent: -10px;
 }
 
 ul.dashed>li:before {
   content: "- ";
-  text-indent: -5px;
+  text-indent: -10px;
 }
 
 h1, h2, h3 {
@@ -117,9 +117,6 @@ th {
   color: #444;
 }
 
-img {
-  max-width: 100%;
-}
 
 header ul {
   list-style: none;

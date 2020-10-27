@@ -8,6 +8,8 @@ details[open] {
   margin: 2em 1em 2em 0;
   padding-left: 1em;
   padding-right: 1em;
+  padding-bottom: 1em;
+  padding-top: 0.1em;
   font-style: italic;
   border-left: 0.25em solid $primary-color;
   background-color: #f6f7f8;
@@ -20,7 +22,6 @@ details[open] {
     }
   }
 }
-
 
 
 img {

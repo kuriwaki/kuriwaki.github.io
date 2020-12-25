@@ -8,6 +8,14 @@ baseurl                  : "/"
 repository               : "kuriwaki/kuriwaki.github.io"
 logo                     : "/favicon.ico"
 
+# Analytics
+analytics:
+  provider               : "google-gtag" # false (default), "google", "google-universal", "google-gtag", "custom"
+  google:
+    tracking_id          : "UA-166018803-1"
+    anonymize_ip         : # true, false (default)
+
+
 sass:
   sass_dir: _sass
   style: compact # possible values: nested expanded compact compressed

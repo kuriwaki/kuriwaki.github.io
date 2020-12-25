@@ -15,30 +15,15 @@
   <script src="https://kit.fontawesome.com/9745af1226.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166018803-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-166018803-1');
-  </script>
   {% include head/custom.html %}
 </head>
 
 <body>
-
 {% include bio.html %}
 
 {{ content }}
 
+{% include scripts.html %}
 </body>
 
 </html>

@@ -1,5 +1,11 @@
 main:
-  - title: "About"
-    url: /#about
+  - title: "Papers"
+    url: /#jmp
+  - title: "Book"
+    url: /#book
   - title: "Teaching"
     url: /#teaching
+  - title: "R Screencasts"
+    url: /screencasts
+  - title: "Datasets"
+    url: /#datasets

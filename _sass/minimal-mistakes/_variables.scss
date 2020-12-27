@@ -114,8 +114,8 @@ $xing-color: #006567 !default;
 $link-color: mix(#000, $info-color, 20%) !default;
 $link-color-hover: mix(#000, $info-color, 20%) !default;  /* same as link-color, edit */
 $link-color-visited: mix(#000, $info-color, 20%) !default; /* same as link-color, edit */
-$masthead-link-color: $primary-color !default;
-$masthead-link-color-hover: mix(#000, $primary-color, 25%) !default;
+$masthead-link-color: $text-color !default; /* same as text-color, edit */
+$masthead-link-color-hover: $text-color !default; /* same as text-color, edit */
 $navicon-link-color-hover: mix(#fff, $primary-color, 75%) !default;
 
 /* syntax highlighting (base16) */

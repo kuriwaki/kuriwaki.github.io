@@ -1,11 +1,11 @@
 main:
-  - title: "<b>Papers</b>"
+  - title: "<b>Research</b>"
     url: /#jmp
-  - title: "<b>Book</b>"
-    url: /#book
   - title: "<b>Teaching</b>"
     url: /#teaching
   - title: "<b>R Screencasts</b>"
     url: /screencasts
   - title: "<b>Datasets</b>"
     url: /#datasets
+  - title: "<b>C.V.</b>"
+    url: /cv/kuriwaki_cv.pdf

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: blank
 title: "Teaching Math and Programming in Political Science: Best Practices for Common Challenges"
 permalink: /teacher-training/
 ---

@@ -7,6 +7,7 @@ permalink: /teacher-training/
 <a href="/">Home</a>
 
 
+# Teaching Math and Programming in Political Science: Best Practices for Common Challenges
 
 ### People
 Instructors

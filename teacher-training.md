@@ -10,10 +10,12 @@ permalink: /teacher-training/
 # Teaching Math and Programming in Political Science: Best Practices for Common Challenges
 
 ### People
-Instructors
+
+_Instructors_
+
 Shiro Kuriwaki and Soichiro Yamauchi
 
-Content Advised by
+_Content Advised by_
 
 Joe Blitzstein (Department of Statistics, Professor of the Practice),
 Matt Reichert (Department of Government, Pedagogy Fellow), 

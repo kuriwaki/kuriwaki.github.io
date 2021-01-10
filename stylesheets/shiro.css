@@ -1,5 +1,9 @@
+/* https://css-tricks.com/tips-aligning-icons-text/#tip-4-use-css-to-fine-tune-the-appearance */
 a.is-icon {
-    border-bottom: none;
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 5px;
+  left: 5px;
 }
 
 

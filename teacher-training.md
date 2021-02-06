@@ -40,7 +40,7 @@ To maximize the effectiveness of the time together, we ask attendees to do two t
 
 This plan was designed for a group of 16 people on Zoom, divided into four breakout groups.
 
-|                                 |        |
+
 |:--------------------------------|-------:|
 | Introductions                   | 15 min |
 | **Identifying Common Challenges** | 25 min |
@@ -63,8 +63,9 @@ What to infer from course evaluations
 
 Watch and discuss: If you were a student, what would discourage you from learning?
 
--   "[Bad example of teaching](https://www.youtube.com/watch?v=-ApVt04rB4U)" (prepared by Greg Wilson)                                                                      |      |
--   An attempt for something better in R                                                                                                                                    |      |
+-   "[Bad example of teaching](https://www.youtube.com/watch?v=-ApVt04rB4U)" (prepared by Greg Wilson)
+-   An attempt for something better in R
+
 
 #### Informative Exercises
 

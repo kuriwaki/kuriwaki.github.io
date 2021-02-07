@@ -78,7 +78,7 @@ Cognitive Load and Formative Assessments
 
 Code Demonstrations, Problem Set Design
 
-Discussion question based on a 50 minute recording from Soichiro's section that participants were asked to watch beforehand 
+Discussion question based on a [a case](programming/Case 2021-TF-training.pdf): 50 minute recording from Soichiro's section that participants were asked to watch beforehand 
 
 -   Choosing a Topic: Do you think the list experiment example is appropriate for reviewing point estimation and standard errors?
 -   Engagement on Zoom: How would you increase the engagement more than what we saw in the recording?

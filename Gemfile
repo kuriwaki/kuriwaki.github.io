@@ -5,3 +5,4 @@ gem "jekyll-include-cache"
 
 # github security update
 gem "nokogiri", ">= 1.11.0.rc4"
+gem "kramdown", ">= 2.3.1"

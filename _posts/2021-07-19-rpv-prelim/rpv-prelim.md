@@ -100,6 +100,9 @@ The results should be considered preliminary while more model checking is done. 
 * The microdata that inform the synthetic population estimators are the CCES itself. Therefore, any unobsereved unrepresentativeness in the survey sample may simply be passed on to the post-stratification.
 
 
+Unfortunately, the party registration breakdown or the race breakdown among the electorate is not available uniformly in all 50 states, and depends on each state's voterfile. States that have race on the voter file are mostly in the South (see aforementioned dissertation chapter). A method that tries to use race or party registration from the voterfile to post-stratify must have a reliable way to impute across these states. 
+
+
 ### Acknowledgements
 
-This work was informed and received assistance from Stephen Ansolabehere, Douglas Rivers, Andrew Gelman, Yair Ghitza, Angelo Dagonel, Lauren Kennedy, Jonathan Robinson, and Soichiro Yamauchi. It is enabled by support from NSF grant [1926424](https://nsf.gov/awardsearch/showAward?AWD_ID=1926424). Any errors remain my own.
+This work was informed by, and received assistance from, Stephen Ansolabehere, Douglas Rivers, Andrew Gelman, Yair Ghitza, Angelo Dagonel, Lauren Kennedy, Jonathan Robinson, and Soichiro Yamauchi. It is enabled by support from NSF grant [1926424](https://nsf.gov/awardsearch/showAward?AWD_ID=1926424). Any errors remain my own.

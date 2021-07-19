@@ -19,10 +19,13 @@ It is a relatively simple quantity but measurement is challenging. Election resu
 
 ***Racially Polarized Voting (2016 Presidential)***
 
-<iframe src="../programming/rpv_g2016.html" title="Racially Polarized Voting ( 2016 Presidential)" scrolling="no" seamless="seamless" width="100%" style="height: 40vh;" frameBorder="0"></iframe>
+<iframe src="../programming/rpv_g2016.html" title="Racially Polarized Voting (2016 Presidential)" scrolling="no" seamless="seamless" width="100%" style="height: 40vh;" frameBorder="0"></iframe>
 
-This compares the estimated Trump vote among Whites in the 2016 electorate, and substracts off the Trump vote among Non-Whites.  Below I show the Trump vote estimates that comprise this difference.
+The following main figure: compares the estimated Trump vote among Whites in the 2016 electorate, and substracts off the Trump vote among Non-Whites.  
 
+The three congressional districts (CD) with the **lowest** estimated RPV between Whites and Non-Whites are _HI-01_ (Honolulu), _CA-12_ (San Francisco), and _CA-34_ (Downtown Los Angeles). The three CDs with the **highest** estimated RPV are all in Mississippi: _MS-02_ (Mississippi Delta and Jackson), _MS-03_ (Southwestern and eastern Mississippi), and _MS-01_ (Northeastern Mississippi). Hover over each CD to see the exact numbers.
+
+Below I show the Trump vote estimates that comprise this difference.
 
 **Estimated Trump Vote among White Voters, by CD**
 

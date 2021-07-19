@@ -19,7 +19,7 @@ It is a relatively simple quantity but measurement is challenging. Election resu
 
 ***Racially Polarized Voting (2016 Presidential)***
 
-<iframe src="../programming/rpv_g2016.html" title="Racially Polarized Voting ( 2016 Presidential)" scrolling="no" seamless="seamless" width="100%" style="height: 30vh;" frameBorder="0"></iframe>
+<iframe src="../programming/rpv_g2016.html" title="Racially Polarized Voting ( 2016 Presidential)" scrolling="no" seamless="seamless" width="100%" style="height: 40vh;" frameBorder="0"></iframe>
 
 This compares the estimated Trump vote among Whites in the 2016 electorate, and substracts off the Trump vote among Non-Whites.  Below I show the Trump vote estimates that comprise this difference.
 

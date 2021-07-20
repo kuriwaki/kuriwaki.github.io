@@ -13,13 +13,15 @@ permalink: "/rpv-mrp/"
 
 Here I present preliminary survey-based estimates of Racial Polarized Voting (RPV) by Congressional District. It is part of other ongoing work with Stephen Ansolabehere, and Angelo Dagonel.
 
-Racially Polarized Voting (RPV) is defined here as the level of support for one party (here Donald Trump vs. Hilary Clinton in 2016) _among_ one racial group compared to the same level for the same party but in another racial group. RPV is the basis for much of racial redistricting, flowing from the interpretation of Section 2 of the Voting Rights Act (VRA) in _Thornburg v. Gingles_ (1986). The VRA protects the rights of a racial minority to elect a candidate of their choice. Therefore a RPV of 0 (both groups have equal support) suggests drawing majority-Black or majority minority districts are not justified. A RPV of 100% (one group completely supports one party and the other group the other party) suggests a justification to draw districts so a cohesive racial minority can elect their preferred candidate in at least some of the seats.  _Alabama Legislative Black Caucus v. Alabama_ (2015) further called for RPV analysis to take a district by district approach.
+Racially Polarized Voting (RPV) is defined here as the difference in level of support for one party (here Donald Trump vs. Hilary Clinton in 2016) among one racial group and the same level for the same party but in _another_ racial group. 
+
+RPV is an important condition to consider race in redistricting, following how the Supreme Court interpreted Section 2 of the Voting Rights Act (VRA) in _Thornburg v. Gingles_ (1986). The VRA protects the rights of a racial minority to elect a candidate of their choice. Therefore a RPV of 0 (both groups have equal support) suggests drawing majority-Black or majority minority districts are not justified. A RPV of 100% (one group completely supports one party and the other group the other party) suggests a justification to draw districts so a cohesive racial minority can elect their preferred candidate in at least some of the seats.  _Alabama Legislative Black Caucus v. Alabama_ (2015) further called for RPV analysis to take a district by district approach.
 
 RPV is a relatively simple quantity to define, but its measurement is challenging. Election results only provide aggregate vote choice and Census demographics provide only aggregate racial breakdowns. Voterfiles do not measure who a voter voted for. My approach uses survey data, which does not suffer from such ecological inference problems. Of course, surveys are known to be unreliable in their own ways: left unadjusted, they are unrepresentative and too sparse for small subgroups. To overcome the problems inherent in surveys, I use a set of statistical methods called multilevel regression and post-stratification (MRP).
 
 ***Racially Polarized Voting (2016 Presidential)***
 
-The following main figure compares the estimated Trump vote among Whites in the 2016 electorate, and subtracts off the Trump vote among Non-Whites.  
+The following main figure compares the estimated Trump vote (as a proportion of the two party vote) among Whites in the 2016 electorate, and subtracts off the Trump vote among Non-Whites. I use Daily Kos's congressional district shapefile (<http://dkel.ec/map>) which nicely represents CDs in similar population while retaining the shape and rough location of the CDs within a state.
 
 <iframe src="../programming/rpv_g2016.html" title="Racially Polarized Voting (2016 Presidential)" scrolling="no" seamless="seamless" width="100%" style="height: 40vh;" frameBorder="0"></iframe>
 
@@ -43,6 +45,7 @@ Below I show the Trump vote estimates that comprise this difference. It shows ho
 
 <iframe src="../programming/rpv_g2016_black.html" scrolling="no" seamless="seamless" width="80%" style="height: 25vh;" frameBorder="0"></iframe>
 
+MRP estimates the variation around each estimate by the posterior distribution. The average width of the 80 percent credible interval across the 435 estimates is 1.3 percentage points (pp) for Whites, 3.7 pp for Blacks, and 6.0 pp for Hispanics. If this were a frequentist confidence interval, it would suggest an average Standard Error around each estimate of about 0.5 pp for Whites, 1.4 pp for Blacks, and 2.4 pp for Hispanics.
 
 ### Methods and Source Code
 
@@ -95,9 +98,11 @@ Finally, for each CD in each of the 2,000 iterations, I calibrated all the cell'
 
 The results should be considered preliminary as more model checking is conducted. It may be possible to address other limitations or insufficient control in this model:
 
-* The estimates are not weighted to (i.e. modeled or post-stratified by) party registration or past vote cells. My [dissertation](https://dash.harvard.edu/handle/1/37368520), chapter 4, shows that post-stratifying on party registration can improve the representatives of survey estimates. 
-* The estimates are not weighted to race and age distributions of each _electorate_ at the congressional district level. It _is_ weighted to the race, age, and education distributions of the general adult population for each CD before the turnout model is applied.
-* The microdata that inform the synthetic population estimators are the CCES itself. Therefore, any unobsereved unrepresentativeness in the survey sample may simply be passed on to the post-stratification.
+1. The estimates are not weighted to (i.e. modeled or post-stratified by) party registration or past vote cells. My [dissertation](https://dash.harvard.edu/handle/1/37368520), chapter 4, shows that post-stratifying on party registration can improve the representatives of survey estimates. 
+2. The estimates are not weighted to race and age distributions of each _electorate_ at the congressional district level. It _is_ weighted to the race, age, and education distributions of the general adult population for each CD before the turnout model is applied.
+3. The model that specifies turnout probabilities may be underspecified.
+4. The calibration to election outcomes assumes a uniform shift. For example, suppose we only controlled for race and a district has three racial groups. The algorithm will find a correction _d_ that is the same for all three racial groups. In other words, it assumes away the possibility that, e.g. the Trump vote is underestimated for Whites but overestimated for Blacks.
+5. The microdata that inform the synthetic population estimators are the CCES itself. Therefore, any unobsereved unrepresentativeness in the survey sample may simply be passed on to the post-stratification.
 
 
 Unfortunately, the party registration breakdown or the race breakdown among the electorate is not available uniformly in all 50 states, and depends on each state's voterfile. States that have race on the voter file are mostly in the South (see aforementioned dissertation chapter). A method that tries to use race or party registration from the voterfile to post-stratify must have a reliable way to impute across these states. 

@@ -29,23 +29,25 @@ The three congressional districts (CD) with the **lowest** estimated RPV between
 
 There are some interesting regional and urban-rural  patterns. The South has the highest Racial Polarized voting, but parts of the Midwest have high RPV too. Within a state, some districts differ from their state mean:  GA-05 (Downtown Atlanta) has a much lower RPV compared to other Georgia districts because only 28% of White voters voted for Trump. 
 
-Below I show the Trump vote estimates that comprise this difference. It shows how Black voters are do not differ in their party support across regions, but Hispanic voters do.
+Below I show the Trump vote estimates that comprise this difference. In all three maps, gradations of pink indicate Trump vote in the racial group to be more than 50-50, and gray gradations indicate a less than 50-50 Trump vote.  It shows how Black voters are do not differ in their party support across regions, but Hispanic voters do. 
 
-**Estimated Trump Vote among White Voters, by CD**
+_Estimated Trump Vote among **White** Voters, by CD_
 
 <iframe src="../programming/rpv_g2016_white.html" title="Estimated Trump Vote among Whites, by CD" scrolling="no" seamless="seamless" width="80%" style="height: 25vh;" frameBorder="0"></iframe>
 
 
-***Estimated Trump Vote among Hispanic Voters, by CD***
+_Estimated Trump Vote among **Hispanic** Voters, by CD_
 
 <iframe src="../programming/rpv_g2016_hisp.html" scrolling="no" seamless="seamless" width="80%" style="height: 25vh;" frameBorder="0"></iframe>
 
 
-***Estimated Trump Vote among Black Voters, by CD***
+_Estimated Trump Vote among **Black** Voters, by CD_
 
 <iframe src="../programming/rpv_g2016_black.html" scrolling="no" seamless="seamless" width="80%" style="height: 25vh;" frameBorder="0"></iframe>
 
-MRP estimates the variation around each estimate by the posterior distribution. The average width of the 80 percent credible interval across the 435 estimates is 1.3 percentage points (pp) for Whites, 3.7 pp for Blacks, and 6.0 pp for Hispanics. If this were a frequentist confidence interval, it would suggest an average Standard Error around each estimate of about 0.5 pp for Whites, 1.4 pp for Blacks, and 2.4 pp for Hispanics.
+
+
+MRP estimates the variation around each estimate by the posterior distribution. The 80 percent credible interval across the 435 estimates is ±0.6 percentage points (pp) for Whites, 1.8 pp for Blacks, and 3.1 pp for Hispanics. Roughly speaking, this would translate to a margin of error (MoE) of ±1pp for Whites, ±2.8pp for Blacks, and ±3.0pp for Hispanics.  In other words, if the map estimates the Hispanic vote in a particular congressional district was 45%, the true number might be as high as 48% and as low as 42%.
 
 ### Methods and Source Code
 
@@ -90,7 +92,7 @@ according to the ACS. The [age by sex by education by CD] distribution uses  201
 
 I then modeled the turnout population as a function of these demographics and updated distribution to resemble the electorate.  Specifically, I fit the regression `turnout ~ race * age + female + educ` in the full CCES data for each state or group of small states, where `turnout` is an indicator for validated vote.  I then imputed the conditional distribution of `Pr(turnout | race, age, female, educ, state)` onto the ACS of Voting Age Population while ensuring that `Pr(turnout | state)` matched the actual VAP turnout of a state. 
 
-Finally, for each CD in each of the 2,000 iterations, I calibrated all the cell's estimate by an intercept shift on the log odds scale so that the sum of the shifted estimates adds up to the actual Trump vote in 2016, using the intercept correction strategy used by Yair Ghitza and Andrew Gelman (e.g. [2013](http://www.stat.columbia.edu/~gelman/research/published/misterp.pdf)). 
+Finally, for each CD in each of the 2,000 iterations, I calibrated all the cell's estimate by an intercept shift on the log odds scale so that the sum of the shifted estimates adds up to the actual Trump vote in 2016, using the intercept correction strategy used by Yair Ghitza and Andrew Gelman (e.g. [2013](http://www.stat.columbia.edu/~gelman/research/published/misterp.pdf), [2020](http://www.stat.columbia.edu/~gelman/research/published/pan2000003_REV2.pdf)). 
 
 
 

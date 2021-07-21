@@ -11,13 +11,13 @@ permalink: "/rpv-mrp/"
 
 **By Shiro Kuriwaki**
 
-Here I present preliminary survey-based estimates of Racial Polarized Voting (RPV) by Congressional District. It is part of other ongoing work with Stephen Ansolabehere, and Angelo Dagonel.
+Here I present preliminary survey-based estimates of Racial Polarized Voting (RPV) by Congressional District. It is part of a paper with Stephen Ansolabehere, and Angelo Dagonel.
 
 Racially Polarized Voting (RPV) is defined here as the difference in level of support for one party (here Donald Trump vs. Hilary Clinton in 2016) among one racial group and the same level for the same party but in _another_ racial group. 
 
 RPV is an important condition to consider race in redistricting, following how the Supreme Court interpreted Section 2 of the Voting Rights Act (VRA) in _Thornburg v. Gingles_ (1986). The VRA protects the rights of a racial minority to elect a candidate of their choice. Therefore a RPV of 0 (both groups have equal support) suggests drawing majority-Black or majority minority districts are not justified. A RPV of 100% (one group completely supports one party and the other group the other party) suggests a justification to draw districts so a cohesive racial minority can elect their preferred candidate in at least some of the seats.  _Alabama Legislative Black Caucus v. Alabama_ (2015) further called for RPV analysis to take a district by district approach.
 
-RPV is a relatively simple quantity to define, but its measurement is challenging. Election results only provide aggregate vote choice and Census demographics provide only aggregate racial breakdowns. Voterfiles do not measure who a voter voted for. My approach uses survey data, which does not suffer from such ecological inference problems. Of course, surveys are known to be unreliable in their own ways: left unadjusted, they are unrepresentative and too sparse for small subgroups. To overcome the problems inherent in surveys, I use a set of statistical methods called multilevel regression and post-stratification (MRP).
+RPV is a relatively simple quantity to define, but its measurement is challenging. Election results only provide aggregate vote choice and Census demographics provide only aggregate racial breakdowns. Voterfiles do not measure who a voter voted for. My approach uses survey data, which does not suffer from such ecological inference problems. Of course, surveys are known to be unreliable in their own ways: left unadjusted, they are unrepresentative and too sparse for small subgroups. To overcome the problems inherent in surveys, we use a set of statistical methods called multilevel regression and post-stratification (MRP).
 
 ***Racially Polarized Voting (2016 Presidential)***
 
@@ -29,7 +29,7 @@ The three congressional districts (CD) with the **lowest** estimated RPV between
 
 There are some interesting regional and urban-rural  patterns. The South has the highest Racial Polarized voting, but parts of the Midwest have high RPV too. Within a state, some districts differ from their state mean:  GA-05 (Downtown Atlanta) has a much lower RPV compared to other Georgia districts because only 28% of White voters voted for Trump. 
 
-Below I show the Trump vote estimates that comprise this difference. In all three maps, gradations of pink indicate Trump vote in the racial group to be more than 50-50, and gray gradations indicate a less than 50-50 Trump vote.  It shows how Black voters are do not differ in their party support across regions, but Hispanic voters do. 
+Below we show the Trump vote estimates that comprise this difference. In all three maps, gradations of pink indicate Trump vote in the racial group to be more than 50-50, and gray gradations indicate a less than 50-50 Trump vote.  It shows how Black voters are do not differ in their party support across regions, but Hispanic voters do. 
 
 _Estimated Trump Vote among **White** Voters, by CD_
 
@@ -59,12 +59,12 @@ All methods are implemented in the open-source packages:
 
 ### Survey Data
 
-The core piece of data underlying this estimates is a national survey. I use validated voters from the 2016 CCES (n = 28,462). Even though the CCES is one of the largest politically surveys, there are only about 50-75 voters in each of the Congressional Districts. Moreover, racially minorities in each of these districts are even smaller. Therefore, we need a model to borrow information from other districts.
+The core piece of data underlying this estimates is a national survey. We use validated voters from the 2016 CCES (n = 28,462). Even though the CCES is one of the largest politically surveys, there are only about 50-75 voters in each of the Congressional Districts. Moreover, racially minorities in each of these districts are even smaller. Therefore, we need a model to borrow information from other districts.
 
 
 ### Modeling Strategy
 
-I fit the following multi-level logit model on the CCES data, with the formula specification:
+We fit the following multi-level logit model on the CCES data, with the formula specification:
 
 `trump  ~ (1 + female | race:region) + educ + age + s(pct_trump, k = 3) + (1 | st/cd)`
 
@@ -88,11 +88,11 @@ The target distribution is the electorate in each CD. We use various synthetic p
 * Sex (`female` or not), and 
 * Education (`High School or Less`, `Some College (2 years)`, `4 Year BA`, `Post-graduate`),
 
-according to the ACS. The [age by sex by education by CD] distribution uses  2016 1-year ACS estimates. The [race by CD] distribution uses the 2015-2018 __5__-year ACS estimates, because the 2016 1-year ACS estimates estimated 0 people of racial minorities in some congressional districts (e.g. Black voting age people in Wyoming). I combined the two tables into a four-way table through the balancing multinomial logit `bmlogit` implemented by Yamauchi (for details, see [here](https://www.shirokuriwaki.com/ccesMRPprep/reference/synth_bmlogit.html)). 
+according to the ACS. The [age by sex by education by CD] distribution uses  2016 1-year ACS estimates. The [race by CD] distribution uses the 2015-2018 __5__-year ACS estimates, because the 2016 1-year ACS estimates estimated 0 people of racial minorities in some congressional districts (e.g. Black voting age people in Wyoming). We combined the two tables into a four-way table through the balancing multinomial logit `bmlogit` implemented by Yamauchi (for details, see [here](https://www.shirokuriwaki.com/ccesMRPprep/reference/synth_bmlogit.html)). 
 
-I then modeled the turnout population as a function of these demographics and updated distribution to resemble the electorate.  Specifically, I fit the regression `turnout ~ race * age + female + educ` in the full CCES data for each state or group of small states, where `turnout` is an indicator for validated vote.  I then imputed the conditional distribution of `Pr(turnout | race, age, female, educ, state)` onto the ACS of Voting Age Population while ensuring that `Pr(turnout | state)` matched the actual VAP turnout of a state. 
+We then modeled the turnout population as a function of these demographics and updated distribution to resemble the electorate.  Specifically, we fit the regression `turnout ~ race * age + female + educ` in the full CCES data for each state or group of small states, where `turnout` is an indicator for validated vote.  we then imputed the conditional distribution of `Pr(turnout | race, age, female, educ, state)` onto the ACS of Voting Age Population while ensuring that `Pr(turnout | state)` matched the actual VAP turnout of a state. 
 
-Finally, for each CD in each of the 2,000 iterations, I calibrated all the cell's estimate by an intercept shift on the log odds scale so that the sum of the shifted estimates adds up to the actual Trump vote in 2016, using the intercept correction strategy used by Yair Ghitza and Andrew Gelman (e.g. [2013](http://www.stat.columbia.edu/~gelman/research/published/misterp.pdf), [2020](http://www.stat.columbia.edu/~gelman/research/published/pan2000003_REV2.pdf)). 
+Finally, for each CD in each of the 2,000 iterations, we calibrated all the cell's estimate by an intercept shift on the log odds scale so that the sum of the shifted estimates adds up to the actual Trump vote in 2016, using the intercept correction strategy used by Yair Ghitza and Andrew Gelman (e.g. [2013](http://www.stat.columbia.edu/~gelman/research/published/misterp.pdf), [2020](http://www.stat.columbia.edu/~gelman/research/published/pan2000003_REV2.pdf)). 
 
 
 
@@ -112,4 +112,4 @@ Unfortunately, the party registration breakdown or the race breakdown among the 
 
 ### Acknowledgements
 
-This work was informed by, and received assistance from, Stephen Ansolabehere, Douglas Rivers, Andrew Gelman, Yair Ghitza, Angelo Dagonel, Lauren Kennedy, Jonathan Robinson, and Soichiro Yamauchi. It is enabled by support from NSF grant [1926424](https://nsf.gov/awardsearch/showAward?AWD_ID=1926424). Any errors remain my own.
+This work is part of a paper with Stephen Ansolabehere and Angelo Dagonel. The analysis was informed by, and received assistance from Andrew Gelman, Yair Ghitza,  Lauren Kennedy,  Douglas Rivers, Jonathan Robinson, and Soichiro Yamauchi. It is enabled by support from NSF grant [1926424](https://nsf.gov/awardsearch/showAward?AWD_ID=1926424). Any errors remain my own.

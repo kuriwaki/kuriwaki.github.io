@@ -33,17 +33,17 @@ Below I show the Trump vote estimates that comprise this difference. In all thre
 
 _Estimated Trump Vote among **White** Voters, by CD_
 
-<iframe src="../programming/rpv_g2016_white.html" title="Estimated Trump Vote among Whites, by CD" scrolling="no" seamless="seamless" width="80%" style="height: 25vh;" frameBorder="0"></iframe>
+<iframe src="../programming/rpv_g2016_white.html" title="Estimated Trump Vote among Whites, by CD" scrolling="no" seamless="seamless" width="90%" style="height: 25vh;" frameBorder="0"></iframe>
 
 
 _Estimated Trump Vote among **Hispanic** Voters, by CD_
 
-<iframe src="../programming/rpv_g2016_hisp.html" scrolling="no" seamless="seamless" width="80%" style="height: 25vh;" frameBorder="0"></iframe>
+<iframe src="../programming/rpv_g2016_hisp.html" scrolling="no" seamless="seamless" width="90%" style="height: 25vh;" frameBorder="0"></iframe>
 
 
 _Estimated Trump Vote among **Black** Voters, by CD_
 
-<iframe src="../programming/rpv_g2016_black.html" scrolling="no" seamless="seamless" width="80%" style="height: 25vh;" frameBorder="0"></iframe>
+<iframe src="../programming/rpv_g2016_black.html" scrolling="no" seamless="seamless" width="90%" style="height: 25vh;" frameBorder="0"></iframe>
 
 
 

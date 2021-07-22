@@ -11,11 +11,11 @@ permalink: "/rpv-mrp/"
 
 **By Shiro Kuriwaki**
 
-Here I present preliminary survey-based estimates of Racial Polarized Voting (RPV) by Congressional District. It is part of a paper with Stephen Ansolabehere, and Angelo Dagonel.
+Here I present preliminary survey-based estimates of Racial Polarized Voting by Congressional District. It is part of a paper with Stephen Ansolabehere, and Angelo Dagonel.
 
-Racially Polarized Voting (RPV) is defined here as the difference in level of support for one party (here Donald Trump vs. Hilary Clinton in 2016) among one racial group and the same level for the same party but in _another_ racial group. 
+Racially Polarized Voting (RPV) is defined here as the difference in level of support for one party (here the Republican candidate in the 2016 Presidential Election) among one racial group and the same level for the same party but in _another_ racial group. 
 
-RPV is an important condition to consider race in redistricting, following how the Supreme Court interpreted Section 2 of the Voting Rights Act (VRA) in _Thornburg v. Gingles_ (1986). The VRA protects the rights of a racial minority to elect a candidate of their choice. Therefore a RPV of 0 (both groups have equal support) suggests drawing majority-Black or majority minority districts are not justified. A RPV of 100% (one group completely supports one party and the other group the other party) suggests a justification to draw districts so a cohesive racial minority can elect their preferred candidate in at least some of the seats.  _Alabama Legislative Black Caucus v. Alabama_ (2015) further called for RPV analysis to take a district by district approach.
+RPV is an important condition to consider race in redistricting because of how the Supreme Court interpreted Section 2 of the Voting Rights Act (VRA) in _Thornburg v. Gingles_ (1986). The VRA protects the rights of a racial minority to elect a candidate of their choice. Therefore a RPV of 0 (both groups have equal support) suggests that the drawing majority-Black or majority minority districts is not justified. A RPV of 100% (Whites completely supports one party and non-Whites completely opposes) suggests a justification to draw districts so a sufficiently large minority can elect their preferred candidate in at least some of the seats.  _Alabama Legislative Black Caucus v. Alabama_ (2015) further called for RPV analysis to take a district-by-district approach.
 
 RPV is a relatively simple quantity to define, but its measurement is challenging. Election results only provide aggregate vote choice and Census demographics provide only aggregate racial breakdowns. Voterfiles do not measure who a voter voted for. My approach uses survey data, which does not suffer from such ecological inference problems. Of course, surveys are known to be unreliable in their own ways: left unadjusted, they are unrepresentative and too sparse for small subgroups. To overcome the problems inherent in surveys, we use a set of statistical methods called multilevel regression and post-stratification (MRP).
 
@@ -25,11 +25,11 @@ The following main figure compares the estimated Trump vote (as a proportion of 
 
 <iframe src="../programming/rpv_g2016.html" title="Racially Polarized Voting (2016 Presidential)" scrolling="no" seamless="seamless" width="100%" style="height: 40vh;" frameBorder="0"></iframe>
 
-The three congressional districts (CD) with the **lowest** estimated RPV between Whites and Non-Whites are _HI-01_ (Honolulu), _CA-12_ (San Francisco), and _CA-34_ (Downtown Los Angeles). The three CDs with the **highest** estimated RPV are all in Mississippi: _MS-02_ (Mississippi Delta and Jackson), _MS-03_ (Southwestern and eastern Mississippi), and _MS-01_ (Northeastern Mississippi). Hover over each CD to see the exact numbers. The three districts with the **median** RPV are _GA-05_ (Downtown Atlanta), _IL-16_ (North Central Illinois), and _MI-08_ (Lansing and northwestern Detroit exurbs).
+Hover over each CD to see the exact numbers. The three congressional districts (CD) with the **lowest** estimated RPV between Whites and Non-Whites are about 2-4 percentage points, in _HI-01_ (Honolulu), _CA-12_ (San Francisco), and _CA-34_ (Downtown Los Angeles). The three CDs with the **highest** estimated RPV are all in Mississippi: _MS-02_ (Mississippi Delta and Jackson), _MS-03_ (Southwestern and eastern Mississippi), and _MS-01_ (Northeastern Mississippi), with up to 60 percentage points. The three districts with the **median** RPV are _GA-05_ (Downtown Atlanta), _IL-16_ (North Central Illinois), and _MI-08_ (Lansing and northwestern Detroit exurbs), with about 24 percentage points.
 
-There are some interesting regional and urban-rural  patterns. The South has the highest Racial Polarized voting, but parts of the Midwest have high RPV too. Within a state, some districts differ from their state mean:  GA-05 (Downtown Atlanta) has a much lower RPV compared to other Georgia districts because only 28% of White voters voted for Trump. 
+Interesting regional and urban-rural patterns emerge. The South has the highest RPV among Whites and Non-Whites, but parts of the Midwest have high RPV too. Within a state, some districts differ from their state mean:  GA-05 (Downtown Atlanta) has a much lower RPV compared to other Georgia districts because only 28% of White voters voted for Trump. 
 
-Below we show the Trump vote estimates that comprise this difference. In all three maps, gradations of pink indicate Trump vote in the racial group to be more than 50-50, and gray gradations indicate a less than 50-50 Trump vote.  It shows how Black voters are do not differ in their party support across regions, but Hispanic voters do. 
+Below we show the 2016 Trump vote estimates that comprise this difference. In all three maps, gradations of pink indicate Trump vote in the racial group to be more than 50-50, and gray gradations indicate a less than 50-50 Trump vote.  It shows how Black voters are do not differ in their party support across regions, but Hispanic voters do. 
 
 _Estimated Trump Vote among **White** Voters, by CD_:
 
@@ -47,7 +47,7 @@ _Estimated Trump Vote among **Black** Voters, by CD_:
 
 
 
-MRP estimates the variation around each estimate by the posterior distribution. The 80 percent credible interval across the 435 estimates is ±0.6 percentage points (pp) for Whites, 1.8 pp for Blacks, and 3.1 pp for Hispanics. Roughly speaking, this would translate to a margin of error (MoE) of ±1pp for Whites, ±2.8pp for Blacks, and ±3.0pp for Hispanics.  In other words, if the map estimates the Hispanic vote in a particular congressional district was 45%, the true number might be as high as 48% and as low as 42%.
+MRP estimates the variation around each estimate by the posterior distribution. The average width of the 80 percent credible interval is ±0.6 percentage points (pp) for Whites, ±1.8 pp for Blacks, and ±3.1 pp for Hispanics (across the 435 estimates). Roughly speaking, this would translate to a margin of error (MoE) of ±1 pp for Whites, ±2.8 pp for Blacks, and ±3.0 pp for Hispanics.  In other words, if the map estimates the Hispanic Trump vote in a particular congressional district was 45%, the true number might be as low as 42% and as high as 48%.
 
 ### Methods and Source Code
 

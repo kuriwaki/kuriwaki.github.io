@@ -31,19 +31,19 @@ There are some interesting regional and urban-rural  patterns. The South has the
 
 Below we show the Trump vote estimates that comprise this difference. In all three maps, gradations of pink indicate Trump vote in the racial group to be more than 50-50, and gray gradations indicate a less than 50-50 Trump vote.  It shows how Black voters are do not differ in their party support across regions, but Hispanic voters do. 
 
-_Estimated Trump Vote among **White** Voters, by CD_
+_Estimated Trump Vote among **White** Voters, by CD_:
 
-<iframe src="../programming/rpv_g2016_white.html" title="Estimated Trump Vote among Whites, by CD" scrolling="no" seamless="seamless" width="90%" style="height: 25vh;" frameBorder="0"></iframe>
-
-
-_Estimated Trump Vote among **Hispanic** Voters, by CD_
-
-<iframe src="../programming/rpv_g2016_hisp.html" scrolling="no" seamless="seamless" width="90%" style="height: 25vh;" frameBorder="0"></iframe>
+<iframe src="../programming/rpv_g2016_white.html" title="Estimated Trump Vote among Whites, by CD" scrolling="no" seamless="seamless" width="90%" style="height: 35vh;" frameBorder="0"></iframe>
 
 
-_Estimated Trump Vote among **Black** Voters, by CD_
+_Estimated Trump Vote among **Hispanic** Voters, by CD_:
 
-<iframe src="../programming/rpv_g2016_black.html" scrolling="no" seamless="seamless" width="90%" style="height: 25vh;" frameBorder="0"></iframe>
+<iframe src="../programming/rpv_g2016_hisp.html" scrolling="no" seamless="seamless" width="90%" style="height: 35vh;" frameBorder="0"></iframe>
+
+
+_Estimated Trump Vote among **Black** Voters, by CD_:
+
+<iframe src="../programming/rpv_g2016_black.html" scrolling="no" seamless="seamless" width="90%" style="height: 35vh;" frameBorder="0"></iframe>
 
 
 

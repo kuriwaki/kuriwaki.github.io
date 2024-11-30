@@ -1,10 +1,21 @@
 ---
 layout: screencasts
-title: "Screencasts for Programming Topics in Statistics and Econometrics"
-permalink: /screencasts/
+title: "Resources for Teaching R and Data Science"
+permalink: /datascience/
 ---
 
 <a href="/">Home</a>
+
+
+
+# Resources for Teaching R and Data Science
+
+
+I received the 2020 Dean's [Excellence in Teaching Award](https://www.hks.harvard.edu/more/events/honoring-class-2020/class-day-awards) at the Harvard Kennedy School of Public Policy for my teaching in econometrics and shepherding the use of the R statistical language in its core statistics sequence. This work included creating portable <a href="/screencasts">screencasts of R workflows</a>, covering common topics in econometrics, causal inference, data science, quantitative social science.
+
+I am a [RStudio certified trainer](https://education.rstudio.com/trainers), and have created several resources for statistics and data science for the social sciences that I hope are useful for other students and instructors. These include a workshop I co-designed on <a href="teacher-training">training teachers</a> in the social sciences for teaching statistics and programming,  my presentations on  [project-oriented workflow](https://vimeo.com/channels/1591675), introduction to version control with [GitHub](programming/kuriwaki_github_handout.pdf), introduction to [Stata](https://www.shirokuriwaki.com/programming/api201z_stata.html), and statistics notes covering Probability, Inference, and Regression written for a Masters-level statistics course ([links](https://github.com/kuriwaki/stats-notes)).
+
+Any use of my teaching material available online is welcome with attribution.
 
 
 
@@ -13,11 +24,9 @@ permalink: /screencasts/
 
 The following screencasts were designed as _short_ guided introductions for particular statistical concepts. They are probably best used as links in problem sets that students can refer to at their own pace, before they set out to tackle harder, open-ended questions.
 
-All code uses R conforms to the tidyverse style and often uses tidyverse syntax, and uses real dataset that can be loaded on any R environment quickly (e.g. through a package built-in dataset). It is geared towards advanced undergraduates or a masters class where students already have some familiarity with probability and inference. I am grateful for Dan Levy for guiding me to make these resources.
+All code uses R conforms to the tidyverse style and often uses tidyverse syntax, and uses real dataset that can be loaded on any R environment quickly (e.g. through a package built-in dataset). It is geared towards advanced undergraduates or a masters class where students already have some familiarity with probability and inference.
 
 _Contents_: [Package Setup](#package-setup), [lm](#ols), [LASSO](#lasso), [Fixed Effects](#fixed-effects), [Instrumental Variables](#instrumental-variables), [Regression Discontinuity](#regression-discontinuity), [Diff-in-Diff](#difference-in-differences), [Creating Functions](#defining-functions), [Maps in ggplot](#maps-in-ggplot)
-
-For related teaching resources, see <a href="/datascience">here</a>. 
 
 ## Package Setup
 

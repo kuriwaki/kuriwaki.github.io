@@ -13,7 +13,7 @@ permalink: /screencasts/
 
 The following screencasts were designed as _short_ guided introductions for particular statistical concepts. They are probably best used as links in problem sets that students can refer to at their own pace, before they set out to tackle harder, open-ended questions.
 
-All code uses R conforms to the tidyverse style and often uses tidyverse syntax, and uses real dataset that can be loaded on any R environment quickly (e.g. through a package built-in dataset). It is geared towards advanced undergraduates or a masters class where students already have some familiarity with probability and inference. I am grateful for Dan Levy for guiding me to make these resources.
+All code uses R conforms to the tidyverse style and often uses tidyverse syntax, and uses a real dataset that can be loaded on any R environment effortlesly (e.g. through a package built-in dataset). It is geared towards advanced undergraduates or a masters class where students already have some familiarity with probability and inference. I am grateful for Dan Levy for guiding me to make these resources.
 
 _Contents_: [Package Setup](#package-setup), [lm](#ols), [LASSO](#lasso), [Fixed Effects](#fixed-effects), [Instrumental Variables](#instrumental-variables), [Regression Discontinuity](#regression-discontinuity), [Diff-in-Diff](#difference-in-differences), [Creating Functions](#defining-functions), [Maps in ggplot](#maps-in-ggplot)
 

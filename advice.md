@@ -6,16 +6,22 @@ permalink: /advice/
 
 <a href="/">Home</a>
 
-## Advice for Writing, Coding, and Doing Research
+### Tips for Writing, Coding, and Doing Research
 
-Advice on how to do research abounds on the internet. Here I've collected here the selection of advice from other researchers that I send to my students the most. I also try to follow this advice myself as well. I hope you find them helpful and entertaining.
+**Last updated May 2025**
+
+**Shiro Kuriwaki**
+
+&nbsp;
+
+Advice on how to do research abounds on the internet. Here I've collected  advice written from other researchers that I most frequently send to my students. I also try to follow this advice myself as well. I hope you find them helpful as well as entertaining.
 
 
-#### Designing Slides
+#### Making Slides
 
 Giving a 10-20 minute talk? Huber's guide is a great template that always works. Dumont's talk has the same message, but involves making charts and graphics for slides
 
-* Greg Huber, [How to present your work at conferences: A lesson as an example](https://huber.research.yale.edu/materials/HowToPresentAtConferences.pdf), (7 slides)
+* Gregory Huber, [How to present your work at conferences: A lesson as an example](https://huber.research.yale.edu/materials/HowToPresentAtConferences.pdf), (7 slides)
 * Jean-Luc Dumont, [Creating Effective Slides](https://www.youtube.com/watch?v=meBXuTIPJQk&ab_channel=CTLStanford), (1hr talk)
 
 

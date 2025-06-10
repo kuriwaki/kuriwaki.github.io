@@ -41,6 +41,7 @@ exclude:
   - Capfile
   - CHANGELOG
   - config
+  - kuriwaki.github.io.Rproj
   - Gemfile
   - Gruntfile.js
   - gulpfile.js

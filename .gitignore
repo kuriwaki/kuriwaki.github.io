@@ -48,3 +48,8 @@ Thumbs.db
 
 datascience.html
 screencasts.html
+
+# ignore Quarto source files and intermediate outputs
+teaching/*.qmd
+teaching/*.html
+teaching/*.docx

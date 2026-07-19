@@ -1,20 +1,22 @@
 ---
 layout: screencasts
-title: "Research Advice"
+title: "Research Advice I Keep Sending Students"
 permalink: /advice/
 ---
 
 <a href="/">Home</a>
 
-### Tips for Writing, Coding, and Doing Research
+### Research Advice I Keep Sending Students
 
-**Last updated May 2025**
+**Last updated July 2027**
 
 **Shiro Kuriwaki**
 
 &nbsp;
 
-Advice on how to do research abounds on the internet. Here I've collected  advice written from other researchers that I most frequently send to my students. I also try to follow this advice myself as well. I hope you find them helpful as well as entertaining.
+Advice on how to do research abounds on the internet. 
+Listed below are pieces of advice written by other researchers that I most frequently send to my students. 
+I also try to follow this advice myself. I hope you find these resources helpful as well as entertaining.
 
 
 #### Making Slides
@@ -28,7 +30,7 @@ Choi's essay is about giving good discussant comments.
 
 #### Making Good Visualizations
 
-There are lots of resources on how to do good dataviz, but Rauser's talk has been the most eye-opening, and Wilke's webbook is the most comprehensive with beautiful illustrations.
+There are lots of resources on how to do good dataviz, but Rauser's talk has been the most eye-opening, and Wilke's web book is the most comprehensive with beautiful illustrations.
 
 * John Rauser, [How Humans See Data](https://www.youtube.com/watch?v=fSgEeI2Xpdc&t=351s&ab_channel=JohnRauser), (40min talk)
 * Claus Wilke, [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/), (full web book)
@@ -42,11 +44,9 @@ The Gentzkow and Shapiro manual is written with fun anecdotes and should be read
 
 #### Writing a Research Paper
 
-Read King's article and the one-page checklist from Imai's handout for practical steps. Read Fiske's note for concrete do's and dont's for writing sentences and wordsmithing. Watch McEnerney's talk to get back to the big picture: what makes good research good in the first place?
+Read King's article and the one-page checklist from Imai's handout for practical steps. Read Fiske's note for concrete do's and don'ts for writing sentences and wordsmithing. Watch McEnerney's talk to get back to the big picture: what makes good research good in the first place?
 
 * Gary King, [Publication, Publication](https://gking.harvard.edu/files/paperspub.pdf), (9 pages)
 * Kosuke Imai, [General Tips for Writing a Scientific Paper](https://imai.fas.harvard.edu/teaching-files/HowToPaper.pdf), (look at p.3)
 * Susan Fiske, [Words to the Wise on Writing Scientific Papers]( https://osf.io/preprints/psyarxiv/n32qw), (4 pages)
 * Larry McEnerney, [The Craft of Writing Effectively](https://www.youtube.com/watch?v=vtIzMaLkCaM), (1h20min talk)
-
-

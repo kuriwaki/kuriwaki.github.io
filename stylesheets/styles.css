@@ -8,6 +8,10 @@ body {
   font-weight: 300;
 }
 
+body.layout--screencasts section {
+  font-weight: 400;
+}
+
 header {
   width: 270px;
   float: left;

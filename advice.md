@@ -8,7 +8,7 @@ permalink: /advice/
 
 ### Research Advice I Keep Sending Students
 
-**Last updated July 2027**
+**Last updated July 2026**
 
 **Shiro Kuriwaki**
 

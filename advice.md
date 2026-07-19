@@ -45,6 +45,7 @@ The Gentzkow and Shapiro manual is written with fun anecdotes and should be read
 Read King's article for some practical steps on starting your own research project from scratch. Read Fiske's note for concrete do's and dont's for writing sentences and wordsmithing. Watch McEnerney's talk to get back to the big picture: what makes good research good in the first place?
 
 * Gary King, [Publication, Publication](https://gking.harvard.edu/files/paperspub.pdf), (9 pages)
+* Kosuke Imai, [General Tips for Writing a Scientific Paper](https://imai.fas.harvard.edu/teaching-files/HowToPaper.pdf), (see pages 2 and 3 of 3)
 * Susan Fiske, [Words to the Wise on Writing Scientific Papers]( https://osf.io/preprints/psyarxiv/n32qw), (4 pages)
 * Larry McEnerney, [The Craft of Writing Effectively](https://www.youtube.com/watch?v=vtIzMaLkCaM), (1h20min talk)
 

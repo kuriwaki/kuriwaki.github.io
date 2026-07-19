@@ -19,11 +19,12 @@ Advice on how to do research abounds on the internet. Here I've collected  advic
 
 #### Making Slides
 
-Giving a 10-20 minute talk? Huber's guide is a great template that always works. Dumont's talk has the same message, but involves making charts and graphics for slides
+Giving a 10-20 minute talk? Huber's guide is a great template that always works. Dumont's talk has the same message, but involves making charts and graphics for slides.
+Choi's essay is about giving good discussant comments.
 
 * Gregory Huber, [How to present your work at conferences: A lesson as an example](https://huber.research.yale.edu/materials/HowToPresentAtConferences.pdf), (7 slides)
 * Jean-Luc Dumont, [Creating Effective Slides](https://www.youtube.com/watch?v=meBXuTIPJQk&ab_channel=CTLStanford), (1h talk)
-
+* James J. Choi, [How to Give a Good Paper Discussion](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4223908), (6 pages)
 
 #### Making Good Visualizations
 

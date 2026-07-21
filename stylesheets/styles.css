@@ -204,6 +204,14 @@ footer {
   bottom: 50px;
 }
 
+@media screen and (min-width: 961px) {
+  header {
+    top: 50px;
+    bottom: 50px;
+    overflow-y: auto;
+  }
+}
+
 @media print, screen and (max-width: 960px) {
   div.wrapper {
     width: auto;

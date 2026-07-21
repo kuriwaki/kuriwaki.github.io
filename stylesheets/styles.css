@@ -32,6 +32,50 @@ li {
   margin: 10px 0;
 }
 
+.copy-bibtex-button {
+  appearance: none;
+  background: #fff;
+  border: 1px solid #267cb9;
+  border-radius: 4px;
+  color: #267cb9;
+  cursor: pointer;
+  display: inline-block;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.35;
+  margin-left: 4px;
+  padding: 2px 7px;
+  vertical-align: 1px;
+}
+
+.copy-bibtex-button:hover {
+  background: #eef6fb;
+}
+
+.copy-bibtex-button:focus-visible {
+  outline: 2px solid #267cb9;
+  outline-offset: 2px;
+}
+
+.copy-bibtex-button[data-copy-state="success"] {
+  background: #eaf6ee;
+  border-color: #2e7d4f;
+  color: #2e7d4f;
+}
+
+.copy-bibtex-button[data-copy-state="error"] {
+  background: #fff1f0;
+  border-color: #b42318;
+  color: #b42318;
+}
+
+@media print {
+  .copy-bibtex-button {
+    display: none;
+  }
+}
+
 ul {
   margin: 0 10px;
 }
@@ -202,6 +246,14 @@ footer {
   float: left;
   position: fixed;
   bottom: 50px;
+}
+
+@media screen and (min-width: 961px) {
+  header {
+    top: 50px;
+    bottom: 50px;
+    overflow-y: auto;
+  }
 }
 
 @media print, screen and (max-width: 960px) {

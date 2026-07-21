@@ -1,0 +1,118 @@
+<script>
+// # Written by Codex
+(function () {
+  "use strict";
+
+  var entries = document.querySelectorAll("[data-bibtex-key]");
+
+  if (!entries.length) {
+    return;
+  }
+
+  function parseBibliography(text) {
+    var bibliography = {};
+
+    text.split(/(?=^@)/m).forEach(function (entry) {
+      var match = entry.match(/^@\w+\{\s*([^,]+),/);
+
+      if (match) {
+        bibliography[match[1].trim()] = entry.trim();
+      }
+    });
+
+    return bibliography;
+  }
+
+  function fallbackCopy(text) {
+    var textarea = document.createElement("textarea");
+
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+
+    var copied = document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    if (!copied) {
+      throw new Error("The browser rejected the clipboard operation.");
+    }
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+
+    return new Promise(function (resolve, reject) {
+      try {
+        fallbackCopy(text);
+        resolve();
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+
+  function setTemporaryLabel(button, label, state) {
+    window.clearTimeout(button.copyBibtexTimeout);
+    button.textContent = label;
+    button.setAttribute("data-copy-state", state);
+    button.copyBibtexTimeout = window.setTimeout(function () {
+      button.textContent = "Copy BibTeX";
+      button.removeAttribute("data-copy-state");
+    }, 1800);
+  }
+
+  function addButtons(bibliography) {
+    entries.forEach(function (entry) {
+      var key = entry.getAttribute("data-bibtex-key");
+      var bibtex = bibliography[key];
+      var titleLink = entry.querySelector("a");
+      var button;
+
+      if (!bibtex) {
+        console.warn("No BibTeX record found for " + key + ".");
+        return;
+      }
+
+      button = document.createElement("button");
+      button.type = "button";
+      button.className = "copy-bibtex-button";
+      button.textContent = "Copy BibTeX";
+      button.setAttribute(
+        "aria-label",
+        "Copy BibTeX for " + (titleLink ? titleLink.textContent.trim() : key)
+      );
+
+      button.addEventListener("click", function () {
+        copyText(bibtex).then(function () {
+          setTemporaryLabel(button, "Copied!", "success");
+        }).catch(function (error) {
+          console.error("Unable to copy BibTeX.", error);
+          setTemporaryLabel(button, "Copy failed", "error");
+        });
+      });
+
+      entry.appendChild(document.createTextNode(" "));
+      entry.appendChild(button);
+    });
+  }
+
+  fetch("{{ '/assets/bibtex/publications.bib' | relative_url }}", {
+    credentials: "same-origin"
+  }).then(function (response) {
+    if (!response.ok) {
+      throw new Error("Could not load the bibliography.");
+    }
+
+    return response.text();
+  }).then(function (text) {
+    addButtons(parseBibliography(text));
+  }).catch(function (error) {
+    console.error("Unable to initialize the BibTeX buttons.", error);
+  });
+}());
+</script>

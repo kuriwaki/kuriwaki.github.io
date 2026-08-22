@@ -1,46 +1,66 @@
-# Paper ggplot style
+# Shiro Kuriwaki's instructions to LLMs for visualizations
 
-When creating a graph, especially with R and ggplot2, use these visualization
-principles, aesthetic preferences, and settings. Treat them as defaults, and
-relax them when the figure's purpose, data, or audience warrants an exception.
+_Version 0.1 — 2026-08-22_
+
+When creating a visualization, especially with R and ggplot2, start with 
+these principles, aesthetic preferences, and settings as strong defaults. 
+Deviate from them only with the user's explicit request or permission.
 
 ## General principles
 
-1. Follow Claus O. Wilke's recommendations in _Fundamentals of Data
-   Visualization_ (O'Reilly). See the online manuscript at
-   <https://clauswilke.com/dataviz/> and the source code at
-   <https://github.com/clauswilke/dataviz>.
-2. When choosing visual encodings, draw on established work in graphical
-   perception and information design by William S. Cleveland and Robert McGill,
-   Edward Tufte, and Steven L. Franconeri.
-3. Be internally consistent across figures in a paper or project. Do not use
-   different palettes for the same variables or reuse one palette for different
-   variables.
-4. Follow repository-specific instructions, such as `AGENTS.md`, when present.
-   Otherwise, follow tidyverse coding style.
+- Follow the relevant chapters of Claus O. Wilke's recommendations in 
+  _Fundamentals of Data Visualization_ (O'Reilly). See the online 
+  manuscript at <https://clauswilke.com/dataviz/> and the source code at
+  <https://github.com/clauswilke/dataviz>.
+- Follow the tidyverse style guide and prefer tidyverse data-formatting
+  functions.
+- Maintain a consistent style within each paper or project. Do not use different
+  palettes for the same variables or reuse one palette for different variables.
 
 ## Figure size, titles, and captions
 
-- Prefer a compact, landscape layout that leaves room for legible text. As a
-  starting point, size figures with one or two facets at 5 inches wide by
-  3 inches tall, and figures with three or more facets at about 7 inches wide by
-  3 inches tall. Adjust these dimensions when the content requires it. Follow
-  Wilke's Chapter 24, "Use Larger Axis Labels":
-  <https://clauswilke.com/dataviz/small-axis-labels.html>.
+- Use a compact, landscape layout that leaves room for legible text.
+- Default figures with one or two facets to 5 inches wide by 3 inches tall.
+  Default figures with three or more facets to about 7 inches wide by 3 inches
+  tall. Do not change these dimensions without the user's permission.
+- Take seriously Wilke's Chapter 24, "Use Larger Axis Labels":
+  <https://clauswilke.com/dataviz/small-axis-labels.html>. Most visualization
+  software uses default label sizes that are too small.
+- Design for the figure's final output width, even if no PDF or PNG file will be
+  saved.
 - Keep the plotting area dense but readable.
-- Design for the figure's final displayed width, not merely for a zoomed
-  standalone PDF.
-- Avoid using the ggplot title or subtitle unless necessary. Titles can be
-  useful in exploratory figures for preserving context or provenance.
-- For final figures embedded in papers, place the title and caption in the
-  surrounding document, such as the LaTeX source, rather than inside the
-  ggplot.
+- Avoid using the ggplot title or subtitle. For exploratory figures, a title or
+  caption may preserve useful context or provenance. Do not repeat information
+  already available in the axes or legend or obvious from context.
 - Wrap long categorical labels deliberately, for example with
   `stringr::str_wrap()`. Prefer meaningful endpoint labels and a shared
   direction cue when every intermediate x-axis label would be redundant.
 - If a long y-axis title would be difficult to read vertically, omit it and use
   a short, left-aligned plot title instead. This exception is especially useful
   for time-series figures.
+
+## Publication captions and notes
+
+- When embedding a figure or table in a paper or book, place its title and
+  caption in the surrounding document, such as the LaTeX source, rather than
+  inside the ggplot. Follow Wilke's conventional book layout:
+  <https://clauswilke.com/dataviz/figure-titles-captions.html>. Anticipate each
+  figure or table as having one and not more than one title when rendered on the paper.
+- For final figures and tables in TeX, use the following `caption`
+  configuration.
+
+```tex
+\usepackage[
+  margin=30pt,
+  labelfont=bf,
+  labelsep=endash,
+  font=normalsize
+]{caption}
+```
+
+- Begin `\caption{}` with a boldfaced short title and keep the entire caption
+  short enough to fit on one rendered line. Put explanatory notes in a
+  `minipage` below the figure or table and begin them with `\emph{Note}`.
 
 ## Theme and typography
 
@@ -58,10 +78,11 @@ relax them when the figure's purpose, data, or audience warrants an exception.
 
 ## Estimates and uncertainty
 
-- Show 95 percent uncertainty intervals when a figure presents estimates. Use
-  points with thin, uncapped intervals, typically by combining
-  `ggplot2::geom_point()` with `ggplot2::geom_linerange()`. If using
-  `ggplot2::geom_errorbar()`, omit end caps with `width = 0`.
+- When an estimate is based on a small sample, such as fewer than 100
+  observations, show a 95 percent confidence interval. Use points with thin,
+  uncapped intervals, typically by combining `ggplot2::geom_point()` with
+  `ggplot2::geom_linerange()`. If using `ggplot2::geom_errorbar()`, omit end
+  caps with `width = 0`.
 
 ## Labels and units
 
@@ -73,6 +94,7 @@ relax them when the figure's purpose, data, or audience warrants an exception.
   rescaling.
 - Do not multiply underlying values by 100 solely for display; leave display
   conversion to a `scales` label function.
+- For other units, incorporate them in the axis title or caption.
 - Use direct labels or compact annotations when they reduce legend lookup
   without creating overlap. Do not narrate inside the plot when a symbol,
   mathematical key, facet strip, or manuscript note is clearer.
@@ -88,14 +110,19 @@ relax them when the figure's purpose, data, or audience warrants an exception.
 
 - Use an appropriate colorblind-friendly palette from Cory McCartan's
   `wacolors` package by default instead of ggplot2's default discrete palette.
-  Reuse the same named palette for the same concepts within a project.
+  Viridis palettes are also acceptable. Reuse the same named palette for the
+  same concepts within a project.
 - For choropleth maps of continuous quantities, prefer a binned scale such as
   `ggplot2::scale_fill_fermenter()` with a ColorBrewer palette over an unbroken
   continuous gradient. If values are already categorical, use
   `ggplot2::scale_fill_brewer()` or an appropriate manual discrete scale.
-- For U.S. political parties, use Democratic blue (`#2166AC`), Republican red
-  (`#B2182B`), and neutral gray for independents. Use green for independents
-  only when gray already has another semantic role.
+- For single-hue scales that default to `direction = -1`, set
+  `direction = 1`. Leave the default direction of Viridis palettes unchanged.
+- For U.S. Democrats and Republican, use the blue and red endpoints of the
+  `ggredist$partisan` palette defined by Cory McCartan and Christopher T. Kenny:
+  <https://github.com/alarm-redist/ggredist/blob/main/R/colors.R>. Use neutral
+  gray for independents; use green only when gray already has another semantic
+  role.
 - Emphasize the focal series with greater opacity, linewidth, or point size.
 - For multiple methods, combine color with shape or linetype so the comparison
   does not depend on color alone. See Wilke's Chapters 19 and 20:
@@ -114,7 +141,7 @@ relax them when the figure's purpose, data, or audience warrants an exception.
 - Label lines directly when possible instead of requiring readers to consult a
   legend.
 
-## Patchwork
+## Combined figures
 
 - Use `patchwork` to combine figures.
 - When combined figures share an aesthetic, give their scales identical limits,
@@ -125,10 +152,22 @@ relax them when the figure's purpose, data, or audience warrants an exception.
 
 ## Write and save
 
-- Do not save a figure by default. Save it only when requested.
+- Do not save a figure to a file by default. Save it only when requested.
 - For publication figures, default to vector PDF. Prefer
   `grDevices::cairo_pdf` when text or Unicode rendering benefits from it.
 - When saving, use the smallest default dimensions above that fit the content;
   begin with 5 inches wide by 3 inches tall.
 - Keep figure filenames consistent within a project. If filenames require
   numbering, prefer zero-padded forms such as `01` and `02`.
+
+## Other inspirations
+
+This work provides useful background but is lower priority than the specific
+instructions above:
+
+- Work on graphical perception and information design by William S. Cleveland
+  and Robert McGill, Edward Tufte, and Steven L. Franconeri.
+
+## Repository-specific instructions
+
+- Follow repository-specific instructions, such as `AGENTS.md`, when present.

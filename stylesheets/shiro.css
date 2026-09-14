@@ -38,3 +38,17 @@ h4 {
   font-style: italic;
   font-weight: 500;
 }
+
+.greedy-nav .visible-links a {
+  margin: 0 0.35rem;
+}
+
+.greedy-nav .visible-links li {
+  display: flex;
+  align-items: center;
+}
+
+.greedy-nav .visible-links li:not(:last-child)::after {
+  content: "|";
+  color: #6f777d;
+}

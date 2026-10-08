@@ -13,7 +13,7 @@ permalink: /datascience/
 
 I received the 2020 Dean's [Excellence in Teaching Award](https://www.hks.harvard.edu/more/events/honoring-class-2020/class-day-awards) at the Harvard Kennedy School of Public Policy for my teaching in econometrics and shepherding the use of the R statistical language in its core statistics sequence. This work included creating portable <a href="/screencasts">screencasts of R workflows</a>, covering common topics in econometrics, causal inference, data science, quantitative social science.
 
-I am a [RStudio certified trainer](https://education.rstudio.com/trainers), and have created several resources for statistics and data science for the social sciences that I hope are useful for other students and instructors. These include a workshop I co-designed on <a href="teacher-training">training teachers</a> in the social sciences for teaching statistics and programming,  my presentations on  [project-oriented workflow](https://vimeo.com/channels/1591675), introduction to version control with [GitHub](programming/kuriwaki_github_handout.pdf), introduction to [Stata](https://www.shirokuriwaki.com/programming/api201z_stata.html), and statistics notes covering Probability, Inference, and Regression written for a Masters-level statistics course ([links](https://github.com/kuriwaki/stats-notes)).
+I am a [RStudio certified trainer](https://education.rstudio.com/trainers), and have created several resources for statistics and data science for the social sciences that I hope are useful for other students and instructors. These include a workshop I co-designed on <a href="/teacher-training/">training teachers</a> in the social sciences for teaching statistics and programming,  my presentations on  [project-oriented workflow](https://vimeo.com/channels/1591675), introduction to version control with [GitHub](/programming/kuriwaki_github_handout.pdf), introduction to [Stata](https://www.shirokuriwaki.com/programming/api201z_stata.html), and statistics notes covering Probability, Inference, and Regression written for a Masters-level statistics course ([links](https://github.com/kuriwaki/stats-notes)).
 
 Any use of my teaching material available online is welcome with attribution.
 
@@ -61,16 +61,16 @@ Running linear regression, formulas, options to the `lm` function:
 
 ## LASSO
 
-Using `cv.glmnet` to
+Using `cv.glmnet` with `glmnetUtils` to
 
 1.  Setup and pre-processing: testing and training data, formula with `"."`, model matrix creation.
 2.  Fitting and understanding cv.glmnet: penalty terms, cross validation, LASSO algorithm, picking a penalty.
 3.  Making predictions with `predict` with the testing dataset, generic functions.
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/371322839?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
+    <iframe src="https://player.vimeo.com/video/878731294?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/371322878?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
+    <iframe src="https://player.vimeo.com/video/878731749?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
     <iframe src="https://player.vimeo.com/video/371322903?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
@@ -89,10 +89,10 @@ Fixed effects syntax with `lfe::felm`, adjusting for clustered errors.
 
 ## Instrumental Variables
 
-Instrumental variables as an omitted variable problem, using both `AER::ivreg` and `lfe::felm` packages. Uses the proximity to college dataset by Card (1994).
+Instrumental variables as an omitted variable problem, using both `AER::ivreg` and `fixest::feols`. Uses the proximity to college dataset by Card (1994).
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/406629459?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
+    <iframe src="https://player.vimeo.com/video/755382687?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
 </div>
 
@@ -112,23 +112,23 @@ Visualizing regression discontinuity, estimating coefficients with interactions,
 
 ## Difference-In-Differences
 
-Time series data, long form, plotting time trends, interactions, 2 by 2 difference-in-differences, DID with fixed effects.
+Time series data, long form, plotting time trends, interactions, 2 by 2 difference-in-differences, DID with fixed effects using `fixest::feols`.
 
 1.  Creating and understanding variables for DID
-2.  Implementing DID in a two-way FE regression
+2.  Implementing DID in a two-way FE regression with `fixest::feols`
 
 Thanks to Oscar Torres-Reyna for the data (<http://princeton.edu/~otorres/DID101R.pdf>).
 
 <div class="video-container">
-    <iframe src="https://player.vimeo.com/video/409267138?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
+    <iframe src="https://player.vimeo.com/video/872554679?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
-    <iframe src="https://player.vimeo.com/video/409267190?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
+    <iframe src="https://player.vimeo.com/video/872555241?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">
     </iframe>
 </div>
 
 ## Defining Functions
 
-Arguments, body, and return statement. Also see the [function basics tutorial](rstudio.cloud/learn/primers/6.1) for background.
+Arguments, body, and return statement. Also see the [function basics tutorial](https://rstudio.cloud/learn/primers/6.1) for background.
 
 <div class="video-container">
     <iframe src="https://player.vimeo.com/video/388825332?byline=0&byline=0&portrait=0" height="350" width="400" frameborder="10px">

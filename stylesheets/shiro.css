@@ -52,3 +52,18 @@ h4 {
   content: "|";
   color: #6f777d;
 }
+
+.yale-department-icon {
+  display: inline-block;
+  line-height: 1;
+}
+
+.yale-y-icon {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
+.copy-email-status {
+  font-size: 0.85em;
+}

@@ -23,7 +23,9 @@
 
   function copyText(text) {
     if (navigator.clipboard && window.isSecureContext) {
-      return navigator.clipboard.writeText(text);
+      return navigator.clipboard.writeText(text).catch(function () {
+        fallbackCopy(text);
+      });
     }
     return new Promise(function (resolve, reject) {
       try {
@@ -36,16 +38,15 @@
   }
 
   document.querySelectorAll("[data-copy-email]").forEach(function (button) {
-    var status = button.nextElementSibling;
     var timeout;
 
     function showStatus(message, state) {
       window.clearTimeout(timeout);
       button.setAttribute("data-copy-state", state);
-      status.textContent = message;
+      button.textContent = message;
       timeout = window.setTimeout(function () {
         button.removeAttribute("data-copy-state");
-        status.textContent = "";
+        button.textContent = "Copy Email";
       }, 1800);
     }
 

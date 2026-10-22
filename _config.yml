@@ -103,3 +103,13 @@ whitelist:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+
+# Teaching blog
+defaults:
+  - scope:
+      path: "blog-teaching"
+      type: posts
+    values:
+      layout: blog-teaching-post
+      series: blog-teaching
+      permalink: /blog-teaching/:title/

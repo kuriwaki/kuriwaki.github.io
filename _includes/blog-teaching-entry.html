@@ -1,0 +1,11 @@
+<article class="notes-entry" id="post-{{ include.post.slug }}" aria-labelledby="title-{{ include.post.slug }}">
+  <h2 class="notes-entry-title" id="title-{{ include.post.slug }}">
+    <a href="{{ include.post.url | relative_url }}">{{ include.post.title | escape }}</a>{% if include.pinned %} <span class="notes-pinned">(Pinned)</span>{% endif %}
+  </h2>
+  {% include blog-teaching-meta.html post=include.post %}
+  {% assign content_id_prefix = ' id="post-' | append: include.post.slug | append: '-' %}
+  {% assign content_link_prefix = ' href="#post-' | append: include.post.slug | append: '-' %}
+  <div class="notes-prose">
+    {{ include.post.content | replace: ' id="', content_id_prefix | replace: ' href="#', content_link_prefix | replace: '<h2', '<h3' | replace: '</h2>', '</h3>' }}
+  </div>
+</article>

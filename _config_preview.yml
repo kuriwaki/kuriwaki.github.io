@@ -1,0 +1,5 @@
+# Local preview settings; production continues to use _config.yml.
+url: http://127.0.0.1:4000
+baseurl: ""
+description: Shiro Kuriwaki's academic website and teaching blog.
+future: true

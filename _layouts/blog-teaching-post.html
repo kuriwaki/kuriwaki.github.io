@@ -1,0 +1,39 @@
+---
+layout: blog-teaching
+---
+{% assign series_posts = site.posts | where: 'series', 'blog-teaching' %}
+<article class="notes-article">
+  <div class="notes-article-heading">
+    <p class="notes-back"><a href="{{ '/blog-teaching/' | relative_url }}">← All blog posts</a></p>
+    <h1>{{ page.title | escape }}</h1>
+    {% include blog-teaching-meta.html post=page %}
+    {% if page.tags.size > 0 %}
+    <p class="notes-tags">Topics:
+      {% for tag in page.tags %}
+        <a href="{{ '/blog-teaching/' | relative_url }}#topic-{{ tag | slugify }}">{{ tag | escape }}</a>{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    </p>
+    {% endif %}
+  </div>
+  <div class="notes-prose">{{ content }}</div>
+</article>
+{% for post in series_posts %}
+  {% if post.url == page.url %}
+    {% assign newer_index = forloop.index0 | minus: 1 %}
+    {% assign older_index = forloop.index0 | plus: 1 %}
+    <nav class="notes-pagination" aria-label="Adjacent posts">
+      <div>
+        {% if older_index < series_posts.size %}
+          {% assign older_post = series_posts[older_index] %}
+          <a rel="prev" href="{{ older_post.url | relative_url }}">← {{ older_post.title | escape }}</a>
+        {% endif %}
+      </div>
+      <div>
+        {% if newer_index >= 0 %}
+          {% assign newer_post = series_posts[newer_index] %}
+          <a rel="next" href="{{ newer_post.url | relative_url }}">{{ newer_post.title | escape }} →</a>
+        {% endif %}
+      </div>
+    </nav>
+  {% endif %}
+{% endfor %}

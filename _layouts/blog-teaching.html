@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | escape }} — Shiro Kuriwaki</title>
+  <meta name="description" content="{{ page.summary | default: page.description | default: 'Reflections on teaching applied statistics.' | escape }}">
+  {% if page.author %}
+    {% assign author = site.data.authors[page.author] %}
+    <meta name="author" content="{{ author.name | escape }}">
+  {% endif %}
+  {% include head.html %}
+  <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/stylesheets/blog-teaching.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+</head>
+<body class="notes-page">
+  <a class="notes-skip" href="#main">Skip to content</a>
+  <div class="wrapper">
+    <header class="notes-site-header">
+      <h1><a href="{{ '/' | relative_url }}">Shiro Kuriwaki</a></h1>
+      <p><a href="{{ '/' | relative_url }}">Home</a> · <a href="{{ '/#teaching' | relative_url }}">Teaching</a></p>
+      <p>On teaching social science statistics: Reflections, tools, notes, and observations from a pedagogy partner.</p>
+    </header>
+    <main id="main" class="notes-main" tabindex="-1">
+      {{ content }}
+    </main>
+  </div>
+</body>
+</html>

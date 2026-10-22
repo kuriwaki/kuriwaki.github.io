@@ -1,0 +1,36 @@
+---
+layout: blog-teaching
+title: Teaching Social Science Statistics
+description: Reflections on teaching social science statistics.
+permalink: /blog-teaching/
+---
+{% assign series_posts = site.posts | where: 'series', 'blog-teaching' %}
+{% assign pinned_post = series_posts | where: 'pinned', true | first %}
+{% assign topics = series_posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
+<h1>Teaching Social Science Statistics</h1>
+<nav class="notes-nav" aria-label="Teaching blog">
+  <a href="#posts">Posts</a> · <a href="#topics">Browse by topic</a>
+</nav>
+<div id="posts">
+  {% if pinned_post %}
+    {% include blog-teaching-entry.html post=pinned_post pinned=true %}
+  {% endif %}
+  {% for post in series_posts %}
+    {% unless post.url == pinned_post.url %}
+      {% include blog-teaching-entry.html post=post %}
+    {% endunless %}
+  {% endfor %}
+</div>
+<section aria-labelledby="topics">
+  <h2 id="topics">Browse by topic</h2>
+  {% for topic in topics %}
+    <h3 id="topic-{{ topic | slugify }}">{{ topic | escape }}</h3>
+    <ul class="dashed">
+      {% for post in series_posts %}
+        {% if post.tags contains topic %}
+          <li><a href="#post-{{ post.slug }}">{{ post.title | escape }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endfor %}
+</section>

@@ -3,9 +3,24 @@
     <a href="{{ include.post.url | relative_url }}">{{ include.post.title | escape }}</a>{% if include.pinned %} <span class="notes-pinned">(Pinned)</span>{% endif %}
   </h2>
   {% include blog-teaching-meta.html post=include.post %}
+  {% assign entry_content = include.post.content %}
+  {% assign show_read_more = false %}
+  {% assign preview_words = site.teaching_blog.preview_words | default: 200 %}
+  {% assign plain_content = include.post.content | strip_html | normalize_whitespace %}
+  {% assign word_count = plain_content | number_of_words %}
+  {% if include.post.content contains '<!--more-->' %}
+    {% assign entry_content = include.post.excerpt %}
+    {% assign show_read_more = true %}
+  {% elsif word_count > preview_words %}
+    {% capture entry_content %}<p>{{ plain_content | truncatewords: preview_words, '…' | escape }}</p>{% endcapture %}
+    {% assign show_read_more = true %}
+  {% endif %}
   {% assign content_id_prefix = ' id="post-' | append: include.post.slug | append: '-' %}
   {% assign content_link_prefix = ' href="#post-' | append: include.post.slug | append: '-' %}
   <div class="notes-prose">
-    {{ include.post.content | replace: ' id="', content_id_prefix | replace: ' href="#', content_link_prefix | replace: '<h2', '<h3' | replace: '</h2>', '</h3>' }}
+    {{ entry_content | replace: ' id="', content_id_prefix | replace: ' href="#', content_link_prefix | replace: '<h2', '<h3' | replace: '</h2>', '</h3>' }}
   </div>
+  {% if show_read_more %}
+    <p class="notes-read-more"><a href="{{ include.post.url | relative_url }}" aria-label="Read more: {{ include.post.title | escape }}">Read more →</a></p>
+  {% endif %}
 </article>

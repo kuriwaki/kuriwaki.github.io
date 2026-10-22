@@ -20,6 +20,8 @@ I was fortunate to have the Yale's Center for Teaching and Learning assign Tina 
 as a Pedagogy Partner to my class, and I thought this blog would be a good way to
 document our thoughts as a teaching team (which includes other teaching fellows who may make an appearance later).
 
+<!--more-->
+
 The course runs from September to December 2026. Expand below for the course content and the grading criteria:
 
 <details markdown="1">

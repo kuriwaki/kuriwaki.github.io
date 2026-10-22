@@ -24,6 +24,7 @@ sass:
 theme: jekyll-theme-minimal
 
 # Reading Files
+future: false
 include:
   - .htaccess
   - _pages
@@ -105,6 +106,9 @@ whitelist:
   - jekyll-include-cache
 
 # Teaching blog
+teaching_blog:
+  preview_words: 200
+
 defaults:
   - scope:
       path: "blog-teaching"
@@ -113,3 +117,4 @@ defaults:
       layout: blog-teaching-post
       series: blog-teaching
       permalink: /blog-teaching/:title/
+      excerpt_separator: "<!--more-->"

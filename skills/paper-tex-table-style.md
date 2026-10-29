@@ -181,6 +181,14 @@ rules, and entries, without a surrounding `table` float, caption, or notes.
 
 ### 8. Row and column grouping
 
+- Preserve substantive category ordering across related tables so readers can
+  compare them easily. Use a deliberate order rather than the software's
+  default alphabetical order.
+- Group related interaction terms together. When several terms share a common
+  factor, state it once and use indented continuation labels such as
+  “× Moderator” only when each term remains unambiguous. Preserve the
+  distinction between main effects, two-way interactions, and higher-order
+  interactions.
 - When each group has the same subcolumns, use a spanning group heading and
   repeat the subcolumn labels in the same order. See the House and Senate
   comparison in
@@ -216,6 +224,10 @@ rules, and entries, without a surrounding `table` float, caption, or notes.
 
 ## Part 2: Guide by table type
 
+Before choosing a layout, identify the main comparison readers should make.
+Remove redundant labels or columns, reorganize rows, or introduce meaningful
+panels when these changes clarify that comparison. Preserve the underlying
+information and any explicit layout requirements.
 
 ### 1. Summary statistics
 
@@ -437,6 +449,11 @@ The complete source provides the full question wording, definitions, and rows.
 
 ### 5. Regression tables
 
+- Focus the table body on the coefficients needed for the substantive
+  comparison. When controls, constants, or other terms are estimated but
+  omitted from the display, identify them as “included but not displayed” so
+  readers can distinguish them from excluded predictors or reference
+  categories.
 - Report sample size as N or Observaations in every regression column. For regressions with
   clustered standard errors, also report the number of clusters and identify
   the clustering unit in the notes.

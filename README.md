@@ -31,6 +31,15 @@ The page shows posts newest first, with Shiro Kuriwaki's introduction pinned at 
 3. Use an author key from `_data/authors.yml`, or add a new entry there with `name` and an optional `role`. The same record supplies the byline and feed attribution. The author keys are `tina` and `shiro`.
 4. Preview the landing page and the individual post. Topic links jump to the matching post on the landing page, and each title or "Read more" link opens the full post. Topic lists and previous/next links update automatically. Posts stay hidden until a build on or after the date in their filename.
 
+To add an image, save it in `blog-teaching/images/` and reference it from the post with a description of the image and an optional italic caption on the next line:
+
+```markdown
+![What the image shows](/blog-teaching/images/my-image.png)
+*Caption shown under the image.*
+```
+
+Images shrink to fit the column automatically.
+
 To choose the preview cutoff yourself, put `<!--more-->` on its own line, with a blank line before and after it. Everything before it appears on the landing page, followed by "Read more". Without that marker, posts longer than 200 words use a plain-text preview of the first 200 words. Change `teaching_blog.preview_words` in `_config.yml` to adjust the automatic limit.
 
 To pin the introduction, set `pinned: true` in its metadata. Keep that setting on only one post; remove it or set it to `false` to unpin a post. The introduction stays at the top regardless of its date and appears only once. The other posts follow in reverse chronological order.

@@ -1,7 +1,7 @@
 # Shiro Kuriwaki's instructions to LLMs for LaTeX tables
 
 
-_Version 0.3 — 2026-09-11_
+_Version 0.4 — 2026-10-28_
 
 Use these defaults for descriptive and regression tables in social science
 papers and results memos. Explicit user requests and journal requirements take

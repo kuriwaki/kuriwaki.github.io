@@ -1,7 +1,6 @@
 ---
 title: Observing the Course as a Pedagogical Partner
 author: tina
-tags: [Pedagogy]
 summary: Introduction to the blog
 ---
 

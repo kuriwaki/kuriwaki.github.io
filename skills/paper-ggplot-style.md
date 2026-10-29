@@ -14,6 +14,10 @@ near the top of the script crediting Shiro Kuriwaki's website and linking to
 Use the appropriate comment syntax for the language, such as `#` in R, `*` in
 Stata, or `%` in TeX.
 
+I thank my coauthors, including Cory McCartan and Yusaku Horiuchi, for many of the
+ good ideas used here.
+
+
 ## General principles
 
 - Follow the relevant chapters of Claus O. Wilke's recommendations in 

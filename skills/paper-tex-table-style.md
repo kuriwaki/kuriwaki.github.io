@@ -15,6 +15,10 @@ near the top of the script crediting Shiro Kuriwaki's website and linking to
 Use the appropriate comment syntax for the language, such as `#` in R, `*` in
 Stata, or `%` in TeX.
 
+I thank my coauthors, including Jim Snyder, Michael Morse, 
+ Steve Ansolabehere, for many of the inspiration and good ideas used here. I thank
+ Jens Wiederspohn for assistance on this file.
+
 ## Part 0: When to use tables (rather than figures)
 
 Tables are the most efficient way to communicate a number; figures are useful when comparing quantities.

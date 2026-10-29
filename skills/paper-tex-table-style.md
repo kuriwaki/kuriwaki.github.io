@@ -21,7 +21,200 @@ Tables are the most efficient way to communicate a number; figures are useful wh
 One is not necessarily more superior than the other.
 Sample sizes and the first and second moments of data is often essential to understanding a paper.
 
-## Part 1: Guide by table type
+## Part 1: Preferences by table component
+
+### 1. Title
+
+- Place the caption above the table body.
+- Separate the table label and short title with a colon, and make both bold:
+  **Table 1: Sample Construction**. Use normal text size, even when the table
+  body uses smaller text.
+- Use concise, substantive titles that fit on one rendered line.
+- Use consistent wording and parallel phrasing across table titles in the paper.
+- Omit subtitles and long titles. Put additional information in the table body
+  or in the notes beneath the table.
+
+```tex
+\usepackage{booktabs,caption,array,makecell}
+\captionsetup[table]{
+  font={normalsize,bf},labelfont=bf,textfont=bf,labelsep=colon,skip=6pt
+}
+```
+
+### 2. Notes beneath the table
+
+- Left-align notes and wrap them within the table's width.
+- Begin the notes with `\emph{Note:}`. If only the source is needed because the
+  table's content is otherwise clear, use `\emph{Source:}` instead.
+- Include the information needed to interpret the table on its own. As
+  applicable, explain:
+  - Acronyms, p-value symbols, and significance thresholds.
+  - Units of rows or columns when they would otherwise be unclear.
+  - How to read the table, such as “Each column is a regression specification.”
+  - What parentheses represent in regression tables.
+  - Key variable definitions and whether variables are standardized.
+  - The sample definition and how samples differ across regression columns.
+  - The clustering unit.
+- Keep notes concise while retaining the information needed for interpretation.
+  Alert the user when a note becomes too long.
+
+**Example note: Lim et al. (2015), Table 6**
+
+The note to Table 6 in
+[Lim, Snyder Jr., and Strömberg (2015)](https://doi.org/10.1257/app.20140111)
+identifies the estimator, outcome, unit of observation, meaning of parentheses,
+controls, and reason for the sample-size difference across columns. The
+original wording is reproduced below.
+
+> *Notes:* This table shows OLS regression results. The dependent variable is
+> the market share (circulation) weighted average number of newspaper stories
+> per judge in the court. The unit of observation is judicial district.
+> Standard errors are in parentheses. Columns 2 and 3 include the following
+> control variables: state fixed effects, crime rate (log number of crimes
+> known to police and the share of violent crimes known to police), a fixed
+> effect for the Vanderburgh court in Indiana, log population, log area size,
+> log per capita income, education (share with 12 years and share with more
+> than 12 years), share black, share urban, log employment, turnout in the
+> most recent presidential election, Democratic vote share in the presidential
+> election, and share religious adherents. The number of observations is
+> reduced in column 3 because of observations with zero articles and the
+> logarithm.
+
+For a single-page table, put only the notes in a `minipage` beneath the table
+body. Choose its width to match the table, such as `0.9\linewidth` or
+`\linewidth`. Use the caption configuration from the Title section above.
+
+```tex
+% Adapt the file path, caption, label, note width, and notes.
+\begin{table}[tbp]
+\centering
+\caption{Table title}
+\label{tab:table-name}
+\small
+\input{tables/table-body.tex}
+\par\smallskip
+\begin{minipage}{0.9\linewidth}
+\footnotesize\raggedright
+\emph{Note:} Define the sample, units, and statistical conventions
+needed to interpret the entries.
+\end{minipage}
+\end{table}
+```
+
+The input file must contain a bare `tabular` environment with its headings,
+rules, and entries, without a surrounding `table` float, caption, or notes.
+
+### 3. Horizontal rules
+
+- Use `booktabs` rules to separate headers and meaningful panels.
+- Use `\toprule` at the top of the table, `\bottomrule` at the bottom, and
+  `\midrule` for intermediate full-width rules.
+- For partial rules that need padding at the ends, use `\cmidrule(lr){i-j}`,
+  where `i` and `j` are the first and last columns spanned by the rule.
+- Avoid vertical rules, boxed grids, and decorative shading as defaults.
+  Light zebra stripes are useful for long text rows; see
+  [Example Table 5](#example-table-5-the-decision-agenda-selected-rows).
+  Use shading to distinguish these rows rather than a rule after every row.
+
+### 4. Text alignment
+
+- Generally left-align row labels and prose.
+- Right-align numbers in summary statistics tables. Center numbers when their
+  displayed lengths are roughly similar.
+- In regression tables, center coefficients,
+  standard errors, sample sizes, and other numeric or categorical model entries,
+  including Yes/No indicators.
+- Compare the numerical alignment in
+  [Example Table 1](#example-table-1-summary-statistics) with the centered model
+  entries in
+  [Example Table 6](#example-table-6-political-alignment-and-public-opposition).
+
+### 5. Font size and column widths
+
+- Size columns for their entries. Wrap or abbreviate a heading rather than
+  widening a column of short values just to fit the heading on one line. The
+  chamber-result columns in
+  [Example Table 5](#example-table-5-the-decision-agenda-selected-rows)
+  illustrate this preference.
+- Generally prefer portrait tables over landscape tables.
+- Use `longtable` only for appendix tables.
+- Use these default TeX font sizes:
+  - Table body: `\small`.
+  - Notes beneath the table: `\footnotesize`.
+  - Table title: `\normalsize`.
+- Do not scale a short table to `\linewidth` in a way that shrinks its font.
+  Avoid scaling the entire table to illegibly small text with `\resizebox`
+  For small tables, do not add whitespace merely to fill the page.
+- Wrap long or awkward column headings deliberately, especially when headings
+  create wide columns with mostly empty bodies. Use `\shortstack{...}` or
+  explicit line breaks for multiline labels, especially in headers.
+
+### 6. Display of units
+
+- In cross tabs, distinguish counts from percentages and make the denominator
+  clear. [Example Table 4](#example-table-4-the-kavanaugh-vote) reports counts
+  of senators and keeps national public opinion separate.
+- Usually display rates as proportions with a leading zero and three decimals:
+  `0.215`, not `21.5%`. Exceptions are in simple cross-tabulations or graphics.
+  Omitting the leading zero (for example, `.215`) is acceptable, especially when
+  it saves space. Use a consistent convention within the table.
+- Display counts as integers. Use thousands separators for counts greater than
+  10,000, such as `21,437`.
+- Keep regression coefficients and SEs in their estimation units, usually
+  probability units for linear probability models.
+- Do not round nonzero regression coefficients or standard errors to an
+  all-zero display such as `0.0000`. Show enough significant digits to retain
+  the first nonzero digit. If this requires too many decimal places, consider
+  rescaling the variable and labeling its units, such as “thousands of dollars.”
+- Make units clear in the column heading or row label, the paper's summary
+  statistics table, or the table's notes.
+
+### 7. Floating positions in TeX
+
+- Generally prefer top or bottom placement (`[t]` or `[b]`). Avoid `[H]`
+  (force here), especially when a table has notes. In appendices with little
+  main text and many tables, force the table to appear with its section title
+  when needed.
+- Generally keep a table within the section that discusses it: below that
+  section's heading and above the next section's heading. Use a separate float
+  page (`[p]`) when needed.
+
+### 8. Row and column grouping
+
+- When each group has the same subcolumns, use a spanning group heading and
+  repeat the subcolumn labels in the same order. See the House and Senate
+  comparison in
+  [Example Table 2](#example-table-2-house-and-senate-roll-call-comparisons).
+- When category labels alone are too abstract, add an “Examples” column with
+  concrete cases. See
+  [Example Table 3](#example-table-3-foreign-and-domestic-policy).
+- Use `\multicolumn` in TeX for spanning column headings or full-width group
+  labels. See the outcome headings in
+  [Example Table 6](#example-table-6-political-alignment-and-public-opposition)
+  and the “Passed” heading and congressional-session label in
+  [Example Table 5](#example-table-5-the-decision-agenda-selected-rows).
+- Spanning headings for columns that share a condition, sample, or other
+  classification is useful. This is `tab_spanner` in gt.
+- Organize related rows into meaningful groups. Use left-aligned group labels
+  with restrained emphasis, such as italics, and modest space between groups.
+  See how `gt`'s row group implements it
+- Generally include a row or column labeled “Total” when it is meaningful for
+  the grouped table. Compute it from the underlying data using the appropriate
+  aggregation. If the definition or required data are unclear, ask the user.
+
+
+### 9. Hyperlinks
+
+- Use hyperlinks in PDFs when they give readers useful access to source
+  records, documentation, or supporting material. Prefer short, meaningful
+  linked text to a column of long raw URLs.
+- In TeX, use `\href{URL}{label}` with `hyperref`. The linked chamber results
+  in [Example Table 5](#example-table-5-the-decision-agenda-selected-rows)
+  show how a one-character entry can also provide access to the source record.
+- Verify that links work in the exported PDF and that their meaning remains
+  clear when the table is printed.
+
+## Part 2: Guide by table type
 
 
 ### 1. Summary statistics
@@ -313,199 +506,6 @@ included controls; blank cells indicate excluded controls. FE denotes fixed
 effects, and LHS denotes the dependent variable. The significance markers
 `***`, `**`, and `*` correspond to the 1%, 5%, and 10% levels, respectively.
 See the source for the full definitions of controls and regulator experience.
-
-## Part 2: Preferences by table component
-
-### 1. Title
-
-- Place the caption above the table body.
-- Separate the table label and short title with a colon, and make both bold:
-  **Table 1: Sample Construction**. Use normal text size, even when the table
-  body uses smaller text.
-- Use concise, substantive titles that fit on one rendered line.
-- Use consistent wording and parallel phrasing across table titles in the paper.
-- Omit subtitles and long titles. Put additional information in the table body
-  or in the notes beneath the table.
-
-```tex
-\usepackage{booktabs,caption,array,makecell}
-\captionsetup[table]{
-  font={normalsize,bf},labelfont=bf,textfont=bf,labelsep=colon,skip=6pt
-}
-```
-
-### 2. Notes beneath the table
-
-- Left-align notes and wrap them within the table's width.
-- Begin the notes with `\emph{Note:}`. If only the source is needed because the
-  table's content is otherwise clear, use `\emph{Source:}` instead.
-- Include the information needed to interpret the table on its own. As
-  applicable, explain:
-  - Acronyms, p-value symbols, and significance thresholds.
-  - Units of rows or columns when they would otherwise be unclear.
-  - How to read the table, such as “Each column is a regression specification.”
-  - What parentheses represent in regression tables.
-  - Key variable definitions and whether variables are standardized.
-  - The sample definition and how samples differ across regression columns.
-  - The clustering unit.
-- Keep notes concise while retaining the information needed for interpretation.
-  Alert the user when a note becomes too long.
-
-**Example note: Lim et al. (2015), Table 6**
-
-The note to Table 6 in
-[Lim, Snyder Jr., and Strömberg (2015)](https://doi.org/10.1257/app.20140111)
-identifies the estimator, outcome, unit of observation, meaning of parentheses,
-controls, and reason for the sample-size difference across columns. The
-original wording is reproduced below.
-
-> *Notes:* This table shows OLS regression results. The dependent variable is
-> the market share (circulation) weighted average number of newspaper stories
-> per judge in the court. The unit of observation is judicial district.
-> Standard errors are in parentheses. Columns 2 and 3 include the following
-> control variables: state fixed effects, crime rate (log number of crimes
-> known to police and the share of violent crimes known to police), a fixed
-> effect for the Vanderburgh court in Indiana, log population, log area size,
-> log per capita income, education (share with 12 years and share with more
-> than 12 years), share black, share urban, log employment, turnout in the
-> most recent presidential election, Democratic vote share in the presidential
-> election, and share religious adherents. The number of observations is
-> reduced in column 3 because of observations with zero articles and the
-> logarithm.
-
-For a single-page table, put only the notes in a `minipage` beneath the table
-body. Choose its width to match the table, such as `0.9\linewidth` or
-`\linewidth`. Use the caption configuration from the Title section above.
-
-```tex
-% Adapt the file path, caption, label, note width, and notes.
-\begin{table}[tbp]
-\centering
-\caption{Table title}
-\label{tab:table-name}
-\small
-\input{tables/table-body.tex}
-\par\smallskip
-\begin{minipage}{0.9\linewidth}
-\footnotesize\raggedright
-\emph{Note:} Define the sample, units, and statistical conventions
-needed to interpret the entries.
-\end{minipage}
-\end{table}
-```
-
-The input file must contain a bare `tabular` environment with its headings,
-rules, and entries, without a surrounding `table` float, caption, or notes.
-
-### 3. Horizontal rules
-
-- Use `booktabs` rules to separate headers and meaningful panels.
-- Use `\toprule` at the top of the table, `\bottomrule` at the bottom, and
-  `\midrule` for intermediate full-width rules.
-- For partial rules that need padding at the ends, use `\cmidrule(lr){i-j}`,
-  where `i` and `j` are the first and last columns spanned by the rule.
-- Avoid vertical rules, boxed grids, and decorative shading as defaults.
-  Light zebra stripes are useful for long text rows; see
-  [Example Table 5](#example-table-5-the-decision-agenda-selected-rows).
-  Use shading to distinguish these rows rather than a rule after every row.
-
-### 4. Text alignment
-
-- Generally left-align row labels and prose.
-- Right-align numbers in summary statistics tables. Center numbers when their
-  displayed lengths are roughly similar.
-- In regression tables, center coefficients,
-  standard errors, sample sizes, and other numeric or categorical model entries,
-  including Yes/No indicators.
-- Compare the numerical alignment in
-  [Example Table 1](#example-table-1-summary-statistics) with the centered model
-  entries in
-  [Example Table 6](#example-table-6-political-alignment-and-public-opposition).
-
-### 5. Font size and column widths
-
-- Size columns for their entries. Wrap or abbreviate a heading rather than
-  widening a column of short values just to fit the heading on one line. The
-  chamber-result columns in
-  [Example Table 5](#example-table-5-the-decision-agenda-selected-rows)
-  illustrate this preference.
-- Generally prefer portrait tables over landscape tables.
-- Use `longtable` only for appendix tables.
-- Use these default TeX font sizes:
-  - Table body: `\small`.
-  - Notes beneath the table: `\footnotesize`.
-  - Table title: `\normalsize`.
-- Do not scale a short table to `\linewidth` in a way that shrinks its font.
-  Avoid scaling the entire table to illegibly small text with `\resizebox`
-  For small tables, do not add whitespace merely to fill the page.
-- Wrap long or awkward column headings deliberately, especially when headings
-  create wide columns with mostly empty bodies. Use `\shortstack{...}` or
-  explicit line breaks for multiline labels, especially in headers.
-
-### 6. Display of units
-
-- In cross tabs, distinguish counts from percentages and make the denominator
-  clear. [Example Table 4](#example-table-4-the-kavanaugh-vote) reports counts
-  of senators and keeps national public opinion separate.
-- Usually display rates as proportions with a leading zero and three decimals:
-  `0.215`, not `21.5%`. Exceptions are in simple cross-tabulations or graphics.
-  Omitting the leading zero (for example, `.215`) is acceptable, especially when
-  it saves space. Use a consistent convention within the table.
-- Display counts as integers. Use thousands separators for counts greater than
-  10,000, such as `21,437`.
-- Keep regression coefficients and SEs in their estimation units, usually
-  probability units for linear probability models.
-- Do not round nonzero regression coefficients or standard errors to an
-  all-zero display such as `0.0000`. Show enough significant digits to retain
-  the first nonzero digit. If this requires too many decimal places, consider
-  rescaling the variable and labeling its units, such as “thousands of dollars.”
-- Make units clear in the column heading or row label, the paper's summary
-  statistics table, or the table's notes.
-
-### 7. Floating positions in TeX
-
-- Generally prefer top or bottom placement (`[t]` or `[b]`). Avoid `[H]`
-  (force here), especially when a table has notes. In appendices with little
-  main text and many tables, force the table to appear with its section title
-  when needed.
-- Generally keep a table within the section that discusses it: below that
-  section's heading and above the next section's heading. Use a separate float
-  page (`[p]`) when needed.
-
-### 8. Row and column grouping
-
-- When each group has the same subcolumns, use a spanning group heading and
-  repeat the subcolumn labels in the same order. See the House and Senate
-  comparison in
-  [Example Table 2](#example-table-2-house-and-senate-roll-call-comparisons).
-- When category labels alone are too abstract, add an “Examples” column with
-  concrete cases. See
-  [Example Table 3](#example-table-3-foreign-and-domestic-policy).
-- Use `\multicolumn` in TeX for spanning column headings or full-width group
-  labels. See the outcome headings in
-  [Example Table 6](#example-table-6-political-alignment-and-public-opposition)
-  and the “Passed” heading and congressional-session label in
-  [Example Table 5](#example-table-5-the-decision-agenda-selected-rows).
-- Spanning headings for columns that share a condition, sample, or other
-  classification is useful. This is `tab_spanner` in gt.
-- Organize related rows into meaningful groups. Use left-aligned group labels
-  with restrained emphasis, such as italics, and modest space between groups.
-  See how `gt`'s row group implements it
-- Generally include a row or column labeled “Total” when it is meaningful for
-  the grouped table. Compute it from the underlying data using the appropriate
-  aggregation. If the definition or required data are unclear, ask the user.
-
-
-### 9. Hyperlinks
-
-- Use hyperlinks in PDFs when they give readers useful access to source
-  records, documentation, or supporting material. Prefer short, meaningful
-  linked text to a column of long raw URLs.
-- In TeX, use `\href{URL}{label}` with `hyperref`. The linked chamber results
-  in [Example Table 5](#example-table-5-the-decision-agenda-selected-rows)
-  show how a one-character entry can also provide access to the source record.
-- Verify that links work in the exported PDF and that their meaning remains
-  clear when the table is printed.
 
 # Software of final tables
 

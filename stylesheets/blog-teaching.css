@@ -17,10 +17,13 @@
 .notes-author { color: #2d2d2d; font-weight: 700; }
 .notes-entry + .notes-entry { margin-top: 30px; padding-top: 10px; border-top: 1px solid #e5e5e5; }
 .notes-main .notes-entry-title { font-size: 20px; }
-.notes-pinned { color: #6f777d; font-size: 13px; font-weight: normal; }
 .notes-tags { margin: 0 0 25px; font-size: 13px; }
 .notes-back { margin-top: 30px; }
 .notes-prose h2 { margin-top: 30px; }
+.notes-prose .notes-figure { display: block; margin: 20px 0; }
+.notes-figure > a { display: block; }
+.notes-figure img { display: block; width: auto; max-width: 100%; height: auto; max-height: 70vh; margin: 0 auto; }
+.notes-figure figcaption { display: block; margin: 10px 0 0; color: #6f777d; font-family: inherit; font-size: 13px; line-height: 1.5; }
 .notes-page details[open] { font-style: normal; }
 .notes-pagination { display: flex; justify-content: space-between; gap: 20px; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e5e5; }
 .notes-pagination > div { flex: 1; }

@@ -12,8 +12,12 @@ One question we’re working through this semester is how AI use affects student
 
 Shiro implemented a custom AI bot on Ed Discussion to help answer students’ questions. The teaching team tested the bot on practice questions. While it was able to answer them successfully, Shiro pointed out that some answers were too long and used more notation than students would need for the exam. The course offers the Ed Discussion bot as a resource for students.
 
-![Screenshot of an Ed Discussion post where the AQRD Bot answers a question about recode_values() and case_when() with an R code example and a bulleted explanation](/blog-teaching/images/ed-bot-example.png)
-*Shiro’s pinned example on Ed Discussion: the course bot explains the difference between `recode_values()` and `case_when()`.*
+<figure class="notes-figure">
+  <a href="{{ '/blog-teaching/images/ed-bot-example.png' | relative_url }}" aria-label="View full-size screenshot of the Ed Discussion bot">
+    <img src="{{ '/blog-teaching/images/ed-bot-example.png' | relative_url }}" alt="Screenshot of an Ed Discussion post where the AQRD Bot answers a question about recode_values() and case_when() with an R code example and a bulleted explanation" width="1654" height="1862" loading="lazy">
+  </a>
+  <figcaption><strong>Figure:</strong> Shiro’s pinned example on Ed Discussion: the course bot explains the difference between <code>recode_values()</code> and <code>case_when()</code>.</figcaption>
+</figure>
 
 ## What we noticed
 

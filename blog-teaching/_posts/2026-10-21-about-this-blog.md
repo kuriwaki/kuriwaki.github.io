@@ -1,7 +1,6 @@
 ---
 title: Why now?
 author: shiro
-pinned: true
 tags: []
 summary: Background for this blog
 ---

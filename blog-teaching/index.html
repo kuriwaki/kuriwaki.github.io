@@ -5,21 +5,10 @@ description: Reflections, tools, notes, and observations from a student observer
 permalink: /blog-teaching/
 ---
 {% assign series_posts = site.posts | where: 'series', 'blog-teaching' %}
-{% assign pinned_post = series_posts | where: 'pinned', true | first %}
 {% assign topics = series_posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
-<h1>Teaching Social Science Statistics</h1>
-<p>{{ page.description | escape }}</p>
-<nav class="notes-nav" aria-label="Teaching blog">
-  <a href="#posts">Posts</a> · <a href="#topics">Browse by topic</a>
-</nav>
 <div id="posts">
-  {% if pinned_post %}
-    {% include blog-teaching-entry.html post=pinned_post pinned=true %}
-  {% endif %}
   {% for post in series_posts %}
-    {% unless post.url == pinned_post.url %}
-      {% include blog-teaching-entry.html post=post %}
-    {% endunless %}
+    {% include blog-teaching-entry.html post=post %}
   {% endfor %}
 </div>
 <section aria-labelledby="topics">

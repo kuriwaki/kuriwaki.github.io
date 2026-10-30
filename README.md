@@ -14,7 +14,7 @@ The preview settings supply a site description locally so the GitHub metadata pl
 
 ## Add a blog post
 
-The page shows posts newest first, with Shiro Kuriwaki's introduction pinned at the top. Short posts appear in full; posts longer than 200 words show a shortened preview and a "Read more" link. Individual post pages always show the full text.
+The page shows posts newest first. "About the class" and "About Tina" links in the sidebar lead to their introductory posts. The sidebar also contains the blog title, description, and links to posts and topics. Short posts appear in full; longer posts show a preview of up to 100 words and a "Read more" link. Individual post pages always show the full text.
 
 1. Copy a file in `blog-teaching/_posts/`, naming it `YYYY-MM-DD-short-title.md`.
 2. Edit its metadata and write the body in Markdown:
@@ -40,8 +40,6 @@ To add an image, save it in `blog-teaching/images/` and reference it from the po
 
 Images shrink to fit the column automatically.
 
-To choose the preview cutoff yourself, put `<!--more-->` on its own line, with a blank line before and after it. Everything before it appears on the landing page, followed by "Read more". Without that marker, posts longer than 200 words use a plain-text preview of the first 200 words. Change `teaching_blog.preview_words` in `_config.yml` to adjust the automatic limit.
-
-To pin the introduction, set `pinned: true` in its metadata. Keep that setting on only one post; remove it or set it to `false` to unpin a post. The introduction stays at the top regardless of its date and appears only once. The other posts follow in reverse chronological order.
+To end a preview earlier, put `<!--more-->` on its own line, with a blank line before and after it. The landing page shows the content before that marker, capped at 100 words, followed by "Read more". Without that marker, posts longer than 100 words use a plain-text preview of the first 100 words. Change `teaching_blog.preview_words` in `_config.yml` to adjust the limit.
 
 The default layout and URL pattern are set in `_config.yml`. These posts use `/blog-teaching/short-title/` addresses. Choose distinct filenames after the date so each post has a unique address.

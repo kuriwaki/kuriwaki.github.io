@@ -21,6 +21,10 @@
       <p><a href="{{ '/' | relative_url }}">Home</a> · <a href="{{ '/#teaching' | relative_url }}">Teaching</a></p>
       <h2 class="notes-blog-title"><a href="{{ '/blog-teaching/' | relative_url }}">Teaching Social Science Statistics</a></h2>
       <p>Reflections, tools, notes, and observations from a student observer and the teaching team.</p>
+      {% include blog-teaching-about.html %}
+      <nav class="notes-nav" aria-label="Teaching blog">
+        <a href="{{ '/blog-teaching/' | relative_url }}#posts">Posts</a> · <a href="{{ '/blog-teaching/' | relative_url }}#topics">Browse by topic</a>
+      </nav>
     </header>
     <main id="main" class="notes-main" tabindex="-1">
       {{ content }}

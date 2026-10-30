@@ -109,7 +109,7 @@ whitelist:
 
 # Teaching blog
 teaching_blog:
-  preview_words: 200
+  preview_words: 100
 
 defaults:
   - scope:

@@ -1,5 +1,6 @@
 ---
-title: Reflections on how AI tools are used by students in the class
+title: "Ed Discussions's Customizable Class Bot"
+redirect_from: /blog-teaching/ai-tools/
 author: tina
 date: 2026-10-29 00:01:00 -0400
 summary: Reflections on students’ choices of AI tools, the use of a course-specific chatbot, and ways to make AI-assisted learning more thoughtful.

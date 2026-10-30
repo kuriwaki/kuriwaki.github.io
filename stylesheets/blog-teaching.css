@@ -6,13 +6,15 @@
   padding: 0 20px 50px;
 }
 
-.notes-site-header h1 a { color: inherit; font-weight: bold; }
+.notes-site-header h1 a, .notes-blog-title a { color: inherit; font-weight: bold; }
+.notes-site-header .notes-blog-title { margin: 30px 0 12px; font-size: 22px; line-height: 1.3; }
 .notes-main > h1, .notes-article-heading h1 { margin-top: 30px; }
 .notes-nav { margin-bottom: 25px; }
 .notes-page .notes-main > section { float: none; width: auto; margin: 0; padding: 0; border: 0; }
 .notes-main h2 { margin: 30px 0 20px; font-size: 18px; }
 .notes-main h3 { font-size: 15px; }
 .notes-meta { margin: 4px 0 16px; color: #6f777d; font-size: 13px; }
+.notes-author { color: #2d2d2d; font-weight: 700; }
 .notes-entry + .notes-entry { margin-top: 30px; padding-top: 10px; border-top: 1px solid #e5e5e5; }
 .notes-main .notes-entry-title { font-size: 20px; }
 .notes-pinned { color: #6f777d; font-size: 13px; font-weight: normal; }

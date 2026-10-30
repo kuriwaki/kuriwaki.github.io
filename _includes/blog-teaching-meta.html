@@ -1,5 +1,5 @@
 {% assign note_author = site.data.authors[include.post.author] %}
 <p class="notes-meta">
-  By {{ note_author.name | escape }}{% if note_author.role %}, {{ note_author.role | escape }}{% endif %}
+  By <span class="notes-author">{{ note_author.name | escape }}</span>{% if note_author.role %}, {{ note_author.role | escape }}{% endif %}
   · <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: '%B %-d, %Y' }}</time>
 </p>

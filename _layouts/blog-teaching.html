@@ -18,12 +18,18 @@
   <div class="wrapper">
     <header class="notes-site-header">
       <h1><a href="{{ '/' | relative_url }}">Shiro Kuriwaki</a></h1>
-      <p><a href="{{ '/' | relative_url }}">Home</a> · <a href="{{ '/#teaching' | relative_url }}">Teaching</a></p>
+      <p><a href="{{ '/' | relative_url }}">Return to Home</a></p>
       <h2 class="notes-blog-title"><a href="{{ '/blog-teaching/' | relative_url }}">Teaching Social Science Statistics</a></h2>
-      <p>Reflections, tools, notes, and observations from a student observer and the teaching team for Yale's "Applied Quantitative Research Design" class.</p>
+      <p>A blog for reflections, tools, notes, and observations from a student observer and the teaching team for Yale's "Applied Quantitative Research Design" class in Fall 2026.</p>
       {% include blog-teaching-about.html %}
-      <nav class="notes-nav" aria-label="Teaching blog">
-        <a href="{{ '/blog-teaching/' | relative_url }}#posts">Posts</a> · <a href="{{ '/blog-teaching/' | relative_url }}#topics">Browse by topic</a>
+      {% assign sidebar_posts = site.posts | where: 'series', 'blog-teaching' %}
+      <nav class="notes-nav notes-post-index" aria-labelledby="notes-post-index-title">
+        <h2 id="notes-post-index-title">Recent Posts</h2>
+        <p class="notes-post-list">
+          {% for post in sidebar_posts limit: 5 %}
+          <a href="{{ post.url | relative_url }}" title="{{ post.title | escape }}" aria-label="{{ post.title | escape }}"{% if post.url == page.url %} aria-current="page"{% endif %}>{{ post.title | truncate: 40, '…' | escape }}</a>{% unless forloop.last %} <span aria-hidden="true">//</span> {% endunless %}
+          {% endfor %}
+        </p>
       </nav>
     </header>
     <main id="main" class="notes-main" tabindex="-1">

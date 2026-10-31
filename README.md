@@ -14,7 +14,7 @@ The preview settings supply a site description locally so the GitHub metadata pl
 
 ## Add a blog post
 
-The page shows posts newest first. "About the class" and "About Tina" links in the sidebar lead to their introductory posts. The sidebar also contains the blog title, description, and links to posts and topics. Short posts appear in full; longer posts show a preview of up to 100 words and a "Read more" link. Individual post pages always show the full text.
+The page shows posts newest first. "About the class" and "About Tina" links in the sidebar lead to their introductory posts. The sidebar also contains the blog title, description, and a compact "Recent Posts" list of the five newest posts. Titles are limited to 40 characters, separated by `//`, and shown in full on hover. The post list updates automatically and highlights the current post. Short posts appear in full; longer posts show a preview of up to 100 words and a "Read more" link. Individual post pages always show the full text.
 
 1. Copy a file in `blog-teaching/_posts/`, naming it `YYYY-MM-DD-short-title.md`.
 2. Edit its metadata and write the body in Markdown:
@@ -23,13 +23,12 @@ The page shows posts newest first. "About the class" and "About Tina" links in t
    ---
    title: Your post title
    author: tina
-   tags: [Teaching R, Classroom activities]
    summary: A one-sentence description for links and page metadata.
    ---
    ```
 
 3. Use an author key from `_data/authors.yml`, or add a new entry there with `name` and an optional `role`. The same record supplies the byline and feed attribution. The author keys are `tina` and `shiro`.
-4. Preview the landing page and the individual post. Topic links jump to the matching post on the landing page, and each title or "Read more" link opens the full post. Topic lists and previous/next links update automatically. Posts stay hidden until a build on or after the date in their filename.
+4. Preview the landing page and the individual post. Each title or "Read more" link opens the full post. The sidebar post list and previous/next links update automatically. Posts stay hidden until a build on or after the date in their filename.
 
 To add an image, save it in `blog-teaching/images/` and reference it from the post with a description of the image and an optional italic caption on the next line:
 

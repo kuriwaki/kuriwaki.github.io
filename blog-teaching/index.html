@@ -5,22 +5,8 @@ description: Reflections, tools, notes, and observations from a student observer
 permalink: /blog-teaching/
 ---
 {% assign series_posts = site.posts | where: 'series', 'blog-teaching' %}
-{% assign topics = series_posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
 <div id="posts">
   {% for post in series_posts %}
     {% include blog-teaching-entry.html post=post %}
   {% endfor %}
 </div>
-<section aria-labelledby="topics">
-  <h2 id="topics">Browse by topic</h2>
-  {% for topic in topics %}
-    <h3 id="topic-{{ topic | slugify }}">{{ topic | escape }}</h3>
-    <ul class="dashed">
-      {% for post in series_posts %}
-        {% if post.tags contains topic %}
-          <li><a href="#post-{{ post.slug }}">{{ post.title | escape }}</a></li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  {% endfor %}
-</section>

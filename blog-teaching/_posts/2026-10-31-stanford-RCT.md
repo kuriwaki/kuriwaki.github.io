@@ -2,7 +2,6 @@
 title: >-
   The causal effect of small, mandatory, in-person drill sections: An experiment in Stanford's "Introduction to Probability" class
 author: shiro
-tags: []
 summary: Duchi, Hartog, and Sun's randomized experiment on the effects of small-group tutorials.
 ---
 
@@ -58,5 +57,5 @@ And some technical notes:
   the effects of mandatory attendance, small groups, or oral problem-solving.
 * I wonder what the standard deviation of scores was in the control group.
 
-Thanks to Dennis for letting me post about the paper, and to Teddy Svoronos for
+Thanks to Dennis for letting me post about the paper, and to Teddy Svoronos and Josh Goodman for
 convening the chat that led me to this study.

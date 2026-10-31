@@ -54,6 +54,7 @@ exclude:
   - Rakefile
   - README
   - tmp
+  - blog-teaching/_posts/2026-10-31-stanford-RCT.html
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
 keep_files:

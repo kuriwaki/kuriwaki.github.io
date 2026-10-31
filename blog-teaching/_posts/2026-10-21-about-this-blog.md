@@ -16,8 +16,12 @@ This year, I thought I'd document some of my reflections on the class and notes 
 what I've tried,
 especially how AI and LLMs should change student learning.
 I was fortunate to have the Yale's Center for Teaching and Learning assign Tina Zeng '28
-as a Pedagogy Partner to my class, and I thought this blog would be a good way to
-document our thoughts as a teaching team (which includes other teaching fellows who may make an appearance later).
+as a Pedagogy Partner to my class.
+In discussions of pedagogy, I have been interested in what students think about 
+their learning, but asking the students directly in your class have clear problems
+of privacy and misaligned incentives.
+Having Tina as both an neutral observer and conduit for the students felt like great asset.
+So, I thought this blog would be a good way to document our thoughts as a teaching team.
 
 <!--more-->
 
@@ -54,4 +58,7 @@ The course runs from September to December 2026. Expand below for the course con
 
 <br>
 AI Disclosure: I wrote the post, AI set up the blog within my jekyll website,
-and it also suggested a few titles for this first post, from which I chose "Why now?"
+and it also suggested a few titles for this first post, from which I chose "Why now?".
+All future posts by me will be written without AI, unless otherwise specified.
+<br>
+Edit: 2026-10-31 on pedagogy partner rationale

@@ -130,6 +130,9 @@ rules, and entries, without a surrounding `table` float, caption, or notes.
 - In regression tables, center coefficients,
   standard errors, sample sizes, and other numeric or categorical model entries,
   including Yes/No indicators.
+- Check numeric alignment visually. Accompanying symbols, such as significance 
+  stars, leading minus signs, or parentheses, should not cause noticeable 
+  horizontal shifts in the numbers. Adjust spacing where needed.
 - Compare the numerical alignment in
   [Example Table 1](#example-table-1-summary-statistics) with the centered model
   entries in

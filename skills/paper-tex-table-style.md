@@ -145,6 +145,11 @@ rules, and entries, without a surrounding `table` float, caption, or notes.
   chamber-result columns in
   [Example Table 5](#example-table-5-the-decision-agenda-selected-rows)
   illustrate this preference.
+- Wrap long headings before abbreviating them. Use abbreviations when they save 
+  space without reducing clarity, and provide explanations in the notes.
+- Give columns containing sentences or longer text passages enough width 
+  to wrap readably. Avoid narrowing them such that entries break into many 
+  short lines.
 - Generally prefer portrait tables over landscape tables.
 - Use `longtable` only for appendix tables.
 - Use these default TeX font sizes:

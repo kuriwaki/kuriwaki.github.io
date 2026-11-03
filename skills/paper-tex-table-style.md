@@ -207,6 +207,7 @@ rules, and entries, without a surrounding `table` float, caption, or notes.
   repeat the subcolumn labels in the same order. See the House and Senate
   comparison in
   [Example Table 2](#example-table-2-house-and-senate-roll-call-comparisons).
+- Use equal widths for columns under the same spanning group heading.
 - When category labels alone are too abstract, add an “Examples” column with
   concrete cases. See
   [Example Table 3](#example-table-3-foreign-and-domestic-policy).

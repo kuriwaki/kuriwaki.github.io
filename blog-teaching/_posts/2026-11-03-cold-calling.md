@@ -1,14 +1,15 @@
 ---
-title: "Cold Calling, Warm Support: Helping Students Think Out Loud"
+title: "How Helpful is Cold-Calling?"
 author: tina
 summary: What we learned from introducing cold calling this semester.
 ---
 
+One of the initiatives introduced this semester is cold calling each student at some point. This way, we can sample understanding across the classroom, including students who may not volunteer. Calling only on students who volunteer may skew the instructor’s perception of students’ understanding. 
+
+[Instructor’s note: I experienced this technique as a student in Josh Angrist’s econometrics lecture, MIT 14.387, in Spring of 2017. SK]
+
 ## What we tried
-
-From sitting in the class, I observe substantial engagement from students during lectures, as they asked questions, contributed their experiences, and responded to one another’s ideas. Shiro also uses pre-class quizzes to involve students in experiments, and those results become examples during lecture to illustrate a point. While class engagement is not an issue on the whole, we still wanted to encourage students who are more hesitant to speak in class.
-
-One of the initiatives introduced this semester is cold calling, so Shiro can sample understanding across the classroom, including students who may not volunteer. He begins at a randomly chosen point in the room and then moves through students in seating order. Most exchanges are brief, but he sometimes stays with a student, offering follow-up questions and prompts to help them develop an answer. The aim is both to understand students’ thinking and to scaffold their reasoning toward a clearer explanation.
+To begin the cold-calling, Shiro begins at a randomly chosen point in the room and then moves through students in seating order. Most exchanges are brief, but he sometimes stays with a student, offering follow-up questions and prompts to help them develop an answer. The aim is both to understand students’ thinking and to scaffold their reasoning toward a clearer explanation. In the age of AI, Shiro wants students to practice their oral fluency and thinking-on-their-feet (hence why we also introduced oral exams). 
 
 ## What we noticed
 
@@ -23,3 +24,7 @@ To streamline the questions, it could help to prepare a sequence of cold-call qu
 For a key concept, give students a moment to think individually, then open the class to the turn-and-talk with a neighbor before calling on students to share. This gives everyone an opportunity to attempt the reasoning, compare their approaches, and rehearse an explanation.
 
 Trying to scaffold a student’s response by asking pointed questions helps. As their answers get warmer, other students could be inspired with the correct answer.
+
+## Participation in the class
+ 
+From sitting in the class, I observe substantial engagement from students during lectures, as they asked questions, contributed their experiences, and responded to one another’s ideas. In future posts, I will share some of the pedagogical strategies used in the course to promote engagement, such as pre-class quizzes.

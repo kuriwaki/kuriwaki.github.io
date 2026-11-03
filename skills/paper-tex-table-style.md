@@ -217,14 +217,15 @@ rules, and entries, without a surrounding `table` float, caption, or notes.
   and the “Passed” heading and congressional-session label in
   [Example Table 5](#example-table-5-the-decision-agenda-selected-rows).
 - Spanning headings for columns that share a condition, sample, or other
-  classification is useful. This is `tab_spanner` in gt.
+  classification is useful. This is `tab_spanner` in `gt`.
 - Organize related rows into meaningful groups. Use left-aligned group labels
   with restrained emphasis, such as italics, and modest space between groups.
-  See how `gt`'s row group implements it
+  See how `gt`'s row group implements it.
 - Generally include a row or column labeled “Total” when it is meaningful for
   the grouped table. Compute it from the underlying data using the appropriate
   aggregation. If the definition or required data are unclear, ask the user.
-
+- Use “Total” consistently across related tables. Use a different label only
+  when needed to distinguish what is being displayed.
 
 ### 9. Hyperlinks
 

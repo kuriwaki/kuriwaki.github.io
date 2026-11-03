@@ -50,6 +50,7 @@ Sample sizes and the first and second moments of data is often essential to unde
 - Left-align notes and wrap them within the table's width.
 - Begin the notes with `\emph{Note:}`. If only the source is needed because the
   table's content is otherwise clear, use `\emph{Source:}` instead.
+- Avoid semicolons in notes.
 - Include the information needed to interpret the table on its own. As
   applicable, explain:
   - Acronyms, p-value symbols, and significance thresholds.
@@ -60,7 +61,8 @@ Sample sizes and the first and second moments of data is often essential to unde
   - The sample definition and how samples differ across regression columns.
   - The clustering unit.
 - Keep notes concise while retaining the information needed for interpretation.
-  Alert the user when a note becomes too long.
+  Aim to keep notes under 150 words, and alert the user if they exceed 
+  that length.
 
 **Example note: Lim et al. (2015), Table 6**
 

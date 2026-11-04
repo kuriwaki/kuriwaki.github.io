@@ -9,5 +9,8 @@ main:
     url: /#book
   - title: "<b>Teaching</b>"
     url: /#teaching
+    related:
+      title: "<b>Blog</b>"
+      url: /blog-teaching/
   - title: "<b>Datasets</b>"
     url: /#datasets

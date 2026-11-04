@@ -14,7 +14,11 @@
         <ul class="visible-links">
           {%- for link in site.data.navigation.main -%}
             <li class="masthead__menu-item">
+              {% if link.related %}<span class="masthead__link-group">{% endif %}
               <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
+              {% if link.related %}
+                <span>(<a href="{{ link.related.url | relative_url }}">{{ link.related.title }}</a>)</span>
+              </span>{% endif %}
             </li>
           {%- endfor -%}
         </ul>

@@ -53,6 +53,24 @@ h4 {
   color: #6f777d;
 }
 
+.greedy-nav .masthead__link-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  margin: 0 0.35rem;
+}
+
+.greedy-nav .masthead__link-group a {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.greedy-nav .hidden-links .masthead__link-group {
+  margin: 0;
+  padding: 10px 20px;
+}
+
 .yale-department-icon {
   display: inline-block;
   line-height: 1;

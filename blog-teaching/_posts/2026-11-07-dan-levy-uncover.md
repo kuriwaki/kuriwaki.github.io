@@ -38,7 +38,8 @@ because students uncover notions of agenda power, logrolling, time management, e
 themselves. (Frances Lee and Robert Oldham developed such a [course](https://www.robertloldham.com/teaching/) at Princeton, 
 and Keith Hennessey teaches a wildly popular [MBA class](https://www.gsb.stanford.edu/experience/news-history/back-class-im-just-bill) at Stanford with this, called "I'm Just a Bill").
 
-This does not mean, though, that every lecture has to be some kind of group activity. A traditional 
+This does not mean, though, that every lecture has to be some kind of group activity (those who know me personally probably can tell 
+I wouldn't be a group activity die-hard myself if I were a student).  A traditional 
 combination of pure lecture and homework later also can lead students to "uncover". Doing the homework 
 allows students to uncover the material. There is a particular type of joy when you
 are solving a problem after class (even during the final exam!) and you realize 

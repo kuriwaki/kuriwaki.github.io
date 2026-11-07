@@ -5,7 +5,7 @@ layout: blog-teaching
 <article class="notes-article">
   <div class="notes-article-heading">
     <p class="notes-back"><a href="{{ '/blog-teaching/' | relative_url }}">← All blog posts</a></p>
-    <h1>{{ page.title | escape }}</h1>
+    <h1>{{ page.title | markdownify | remove: '<p>' | remove: '</p>' | strip }}</h1>
     {% include blog-teaching-meta.html post=page %}
   </div>
   <div class="notes-prose">{{ content }}</div>
@@ -19,13 +19,13 @@ layout: blog-teaching
       <div>
         {% if older_index < series_posts.size %}
           {% assign older_post = series_posts[older_index] %}
-          <a rel="prev" href="{{ older_post.url | relative_url }}">← {{ older_post.title | escape }}</a>
+          <a rel="prev" href="{{ older_post.url | relative_url }}">← {{ older_post.title | markdownify | remove: '<p>' | remove: '</p>' | strip }}</a>
         {% endif %}
       </div>
       <div>
         {% if newer_index >= 0 %}
           {% assign newer_post = series_posts[newer_index] %}
-          <a rel="next" href="{{ newer_post.url | relative_url }}">{{ newer_post.title | escape }} →</a>
+          <a rel="next" href="{{ newer_post.url | relative_url }}">{{ newer_post.title | markdownify | remove: '<p>' | remove: '</p>' | strip }} →</a>
         {% endif %}
       </div>
     </nav>

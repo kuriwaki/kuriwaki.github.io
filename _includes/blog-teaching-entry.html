@@ -1,6 +1,6 @@
 <article class="notes-entry" id="post-{{ include.post.slug }}" aria-labelledby="title-{{ include.post.slug }}">
   <h2 class="notes-entry-title" id="title-{{ include.post.slug }}">
-    <a href="{{ include.post.url | relative_url }}">{{ include.post.title | escape }}</a>
+    <a href="{{ include.post.url | relative_url }}">{{ include.post.title | markdownify | remove: '<p>' | remove: '</p>' | strip }}</a>
   </h2>
   {% include blog-teaching-meta.html post=include.post %}
   {% assign entry_content = include.post.content %}
@@ -22,6 +22,6 @@
     {{ entry_content | replace: ' id="', content_id_prefix | replace: ' href="#', content_link_prefix | replace: '<h2', '<h3' | replace: '</h2>', '</h3>' }}
   </div>
   {% if show_read_more %}
-    <p class="notes-read-more"><a href="{{ include.post.url | relative_url }}" aria-label="Read more: {{ include.post.title | escape }}">Read more →</a></p>
+    <p class="notes-read-more"><a href="{{ include.post.url | relative_url }}" aria-label="Read more: {{ include.post.title | markdownify | strip_html | normalize_whitespace | escape_once }}">Read more →</a></p>
   {% endif %}
 </article>

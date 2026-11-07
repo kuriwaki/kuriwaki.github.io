@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page.title | escape }} — Shiro Kuriwaki</title>
+  <title>{{ page.title | markdownify | strip_html | normalize_whitespace | escape_once }} — Shiro Kuriwaki</title>
   <meta name="description" content="{{ page.summary | default: page.description | default: 'Reflections on teaching applied statistics.' | escape }}">
   {% if page.author %}
     {% assign author = site.data.authors[page.author] %}
@@ -27,7 +27,8 @@
         <h2 id="notes-post-index-title">Recent Posts</h2>
         <p class="notes-post-list">
           {% for post in sidebar_posts limit: 5 %}
-          <a href="{{ post.url | relative_url }}" title="{{ post.title | escape }}" aria-label="{{ post.title | escape }}"{% if post.url == page.url %} aria-current="page"{% endif %}>{{ post.title | truncate: 40, '…' | escape }}</a>{% unless forloop.last %} <span aria-hidden="true">//</span> {% endunless %}
+          {% assign sidebar_title = post.title | markdownify | strip_html | normalize_whitespace %}
+          <a href="{{ post.url | relative_url }}" title="{{ sidebar_title | escape_once }}" aria-label="{{ sidebar_title | escape_once }}"{% if post.url == page.url %} aria-current="page"{% endif %}>{{ sidebar_title | truncate: 40, '…' | escape_once }}</a>{% unless forloop.last %} <span aria-hidden="true">//</span> {% endunless %}
           {% endfor %}
         </p>
       </nav>

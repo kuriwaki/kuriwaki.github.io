@@ -111,6 +111,7 @@ whitelist:
 # Teaching blog
 teaching_blog:
   preview_words: 100
+  public_url: "https://www.shirokuriwaki.com"
 
 defaults:
   - scope:

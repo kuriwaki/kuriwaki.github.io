@@ -42,3 +42,15 @@ Images shrink to fit the column automatically.
 To end a preview earlier, put `<!--more-->` on its own line, with a blank line before and after it. The landing page shows the content before that marker, capped at 100 words, followed by "Read more". Without that marker, posts longer than 100 words use a plain-text preview of the first 100 words. Change `teaching_blog.preview_words` in `_config.yml` to adjust the limit.
 
 The default layout and URL pattern are set in `_config.yml`. These posts use `/blog-teaching/short-title/` addresses. Choose distinct filenames after the date so each post has a unique address.
+
+## Cite and share posts
+
+Every teaching blog post automatically ends with a suggested citation and a "Share on X" link. The shared post layout inserts `_includes/blog-teaching-footer.html`; no footer text is needed in individual Markdown files. This applies to existing and future posts.
+
+The citation uses the author's full name from `_data/authors.yml`, the full title as plain text, and the date shown in the byline:
+
+```text
+Author Title, Month Day, Year. URL
+```
+
+"Share on X" opens an editable draft containing the title and public URL; the reader chooses whether to publish it. Both features use `teaching_blog.public_url`, so even a local preview supplies the public website address.

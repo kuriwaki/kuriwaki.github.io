@@ -28,6 +28,11 @@
 .notes-figure img { display: block; width: auto; max-width: 100%; height: auto; max-height: 70vh; margin: 0 auto; }
 .notes-figure figcaption { display: block; margin: 10px 0 0; color: #6f777d; font-family: inherit; font-size: 13px; line-height: 1.5; }
 .notes-page details[open] { font-style: normal; }
+.notes-post-footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e5e5; font-size: 13px; }
+.notes-citation { line-height: 1.6; overflow-wrap: anywhere; }
+.notes-share { margin: 15px 0 0; }
+.notes-share a { display: inline-block; padding: 6px 12px; border: 1px solid currentColor; border-radius: 4px; font-size: 13px; line-height: 1.4; }
+.notes-share a:hover { background: #eef6fb; }
 .notes-pagination { display: flex; justify-content: space-between; gap: 20px; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e5e5; }
 .notes-pagination > div { flex: 1; }
 .notes-pagination > div:last-child { text-align: right; }

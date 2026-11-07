@@ -9,6 +9,7 @@ layout: blog-teaching
     {% include blog-teaching-meta.html post=page %}
   </div>
   <div class="notes-prose">{{ content }}</div>
+  {% include blog-teaching-footer.html post=page %}
 </article>
 {% for post in series_posts %}
   {% if post.url == page.url %}

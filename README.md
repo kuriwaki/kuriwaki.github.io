@@ -54,3 +54,5 @@ Author Title, Month Day, Year. URL
 ```
 
 "Share on X" opens an editable draft containing the title and public URL; the reader chooses whether to publish it. Both features use `teaching_blog.public_url`, so even a local preview supplies the public website address.
+
+Custom social link previews are deferred in [this plan](docs/plans/blog-social-previews.md).

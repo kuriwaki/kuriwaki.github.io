@@ -11,7 +11,7 @@ fall 2019.
 
 One of Dan's pedagogical adages that has always stuck with me is his caution to lecturers:
 
-> It's not about what the instructor *covers*, it's what the students **un**cover
+> It's not about what the instructor *covers*, it's about what the students **un**cover
 
 
 In statistics, there is always a lot I want to teach. For example, in a class on 

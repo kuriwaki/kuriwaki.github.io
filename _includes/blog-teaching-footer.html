@@ -4,6 +4,6 @@
 <footer class="notes-post-footer">
   <p class="notes-citation">
     <strong>For sharing:</strong><br>
-    {{ citation_author.name | escape }} {{ citation_title | escape_once }}, <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: '%B %-d, %Y' }}</time>. <a href="{{ citation_url | escape }}">{{ citation_url | escape }}</a>
+    {{ citation_author.name | escape }}, {{ citation_title | escape_once }}, <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: '%B %-d, %Y' }}</time>. <a href="{{ citation_url | escape }}">{{ citation_url | escape }}</a>
   </p>
 </footer>

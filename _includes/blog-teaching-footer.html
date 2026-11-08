@@ -1,13 +1,9 @@
 {% assign citation_author = site.data.authors[include.post.author] %}
 {% assign citation_title = include.post.title | markdownify | strip_html | normalize_whitespace %}
 {% assign citation_url = include.post.url | relative_url | prepend: site.teaching_blog.public_url %}
-{% assign share_title = citation_title | replace: '&amp;', '&' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&nbsp;', ' ' | truncate: 220, '…' %}
 <footer class="notes-post-footer">
   <p class="notes-citation">
     <strong>For sharing:</strong><br>
     {{ citation_author.name | escape }} {{ citation_title | escape_once }}, <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: '%B %-d, %Y' }}</time>. <a href="{{ citation_url | escape }}">{{ citation_url | escape }}</a>
-  </p>
-  <p class="notes-share">
-    <a href="https://x.com/intent/tweet?text={{ share_title | url_encode }}&amp;url={{ citation_url | url_encode }}" target="_blank" rel="noopener noreferrer">Share on X</a>
   </p>
 </footer>

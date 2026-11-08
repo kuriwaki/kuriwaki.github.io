@@ -43,9 +43,9 @@ To end a preview earlier, put `<!--more-->` on its own line, with a blank line b
 
 The default layout and URL pattern are set in `_config.yml`. These posts use `/blog-teaching/short-title/` addresses. Choose distinct filenames after the date so each post has a unique address.
 
-## Cite and share posts
+## Cite posts
 
-Every teaching blog post automatically ends with a suggested citation and a "Share on X" link. The shared post layout inserts `_includes/blog-teaching-footer.html`; no footer text is needed in individual Markdown files. This applies to existing and future posts.
+Every teaching blog post automatically ends with a suggested citation. The shared post layout inserts `_includes/blog-teaching-footer.html`; no footer text is needed in individual Markdown files. This applies to existing and future posts.
 
 The citation uses the author's full name from `_data/authors.yml`, the full title as plain text, and the date shown in the byline:
 
@@ -53,6 +53,6 @@ The citation uses the author's full name from `_data/authors.yml`, the full titl
 Author Title, Month Day, Year. URL
 ```
 
-"Share on X" opens an editable draft containing the title and public URL; the reader chooses whether to publish it. Both features use `teaching_blog.public_url`, so even a local preview supplies the public website address.
+The citation uses `teaching_blog.public_url`, so even a local preview supplies the public website address.
 
-Custom social link previews are deferred in [this plan](docs/plans/blog-social-previews.md).
+The "Share on X" button and custom social link previews are deferred in [this plan](docs/plans/blog-social-previews.md).

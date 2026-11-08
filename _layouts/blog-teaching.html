@@ -26,7 +26,7 @@
       <nav class="notes-nav notes-post-index" aria-labelledby="notes-post-index-title">
         <h2 id="notes-post-index-title">Recent Posts</h2>
         <p class="notes-post-list">
-          {% for post in sidebar_posts limit: 5 %}
+          {% for post in sidebar_posts limit: 10 %}
           {% assign sidebar_title = post.title | markdownify | strip_html | normalize_whitespace %}
           <a href="{{ post.url | relative_url }}" title="{{ sidebar_title | escape_once }}" aria-label="{{ sidebar_title | escape_once }}"{% if post.url == page.url %} aria-current="page"{% endif %}>{{ sidebar_title | truncate: 40, '…' | escape_once }}</a>{% unless forloop.last %} <span aria-hidden="true">//</span> {% endunless %}
           {% endfor %}

@@ -4,7 +4,7 @@
 {% assign share_title = citation_title | replace: '&amp;', '&' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&nbsp;', ' ' | truncate: 220, '…' %}
 <footer class="notes-post-footer">
   <p class="notes-citation">
-    <strong>Suggested citation:</strong><br>
+    <strong>For sharing:</strong><br>
     {{ citation_author.name | escape }} {{ citation_title | escape_once }}, <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: '%B %-d, %Y' }}</time>. <a href="{{ citation_url | escape }}">{{ citation_url | escape }}</a>
   </p>
   <p class="notes-share">

@@ -5,8 +5,18 @@ description: Reflections, tools, notes, and observations from a student observer
 permalink: /blog-teaching/
 ---
 {% assign series_posts = site.posts | where: 'series', 'blog-teaching' %}
+<div class="notes-search" role="search" aria-label="Search teaching posts" hidden>
+  <label for="notes-search-input">Search text</label>
+  <div class="notes-search-controls">
+    <input id="notes-search-input" type="search" placeholder="Search text…" aria-controls="posts" autocomplete="off">
+    <button id="notes-search-clear" type="button" disabled>Clear</button>
+  </div>
+  <p id="notes-search-status" class="notes-search-status" role="status" aria-atomic="true"></p>
+</div>
 <div id="posts">
   {% for post in series_posts %}
     {% include blog-teaching-entry.html post=post %}
   {% endfor %}
 </div>
+<p id="notes-search-empty" class="notes-search-empty" hidden>No matching posts. Try different keywords or clear the search.</p>
+<script src="{{ '/assets/js/blog-teaching-search.js' | relative_url }}" defer></script>

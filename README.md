@@ -16,6 +16,8 @@ The preview settings supply a site description locally so the GitHub metadata pl
 
 The page shows posts newest first. "About the class" and "About Tina" links in the sidebar lead to their introductory posts. The sidebar also contains the blog title, description, and a compact "Recent Posts" list of up to ten newest posts. Titles are limited to 40 characters, separated by `//`, and shown in full on hover. The post list updates automatically and highlights the current post. Short posts appear in full; longer posts show a preview of up to 100 words and a "Read more" link. Individual post pages always show the full text.
 
+The search field above the posts filters the list as readers type, matching titles, summaries, and full post text regardless of capitalization. Keywords match inside words by default; `AI` matches only as a whole word. Add other exceptions to `wholeWordPatterns` in `assets/js/blog-teaching-search.js`. Every keyword must match, and matching posts stay newest first. Clear restores the full list. Search text updates automatically when Jekyll builds the site; no extra metadata or indexing command is needed. Without JavaScript, all posts remain visible.
+
 1. Copy a file in `blog-teaching/_posts/`, naming it `YYYY-MM-DD-short-title.md`.
 2. Edit its metadata and write the body in Markdown:
 

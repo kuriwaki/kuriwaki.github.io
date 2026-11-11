@@ -19,8 +19,19 @@
 .notes-main h3 { font-size: 15px; }
 .notes-meta { margin: 4px 0 16px; color: #6f777d; font-size: 13px; }
 .notes-author { color: #2d2d2d; font-weight: 700; }
-.notes-entry + .notes-entry { margin-top: 30px; padding-top: 10px; border-top: 1px solid #e5e5e5; }
+.notes-entry:not([hidden]) ~ .notes-entry:not([hidden]) { margin-top: 30px; padding-top: 10px; border-top: 1px solid #e5e5e5; }
 .notes-main .notes-entry-title { font-size: 20px; }
+.notes-page [hidden] { display: none !important; }
+.notes-search { margin: 30px 0; }
+.notes-search label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 700; }
+.notes-search-controls { display: flex; gap: 8px; }
+.notes-search-controls input { flex: 1; min-width: 0; width: 100%; margin: 0; padding: 10px 12px; border: 1px solid #b8bec3; border-radius: 4px; background: #fff; color: #2d2d2d; font: inherit; font-size: 16px; line-height: 1.5; box-shadow: none; }
+.notes-search-controls button { flex: none; margin: 0; padding: 10px 14px; border: 1px solid #b8bec3; border-radius: 4px; background: #fff; color: #267cb9; font: inherit; font-size: 14px; cursor: pointer; }
+.notes-search-controls button:hover:enabled { background: #eef6fb; }
+.notes-search-controls button:disabled { color: #6f777d; cursor: default; }
+.notes-search-controls input:focus-visible, .notes-search-controls button:focus-visible { outline: 2px solid #267cb9; outline-offset: 2px; }
+.notes-search-status { margin: 8px 0 0; color: #6f777d; font-size: 13px; line-height: 1.5; }
+.notes-search-empty { margin: 30px 0; }
 .notes-back { margin-top: 30px; }
 .notes-prose h2 { margin-top: 30px; }
 .notes-prose .notes-figure { display: block; margin: 20px 0; }

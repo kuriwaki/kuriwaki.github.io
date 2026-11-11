@@ -50,6 +50,7 @@ Sample sizes and the first and second moments of data is often essential to unde
 - Left-align notes and wrap them within the table's width.
 - Begin the notes with `\emph{Note:}`. If only the source is needed because the
   table's content is otherwise clear, use `\emph{Source:}` instead.
+- Avoid semicolons in notes.
 - Include the information needed to interpret the table on its own. As
   applicable, explain:
   - Acronyms, p-value symbols, and significance thresholds.
@@ -60,7 +61,8 @@ Sample sizes and the first and second moments of data is often essential to unde
   - The sample definition and how samples differ across regression columns.
   - The clustering unit.
 - Keep notes concise while retaining the information needed for interpretation.
-  Alert the user when a note becomes too long.
+  Aim to keep notes under 150 words, and alert the user if they exceed 
+  that length.
 
 **Example note: Lim et al. (2015), Table 6**
 
@@ -128,6 +130,9 @@ rules, and entries, without a surrounding `table` float, caption, or notes.
 - In regression tables, center coefficients,
   standard errors, sample sizes, and other numeric or categorical model entries,
   including Yes/No indicators.
+- Check numeric alignment visually. Accompanying symbols, such as significance 
+  stars, leading minus signs, or parentheses, should not cause noticeable 
+  horizontal shifts in the numbers. Adjust spacing where needed.
 - Compare the numerical alignment in
   [Example Table 1](#example-table-1-summary-statistics) with the centered model
   entries in
@@ -140,6 +145,11 @@ rules, and entries, without a surrounding `table` float, caption, or notes.
   chamber-result columns in
   [Example Table 5](#example-table-5-the-decision-agenda-selected-rows)
   illustrate this preference.
+- Wrap long headings before abbreviating them. Use abbreviations when they save 
+  space without reducing clarity, and provide explanations in the notes.
+- Give columns containing sentences or longer text passages enough width 
+  to wrap readably. Avoid narrowing them such that entries break into many 
+  short lines.
 - Generally prefer portrait tables over landscape tables.
 - Use `longtable` only for appendix tables.
 - Use these default TeX font sizes:
@@ -197,6 +207,7 @@ rules, and entries, without a surrounding `table` float, caption, or notes.
   repeat the subcolumn labels in the same order. See the House and Senate
   comparison in
   [Example Table 2](#example-table-2-house-and-senate-roll-call-comparisons).
+- Use equal widths for columns under the same spanning group heading.
 - When category labels alone are too abstract, add an “Examples” column with
   concrete cases. See
   [Example Table 3](#example-table-3-foreign-and-domestic-policy).
@@ -206,14 +217,15 @@ rules, and entries, without a surrounding `table` float, caption, or notes.
   and the “Passed” heading and congressional-session label in
   [Example Table 5](#example-table-5-the-decision-agenda-selected-rows).
 - Spanning headings for columns that share a condition, sample, or other
-  classification is useful. This is `tab_spanner` in gt.
+  classification is useful. This is `tab_spanner` in `gt`.
 - Organize related rows into meaningful groups. Use left-aligned group labels
   with restrained emphasis, such as italics, and modest space between groups.
-  See how `gt`'s row group implements it
+  See how `gt`'s row group implements it.
 - Generally include a row or column labeled “Total” when it is meaningful for
   the grouped table. Compute it from the underlying data using the appropriate
   aggregation. If the definition or required data are unclear, ask the user.
-
+- Use “Total” consistently across related tables. Use a different label only
+  when needed to distinguish what is being displayed.
 
 ### 9. Hyperlinks
 
@@ -458,7 +470,14 @@ The complete source provides the full question wording, definitions, and rows.
   omitted from the display, identify them as “included but not displayed” so
   readers can distinguish them from excluded predictors or reference
   categories.
-- Report sample size as N or Observaations in every regression column. For regressions with
+- Omit rows such as “Other controls” when they only indicate modeling choices
+  shared by all specifications. Describe those shared features in the notes.
+- Leave the first-column heading blank when the row labels are self-explanatory.
+  If there is not enough space to state the dependent variable in the table,
+  identify it in the notes.
+- Avoid extra vertical space between each coefficient and its standard error.
+- Keep both bounds of confidence intervals on the same line.
+- Report sample size as N or Observations in every regression column. For regressions with
   clustered standard errors, also report the number of clusters and identify
   the clustering unit in the notes.
 - It is almost always a good idea to also show the mean of the outcome or left hand side, e.g. Mean(Outcome),
@@ -471,13 +490,14 @@ The complete source provides the full question wording, definitions, and rows.
   excluded fixed effects. Ensure the TeX engine/font renders the glyph. A blank
   FE cell means exclusion, not missing data; use a dash for genuinely missing
   statistics.
-- The point of a multicolumn regresison table is often to compare different modeling choices 
-  (while keeping variable definitions, units, and sample restrictions consistent). Or comparing
-  the implications of a sample restriction while keeping the other things consistent. 
-  Disclose differences that remain; a figure described as a visualization of a table must use that table's
+- The point of a multicolumn regression table is often to compare different 
+  modeling choices (while keeping variable definitions, units, and sample 
+  restrictions consistent). Or comparing the implications of a sample 
+  restriction while keeping the other things consistent. 
+  Disclose differences that remain across adjacent model columns.; 
+  a figure described as a visualization of a table must use that table's
   actual estimates, samples, and uncertainty measures.
-  adjacent model columns. 
-- Paired outcomes can be useful to highlight differences, where relavant
+- Paired outcomes can be useful to highlight differences, where relevant.
 
 #### Example Table 6: Political Alignment and Public Opposition
 
@@ -534,11 +554,11 @@ See the source for the full definitions of controls and regulator experience.
 
 ### In R's `gt`
 
-- Papers must eventually use TeX. These can be generated by R's modelsummary or gt, kableExtra packages
-- For TeX tables, Almost always, R should ONLY generate the body of the table: Not the Notes, Title, or the hyperref labels. Because gt-tex does not yet seem to have the "body-only" option, you may need to strip out the top and bottom in R before saving
-- R's `gt` also provides generally nice tables in html, which can then be screenshotted in png. This is useful for data exploration, slides, and long tables that you do not want to split into pages
+- Papers must eventually use TeX. These can be generated by R's `modelsummary` or `gt`, `kableExtra` packages.
+- For TeX tables, Almost always, R should ONLY generate the body of the table: Not the Notes, Title, or the hyperref labels. Because `gt`-tex does not yet seem to have the "body-only" option, you may need to strip out the top and bottom in R before saving.
+- R's `gt` also provides generally nice tables in html, which can then be screenshotted in png. This is useful for data exploration, slides, and long tables that you do not want to split into pages.
 - The docx is a good option to give quickly editable tables for later. (`gt` does not provide xlsx output; tex is unintuitive; and png cannot be edited).
-  Mimic the booktabs syle as much as possible in Word Doc: only horizontal rule, top/bottom/midrule, invisible gridlines,
+  Mimic the booktabs style as much as possible in Word Doc: only horizontal rule, top/bottom/midrule, invisible gridlines.
   
 ### In R's modelsummary
 

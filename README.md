@@ -14,7 +14,7 @@ The preview settings supply a site description locally so the GitHub metadata pl
 
 ## Add a blog post
 
-The page shows posts newest first. "About the class" and "About Tina" links in the sidebar lead to their introductory posts. The sidebar also contains the blog title, description, and a compact "Recent Posts" list of the five newest posts. Titles are limited to 40 characters, separated by `//`, and shown in full on hover. The post list updates automatically and highlights the current post. Short posts appear in full; longer posts show a preview of up to 100 words and a "Read more" link. Individual post pages always show the full text.
+The page shows posts newest first. "About the class" and "About Tina" links in the sidebar lead to their introductory posts. The sidebar also contains the blog title, description, and a compact "Recent Posts" list of up to ten newest posts. Titles are limited to 40 characters, separated by `//`, and shown in full on hover. The post list updates automatically and highlights the current post. Short posts appear in full; longer posts show a preview of up to 100 words and a "Read more" link. Individual post pages always show the full text.
 
 1. Copy a file in `blog-teaching/_posts/`, naming it `YYYY-MM-DD-short-title.md`.
 2. Edit its metadata and write the body in Markdown:

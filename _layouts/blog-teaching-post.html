@@ -9,6 +9,7 @@ layout: blog-teaching
     {% include blog-teaching-meta.html post=page %}
   </div>
   <div class="notes-prose">{{ content }}</div>
+  {% if content contains 'data-carousel' %}<script src="{{ '/assets/js/blog-teaching-carousel.js' | relative_url }}" defer></script>{% endif %}
   {% include blog-teaching-footer.html post=page %}
 </article>
 {% for post in series_posts %}

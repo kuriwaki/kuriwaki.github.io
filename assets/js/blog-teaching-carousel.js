@@ -2,6 +2,8 @@
 (function () {
   "use strict";
 
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
   document.querySelectorAll("[data-carousel]").forEach(function (carousel) {
     var track = carousel.querySelector(".notes-carousel-track");
     var slides = Array.from(track.querySelectorAll(".notes-carousel-slide"));
@@ -15,7 +17,7 @@
 
     function show(index) {
       current = (index + slides.length) % slides.length;
-      track.scrollTo({ left: current * track.clientWidth, behavior: "smooth" });
+      track.scrollTo({ left: current * track.clientWidth, behavior: reducedMotion.matches ? "auto" : "smooth" });
       status.textContent = current + 1 + " of " + slides.length;
     }
 
@@ -23,6 +25,7 @@
     carousel.querySelector(".notes-carousel-next").addEventListener("click", function () { show(current + 1); });
 
     track.addEventListener("keydown", function (event) {
+      if (event.target !== track) return;
       if (event.key === "ArrowLeft") { event.preventDefault(); show(current - 1); }
       if (event.key === "ArrowRight") { event.preventDefault(); show(current + 1); }
     });

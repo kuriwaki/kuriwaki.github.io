@@ -9,7 +9,7 @@
   <div class="notes-carousel-track" tabindex="0">
     {% for image in carousel_images %}
     <div class="notes-carousel-slide" role="group" aria-roledescription="slide" aria-label="{{ forloop.index }} of {{ carousel_count }}">
-      <a href="{{ image.src | relative_url }}" aria-label="View full-size image {{ forloop.index }} of {{ carousel_count }}">
+      <a href="{{ image.src | relative_url }}" aria-label="View full-size image: {{ image.alt | escape }}">
         <img src="{{ image.src | relative_url }}" alt="{{ image.alt | escape }}"{% if image.width %} width="{{ image.width }}" height="{{ image.height }}"{% endif %} loading="lazy">
       </a>
       {% if image.caption %}<p class="notes-carousel-slide-caption">{{ image.caption | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>{% endif %}

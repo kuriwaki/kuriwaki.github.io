@@ -1,21 +1,19 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include head.html %}
   <title>{{ page.title | markdownify | strip_html | normalize_whitespace | escape_once }} — Shiro Kuriwaki</title>
   <meta name="description" content="{{ page.summary | default: page.description | default: 'Reflections on teaching applied statistics.' | escape }}">
   {% if page.author %}
     {% assign author = site.data.authors[page.author] %}
     <meta name="author" content="{{ author.name | escape }}">
   {% endif %}
-  {% include head.html %}
   <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
   <link rel="stylesheet" href="{{ '/stylesheets/blog-teaching.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body class="notes-page">
-  <a class="notes-skip" href="#main">Skip to content</a>
-  <div class="wrapper">
+  <a class="notes-skip" href="#notes-main">Skip to content</a>
+  <div class="notes-shell">
     <header class="notes-site-header">
       <h1><a href="{{ '/' | relative_url }}">Shiro Kuriwaki</a></h1>
       <p><a href="{{ '/' | relative_url }}">Return to Home</a></p>
@@ -25,7 +23,7 @@
       {% assign sidebar_posts = site.posts | where: 'series', 'blog-teaching' %}
       <nav class="notes-nav notes-post-index" aria-labelledby="notes-post-index-title">
         <h2 id="notes-post-index-title"><a href="{{ '/blog-teaching/' | relative_url }}">All Posts</a></h2>
-        <ol class="notes-post-list" reversed>
+        <ol class="notes-post-list" reversed start="{{ sidebar_posts.size }}">
           {% for post in sidebar_posts limit: 10 %}
           {% assign full_sidebar_title = post.title | markdownify | strip_html | normalize_whitespace %}
           {% assign sidebar_title = post.short_title | default: post.title | markdownify | strip_html | normalize_whitespace %}
@@ -34,7 +32,7 @@
         </ol>
       </nav>
     </header>
-    <main id="main" class="notes-main" tabindex="-1">
+    <main id="notes-main" class="notes-main" tabindex="-1">
       {{ content }}
     </main>
   </div>

@@ -59,6 +59,16 @@
 .notes-figure > a { display: block; }
 .notes-figure img { display: block; width: auto; max-width: 100%; height: auto; max-height: 70vh; margin: 0 auto; }
 .notes-figure figcaption { display: block; margin: 10px 0 0; color: #6f777d; font-family: inherit; font-size: 13px; line-height: 1.5; }
+.notes-carousel-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; border: 1px solid #e5e5e5; border-radius: 4px; }
+.notes-carousel-track:focus-visible { outline: 2px solid #267cb9; outline-offset: 2px; }
+.notes-carousel-slide { flex: 0 0 100%; scroll-snap-align: start; padding: 10px; box-sizing: border-box; }
+.notes-carousel-slide img { max-height: 60vh; }
+.notes-carousel .notes-carousel-slide-caption { margin: 8px 0 0; color: #6f777d; font-size: 13px; line-height: 1.5; text-align: center; }
+.notes-carousel-controls:not([hidden]) { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 10px; }
+.notes-carousel-controls button { margin: 0; padding: 6px 14px; border: 1px solid #b8bec3; border-radius: 4px; background: #fff; color: #267cb9; font: inherit; font-size: 16px; line-height: 1.2; cursor: pointer; }
+.notes-carousel-controls button:hover { background: #eef6fb; }
+.notes-carousel-controls button:focus-visible { outline: 2px solid #267cb9; outline-offset: 2px; }
+.notes-carousel-status { min-width: 4em; color: #6f777d; font-size: 13px; text-align: center; }
 .notes-page details[open] { font-style: normal; }
 .notes-post-footer { position: static; float: none; width: auto; bottom: auto; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e5e5; font-size: 13px; }
 .notes-citation { line-height: 1.6; overflow-wrap: anywhere; }

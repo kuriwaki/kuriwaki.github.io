@@ -1,0 +1,25 @@
+{% comment %}
+  Image carousel for teaching blog posts. Usage:
+  {% include blog-teaching-carousel.html images=page.galleries.my_gallery label="What the images show" caption="Optional caption for the whole set." %}
+  Each image needs src and alt; caption, width, and height are optional.
+{% endcomment %}
+{% assign carousel_images = include.images %}
+{% assign carousel_count = carousel_images | size %}
+<figure class="notes-figure notes-carousel" data-carousel aria-roledescription="carousel" aria-label="{{ include.label | escape }}">
+  <div class="notes-carousel-track" tabindex="0">
+    {% for image in carousel_images %}
+    <div class="notes-carousel-slide" role="group" aria-roledescription="slide" aria-label="{{ forloop.index }} of {{ carousel_count }}">
+      <a href="{{ image.src | relative_url }}" aria-label="View full-size image {{ forloop.index }} of {{ carousel_count }}">
+        <img src="{{ image.src | relative_url }}" alt="{{ image.alt | escape }}"{% if image.width %} width="{{ image.width }}" height="{{ image.height }}"{% endif %} loading="lazy">
+      </a>
+      {% if image.caption %}<p class="notes-carousel-slide-caption">{{ image.caption | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="notes-carousel-controls" hidden>
+    <button type="button" class="notes-carousel-prev" aria-label="Previous image">←</button>
+    <span class="notes-carousel-status" aria-live="polite">1 of {{ carousel_count }}</span>
+    <button type="button" class="notes-carousel-next" aria-label="Next image">→</button>
+  </div>
+  {% if include.caption %}<figcaption><strong>Figure:</strong> {{ include.caption | markdownify | remove: '<p>' | remove: '</p>' | strip }}</figcaption>{% endif %}
+</figure>

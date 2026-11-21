@@ -41,6 +41,24 @@ To add an image, save it in `blog-teaching/images/` and reference it from the po
 
 Images shrink to fit the column automatically.
 
+To show several images as a carousel with previous/next arrows, list them in the post's metadata under a gallery name, then place the carousel where it should appear:
+
+```yaml
+galleries:
+  my_gallery:
+    - src: /blog-teaching/images/first.png
+      alt: What the first image shows
+      caption: Optional caption for this image
+    - src: /blog-teaching/images/second.png
+      alt: What the second image shows
+```
+
+```liquid
+{% include blog-teaching-carousel.html images=page.galleries.my_gallery label="What the images show" caption="Optional caption for the whole set." %}
+```
+
+Readers can also swipe or use the arrow keys. Use underscores, not hyphens, in gallery names.
+
 To end a preview earlier, put `<!--more-->` on its own line, with a blank line before and after it. The landing page shows the content before that marker, capped at 100 words, followed by "Read more". Without that marker, posts longer than 100 words use a plain-text preview of the first 100 words. Change `teaching_blog.preview_words` in `_config.yml` to adjust the limit.
 
 The default layout and URL pattern are set in `_config.yml`. These posts use `/blog-teaching/short-title/` addresses. Choose distinct filenames after the date so each post has a unique address.

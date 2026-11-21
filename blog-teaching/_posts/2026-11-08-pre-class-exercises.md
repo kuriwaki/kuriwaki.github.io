@@ -1,5 +1,6 @@
 ---
-title: Bringing Pre-class Exercises into Class Discussion
+title: Bringing pre-class exercises into class discussion
+short_title: Pre-class exercises in class discussion
 author: tina
 summary: How pre-class exercises, including a survey experiment on the students themselves, became material for discussion during lecture.
 ---

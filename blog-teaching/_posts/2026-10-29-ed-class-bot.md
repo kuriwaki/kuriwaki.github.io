@@ -1,5 +1,6 @@
 ---
-title: "Ed Discussions's Customizable Class Bot"
+title: "Ed Discussions's customizable class bot"
+short_title: Ed Discussions class bot
 redirect_from: /blog-teaching/ai-tools/
 author: tina
 date: 2026-10-29 00:01:00 -0400

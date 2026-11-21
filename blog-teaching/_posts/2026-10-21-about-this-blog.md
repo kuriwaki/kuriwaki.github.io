@@ -1,5 +1,6 @@
 ---
 title: Why now?
+short_title: About this blog
 author: shiro
 summary: Background for this blog
 ---

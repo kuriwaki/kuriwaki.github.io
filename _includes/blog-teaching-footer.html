@@ -11,10 +11,7 @@
     <strong>For sharing:</strong><br>
     {{ citation_author.name | escape }}, {{ citation_title | escape_once }}, <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: '%B %-d, %Y' }}</time>. <a href="{{ citation_url | escape }}">{{ citation_url | escape }}</a>
   </p>
-  <div class="notes-revisions" data-repository="{{ site.repository | escape }}" data-source-path="{{ include.post.path | escape }}" data-source-ref="{{ source_ref | escape }}">
-    <p class="notes-citation">
-      <span class="notes-last-edited" hidden></span><a href="{{ repository_url }}/commits/{{ encoded_source_ref }}/{{ encoded_source_path }}">GitHub history</a>
-    </p>
-  </div>
-  <script src="{{ '/assets/js/blog-teaching-history.js' | relative_url }}" defer></script>
+  <p class="notes-citation">
+    <a href="{{ repository_url }}/commits/{{ encoded_source_ref }}/{{ encoded_source_path }}">GitHub history</a>
+  </p>
 </footer>

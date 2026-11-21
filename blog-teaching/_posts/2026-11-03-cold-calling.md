@@ -1,5 +1,6 @@
 ---
-title: "How Helpful is Cold-Calling?"
+title: "How helpful is cold-calling?"
+short_title: Cold-calling in class
 author: tina
 summary: What we learned from introducing cold calling this semester.
 ---

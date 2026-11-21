@@ -1,6 +1,7 @@
 ---
 title: >-
   "It's not about what the instructor _covers_, it's about what the students *un*cover" (Dan Levy)
+short_title: What students uncover (Dan Levy)
 author: shiro
 date: 2026-11-07 00:01:00 -0500
 ---

@@ -34,6 +34,27 @@
 .notes-search-empty { margin: 30px 0; }
 .notes-back { margin-top: 30px; }
 .notes-prose h2 { margin-top: 30px; }
+.notes-prose .notes-table-compact {
+  display: table;
+  width: 450px;
+  max-width: 100%;
+  table-layout: fixed;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+.notes-prose .notes-table-compact thead { background: transparent; border-bottom: 1px solid #666; }
+.notes-prose .notes-table-compact thead th { border-bottom: 1px solid #666; }
+.notes-prose .notes-table-compact tbody tr:last-child td { border-bottom: 1px solid #666; }
+.notes-prose .notes-table-compact th:first-child { width: 45%; }
+.notes-prose .notes-table-workload th:first-child { width: 75%; }
+.notes-prose .notes-table-compact th,
+.notes-prose .notes-table-compact td { padding: 6px 8px; line-height: 1.35; }
+.notes-prose .notes-table-compact th:nth-child(n + 2),
+.notes-prose .notes-table-compact td:nth-child(n + 2) { text-align: center; }
+.notes-prose .notes-table-compact th::before,
+.notes-prose .notes-table-compact th::after,
+.notes-prose .notes-table-compact td::before,
+.notes-prose .notes-table-compact td::after { content: none; }
 .notes-prose .notes-figure { display: block; margin: 20px 0; }
 .notes-figure > a { display: block; }
 .notes-figure img { display: block; width: auto; max-width: 100%; height: auto; max-height: 70vh; margin: 0 auto; }

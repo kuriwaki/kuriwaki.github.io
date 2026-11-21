@@ -33,6 +33,11 @@
 .notes-search-status { margin: 8px 0 0; color: #6f777d; font-size: 13px; line-height: 1.5; }
 .notes-search-empty { margin: 30px 0; }
 .notes-back { margin-top: 30px; }
+.notes-prose {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-weight: 500;
+  color: #373737;
+}
 .notes-prose h2 { margin-top: 30px; }
 .notes-prose .notes-table-compact {
   display: table;

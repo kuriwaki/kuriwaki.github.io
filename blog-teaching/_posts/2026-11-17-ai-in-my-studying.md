@@ -49,7 +49,7 @@ galleries:
 
 Shiro just taught probability fundamentals in last week’s class. He asked me to consider whether AI could supplement or replace the lecture, and to what extent. For example, Shiro’s lecture ended with him solving the following problem with the class:
 
-> “What is the variance of a sample mean of *n* binary random variables? Derive this by using the previous facts that we have just seen [Var(X) = p\*(1 - p), variance of a sum of random variables depends on its covariances, etc.]”
+*“What is the variance of a sample mean of n binary random variables, <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="Variance of one over n times the sum from i equals one to n of X sub i"><mrow><mi mathvariant="normal">Var</mi><mo>(</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>X</mi><mi>i</mi></msub><mo>)</mo></mrow></math>? Derive this using what we have covered so far. [By this point, the class had derived <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="Variance of X sub i"><mrow><mi mathvariant="normal">Var</mi><mo>(</mo><msub><mi>X</mi><mi>i</mi></msub><mo>)</mo></mrow></math> for binary random variables with <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="Expected value of X sub i equals p"><mrow><mi mathvariant="normal">E</mi><mo>(</mo><msub><mi>X</mi><mi>i</mi></msub><mo>)</mo><mo>=</mo><mi>p</mi></mrow></math> and discussed how the variance of a sum depends on covariances.]”*
 
 Here, I am sharing my experiences taking Introduction to Econometrics and Intermediate Macroeconomics this semester, and the role AI is playing in my learning.
 

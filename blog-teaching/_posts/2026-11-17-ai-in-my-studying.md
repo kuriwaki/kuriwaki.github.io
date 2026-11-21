@@ -1,5 +1,5 @@
 ---
-title: "What AI Can Teach Me (about econ/econometrics), and What Class Still Offers?"
+title: "What AI Can Teach Me (about econ/econometrics), and What Class Still Offers"
 author: tina
 summary: How I used AI to study for my own economics and econometrics midterms, and what that suggests about the role of lecture.
 galleries:

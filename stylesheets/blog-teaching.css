@@ -11,7 +11,8 @@
 .notes-main > h1, .notes-article-heading h1 { margin-top: 30px; }
 .notes-nav { margin-bottom: 25px; }
 .notes-site-header .notes-post-index h2 { margin: 0 0 10px; font-size: 14px; font-weight: bold; line-height: 1.4; }
-.notes-site-header .notes-post-list { margin: 0; font-size: 13px; line-height: 1.5; }
+.notes-site-header .notes-post-list { margin: 0; padding-left: 22px; font-size: 13px; line-height: 1.5; }
+.notes-site-header .notes-post-list li { padding-left: 2px; }
 .notes-site-header .notes-post-list a { display: inline; color: #267cb9; font-weight: 400; }
 .notes-site-header .notes-post-list a[aria-current="page"] { color: #2d2d2d; font-weight: bold; }
 .notes-page .notes-main > section { float: none; width: auto; margin: 0; padding: 0; border: 0; }

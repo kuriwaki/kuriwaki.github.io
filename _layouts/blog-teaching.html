@@ -24,14 +24,14 @@
       {% include blog-teaching-about.html %}
       {% assign sidebar_posts = site.posts | where: 'series', 'blog-teaching' %}
       <nav class="notes-nav notes-post-index" aria-labelledby="notes-post-index-title">
-        <h2 id="notes-post-index-title">Recent Posts</h2>
-        <p class="notes-post-list">
+        <h2 id="notes-post-index-title"><a href="{{ '/blog-teaching/' | relative_url }}">All Posts</a></h2>
+        <ol class="notes-post-list" reversed>
           {% for post in sidebar_posts limit: 10 %}
           {% assign full_sidebar_title = post.title | markdownify | strip_html | normalize_whitespace %}
           {% assign sidebar_title = post.short_title | default: post.title | markdownify | strip_html | normalize_whitespace %}
-          <a href="{{ post.url | relative_url }}" title="{{ full_sidebar_title | escape_once }}"{% if post.url == page.url %} aria-current="page"{% endif %}>{{ sidebar_title | escape_once }}</a>{% unless forloop.last %} <span aria-hidden="true">//</span> {% endunless %}
+          <li><a href="{{ post.url | relative_url }}" title="{{ full_sidebar_title | escape_once }}"{% if post.url == page.url %} aria-current="page"{% endif %}>{{ sidebar_title | escape_once }}</a></li>
           {% endfor %}
-        </p>
+        </ol>
       </nav>
     </header>
     <main id="main" class="notes-main" tabindex="-1">

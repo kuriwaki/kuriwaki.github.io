@@ -1,6 +1,6 @@
 ---
 title: >-
-  The causal effect of small, mandatory, in-person drill sections: an experiment in Stanford's Stats 117 (Introduction to Probability)
+  The causal effect of small, mandatory, in-person drill sections: An experiment in Stanford's Stats 117 (Introduction to Probability)
 short_title: Small drill sections at Stanford
 author: shiro
 summary: Duchi, Hartog, and Sun's randomized experiment on the effects of small-group tutorials.
